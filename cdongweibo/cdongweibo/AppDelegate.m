@@ -7,6 +7,17 @@
 //
 
 #import "AppDelegate.h"
+/**
+ *  launchScreen 代替之前的启动图片
+ 好处：
+ 1.可以显示更多东西
+ 2.只需要一张启动图片即可
+ 
+ 启动图片的优先级
+ 启动图片 < LaunchScreen.xib
+ 
+ 程序中碰见模拟器尺寸不对，马上去找启动图片，默认模拟器的尺寸由启动图片决定。
+ */
 
 @interface AppDelegate ()
 
