@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "CDTabBarController.h"
 /**
  *  launchScreen 代替之前的启动图片
  好处：
@@ -39,38 +40,16 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor yellowColor];
     
-    [self initTabBar];
+    //创建tabbarview为   root view
+    CDTabBarController *tabBarVc = [[CDTabBarController alloc] init];
+    
+    self.window.rootViewController = tabBarVc;
     
     [self.window makeKeyAndVisible];
     
 }
 
-- (void) initTabBar
-{
 
-    //创建tabbarview为   root view
-    UITabBarController *tabBarVc = [[UITabBarController alloc] init];
-    
-    self.window.rootViewController = tabBarVc;
-
-    //创建自控制器
-    //首页
-    UIViewController *home = [[UIViewController alloc] init];
-    home.view.backgroundColor = [UIColor redColor];
-    [tabBarVc addChildViewController:home];
-    //消息
-    UIViewController *message = [[UIViewController alloc] init];
-    message.view.backgroundColor = [UIColor blueColor];
-    [tabBarVc addChildViewController:message];
-    //发现
-    UIViewController *discover = [[UIViewController alloc] init];
-    discover.view.backgroundColor = [UIColor purpleColor];
-    [tabBarVc addChildViewController:discover];
-    //我
-    UIViewController *profile = [[UIViewController alloc] init];
-    profile.view.backgroundColor = [UIColor lightGrayColor];
-    [tabBarVc addChildViewController:profile];
-}
 
 
 
