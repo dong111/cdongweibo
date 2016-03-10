@@ -16,9 +16,55 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    [self initWindow];
+    
     return YES;
 }
+
+- (void) initWindow
+{
+    //创建自定义窗口
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor yellowColor];
+    
+    [self initTabBar];
+    
+    [self.window makeKeyAndVisible];
+    
+}
+
+- (void) initTabBar
+{
+
+    //创建tabbarview为   root view
+    UITabBarController *tabBarVc = [[UITabBarController alloc] init];
+    
+    self.window.rootViewController = tabBarVc;
+
+    //创建自控制器
+    //首页
+    UIViewController *home = [[UIViewController alloc] init];
+    home.view.backgroundColor = [UIColor redColor];
+    [tabBarVc addChildViewController:home];
+    //消息
+    UIViewController *message = [[UIViewController alloc] init];
+    message.view.backgroundColor = [UIColor blueColor];
+    [tabBarVc addChildViewController:message];
+    //发现
+    UIViewController *discover = [[UIViewController alloc] init];
+    discover.view.backgroundColor = [UIColor purpleColor];
+    [tabBarVc addChildViewController:discover];
+    //我
+    UIViewController *profile = [[UIViewController alloc] init];
+    profile.view.backgroundColor = [UIColor lightGrayColor];
+    [tabBarVc addChildViewController:profile];
+}
+
+
+
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
