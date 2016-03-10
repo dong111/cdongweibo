@@ -14,6 +14,9 @@
 		2B3FB6861C916C6E00BE648C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B3FB6841C916C6E00BE648C /* LaunchScreen.storyboard */; };
 		2B3FB6911C916C6E00BE648C /* cdongweiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6901C916C6E00BE648C /* cdongweiboTests.m */; };
 		2B3FB69C1C916C6E00BE648C /* cdongweiboUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB69B1C916C6E00BE648C /* cdongweiboUITests.m */; };
+		2B3FB6AB1C91B45800BE648C /* CDTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6AA1C91B45800BE648C /* CDTabBarController.m */; };
+		2B3FB6AE1C91BC0A00BE648C /* UIImage+CDImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6AD1C91BC0A00BE648C /* UIImage+CDImage.m */; };
+		2B3FB6B01C91C8A100BE648C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B3FB6AF1C91C8A100BE648C /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,11 @@
 		2B3FB6971C916C6E00BE648C /* cdongweiboUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cdongweiboUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B3FB69B1C916C6E00BE648C /* cdongweiboUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cdongweiboUITests.m; sourceTree = "<group>"; };
 		2B3FB69D1C916C6E00BE648C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B3FB6A91C91B45800BE648C /* CDTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTabBarController.h; sourceTree = "<group>"; };
+		2B3FB6AA1C91B45800BE648C /* CDTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTabBarController.m; sourceTree = "<group>"; };
+		2B3FB6AC1C91BC0A00BE648C /* UIImage+CDImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CDImage.h"; sourceTree = "<group>"; };
+		2B3FB6AD1C91BC0A00BE648C /* UIImage+CDImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CDImage.m"; sourceTree = "<group>"; };
+		2B3FB6AF1C91C8A100BE648C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B3FB6B01C91C8A100BE648C /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +87,11 @@
 		2B3FB6671C916C6E00BE648C = {
 			isa = PBXGroup;
 			children = (
+				2B3FB6AF1C91C8A100BE648C /* UIKit.framework */,
+				2B3FB6A91C91B45800BE648C /* CDTabBarController.h */,
+				2B3FB6AA1C91B45800BE648C /* CDTabBarController.m */,
+				2B3FB6AC1C91BC0A00BE648C /* UIImage+CDImage.h */,
+				2B3FB6AD1C91BC0A00BE648C /* UIImage+CDImage.m */,
 				2B3FB6721C916C6E00BE648C /* cdongweibo */,
 				2B3FB68F1C916C6E00BE648C /* cdongweiboTests */,
 				2B3FB69A1C916C6E00BE648C /* cdongweiboUITests */,
@@ -197,6 +211,7 @@
 		2B3FB6681C916C6E00BE648C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = CD;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = man;
 				TargetAttributes = {
@@ -266,6 +281,8 @@
 			files = (
 				2B3FB6811C916C6E00BE648C /* cdongweibo.xcdatamodeld in Sources */,
 				2B3FB6781C916C6E00BE648C /* AppDelegate.m in Sources */,
+				2B3FB6AE1C91BC0A00BE648C /* UIImage+CDImage.m in Sources */,
+				2B3FB6AB1C91B45800BE648C /* CDTabBarController.m in Sources */,
 				2B3FB6751C916C6E00BE648C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
