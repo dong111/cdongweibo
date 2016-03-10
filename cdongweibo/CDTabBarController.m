@@ -11,6 +11,33 @@
 
 @implementation CDTabBarController
 
+/**
+ *  
+ 什么时候调用:程序已启动把所有类加入内存  在执行Main方法之前
+ 作用:加载类的时候调用
+ */
++ (void)load
+{
+
+}
+/**
+ *  什么时候调用:当第一次使用这个类或者子类是的时候调用
+ 作用:类初始化时候调用  可以做些全局的设置
+ 
+ */
++ (void)initialize
+{
+    //获取所有的tabBarItem
+//    UITabBarItem *tabBarItem = [UITabBarItem appearance];
+    //获取当前这个类下面的所有tabBarItem
+    UITabBarItem *tabBarItem = [UITabBarItem appearanceWhenContainedIn:self, nil];
+    
+    NSMutableDictionary *attrs = [[NSMutableDictionary alloc] init];
+    attrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
+    
+    [tabBarItem setTitleTextAttributes:attrs forState:UIControlStateSelected];
+}
+
 - (void)loadView
 {
     //实现父类
