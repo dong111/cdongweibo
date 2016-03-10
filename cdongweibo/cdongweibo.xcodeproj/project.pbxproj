@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		2B3FB6751C916C6E00BE648C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6741C916C6E00BE648C /* main.m */; };
 		2B3FB6781C916C6E00BE648C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6771C916C6E00BE648C /* AppDelegate.m */; };
-		2B3FB67B1C916C6E00BE648C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB67A1C916C6E00BE648C /* ViewController.m */; };
-		2B3FB67E1C916C6E00BE648C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B3FB67C1C916C6E00BE648C /* Main.storyboard */; };
 		2B3FB6811C916C6E00BE648C /* cdongweibo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB67F1C916C6E00BE648C /* cdongweibo.xcdatamodeld */; };
 		2B3FB6831C916C6E00BE648C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B3FB6821C916C6E00BE648C /* Assets.xcassets */; };
 		2B3FB6861C916C6E00BE648C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B3FB6841C916C6E00BE648C /* LaunchScreen.storyboard */; };
@@ -40,9 +38,6 @@
 		2B3FB6741C916C6E00BE648C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2B3FB6761C916C6E00BE648C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2B3FB6771C916C6E00BE648C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2B3FB6791C916C6E00BE648C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2B3FB67A1C916C6E00BE648C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		2B3FB67D1C916C6E00BE648C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2B3FB6801C916C6E00BE648C /* cdongweibo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = cdongweibo.xcdatamodel; sourceTree = "<group>"; };
 		2B3FB6821C916C6E00BE648C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B3FB6851C916C6E00BE648C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -105,9 +100,6 @@
 			children = (
 				2B3FB6761C916C6E00BE648C /* AppDelegate.h */,
 				2B3FB6771C916C6E00BE648C /* AppDelegate.m */,
-				2B3FB6791C916C6E00BE648C /* ViewController.h */,
-				2B3FB67A1C916C6E00BE648C /* ViewController.m */,
-				2B3FB67C1C916C6E00BE648C /* Main.storyboard */,
 				2B3FB6821C916C6E00BE648C /* Assets.xcassets */,
 				2B3FB6841C916C6E00BE648C /* LaunchScreen.storyboard */,
 				2B3FB6871C916C6E00BE648C /* Info.plist */,
@@ -248,7 +240,6 @@
 			files = (
 				2B3FB6861C916C6E00BE648C /* LaunchScreen.storyboard in Resources */,
 				2B3FB6831C916C6E00BE648C /* Assets.xcassets in Resources */,
-				2B3FB67E1C916C6E00BE648C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +265,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B3FB6811C916C6E00BE648C /* cdongweibo.xcdatamodeld in Sources */,
-				2B3FB67B1C916C6E00BE648C /* ViewController.m in Sources */,
 				2B3FB6781C916C6E00BE648C /* AppDelegate.m in Sources */,
 				2B3FB6751C916C6E00BE648C /* main.m in Sources */,
 			);
@@ -312,14 +302,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2B3FB67C1C916C6E00BE648C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2B3FB67D1C916C6E00BE648C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2B3FB6841C916C6E00BE648C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
