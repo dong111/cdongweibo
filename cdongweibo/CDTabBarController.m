@@ -7,6 +7,7 @@
 //
 
 #import "CDTabBarController.h"
+#import "UIImage+CDImage.h"
 
 @implementation CDTabBarController
 
@@ -25,22 +26,35 @@
     //创建自控制器
     //首页
     UIViewController *home = [[UIViewController alloc] init];
+    [self setUpOneChildViewController:home image:[UIImage imageAlwaysOriginalName:@"tabbar_home"] selectedImage:[UIImage imageAlwaysOriginalName:@"tabbar_home_selected"] title:@"首页"];
     home.view.backgroundColor = [UIColor redColor];
-    [self addChildViewController:home];
     //消息
     UIViewController *message = [[UIViewController alloc] init];
+    [self setUpOneChildViewController:message image:[UIImage imageAlwaysOriginalName:@"tabbar_message_center"] selectedImage:[UIImage imageAlwaysOriginalName:@"tabbar_message_center_selected"] title:@"消息"];
     message.view.backgroundColor = [UIColor blueColor];
-    [self addChildViewController:message];
+
     //发现
     UIViewController *discover = [[UIViewController alloc] init];
+    [self setUpOneChildViewController:discover image:[UIImage imageAlwaysOriginalName:@"tabbar_discover"] selectedImage:[UIImage imageAlwaysOriginalName:@"tabbar_discover_selected"] title:@"发现"];
     discover.view.backgroundColor = [UIColor purpleColor];
-    [self addChildViewController:discover];
+
     //我
     UIViewController *profile = [[UIViewController alloc] init];
+    [self setUpOneChildViewController:profile image:[UIImage imageAlwaysOriginalName:@"tabbar_profile"] selectedImage:[UIImage imageAlwaysOriginalName:@"tabbar_profile_selected"] title:@"我"];
     profile.view.backgroundColor = [UIColor lightGrayColor];
-    [self addChildViewController:profile];
+
 }
 
+#pragma -mark 添加单个子控件方法
+- (void) setUpOneChildViewController:(UIViewController *)vc image:(UIImage *)image selectedImage:(UIImage *) selectedImage title:(NSString *)title
+{
+    vc.view.backgroundColor = [UIColor redColor];
+    vc.tabBarItem.title = title;
+    //ios7以后tabbarItem 上的图片默认会渲染成蓝色
+    vc.tabBarItem.image = image;
+    vc.tabBarItem.selectedImage = selectedImage;
+    [self addChildViewController:vc];
+}
 
 
 
