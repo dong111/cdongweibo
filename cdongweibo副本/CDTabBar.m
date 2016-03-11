@@ -16,6 +16,11 @@
 
 @implementation CDTabBar
 
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    return [super initWithFrame:frame];
+}
+
 - (UIButton *)centerBt
 {
     if (_centerBt==nil) {

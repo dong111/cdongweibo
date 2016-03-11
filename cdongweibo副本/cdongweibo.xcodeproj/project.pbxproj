@@ -7,18 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B3FB6751C916C6E00BE648C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6741C916C6E00BE648C /* main.m */; };
+		2B3FB6781C916C6E00BE648C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6771C916C6E00BE648C /* AppDelegate.m */; };
 		2B3FB6811C916C6E00BE648C /* cdongweibo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB67F1C916C6E00BE648C /* cdongweibo.xcdatamodeld */; };
 		2B3FB6831C916C6E00BE648C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B3FB6821C916C6E00BE648C /* Assets.xcassets */; };
 		2B3FB6861C916C6E00BE648C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B3FB6841C916C6E00BE648C /* LaunchScreen.storyboard */; };
 		2B3FB6911C916C6E00BE648C /* cdongweiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6901C916C6E00BE648C /* cdongweiboTests.m */; };
 		2B3FB69C1C916C6E00BE648C /* cdongweiboUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB69B1C916C6E00BE648C /* cdongweiboUITests.m */; };
+		2B3FB6AB1C91B45800BE648C /* CDTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6AA1C91B45800BE648C /* CDTabBarController.m */; };
+		2B3FB6AE1C91BC0A00BE648C /* UIImage+CDImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6AD1C91BC0A00BE648C /* UIImage+CDImage.m */; };
 		2B3FB6B01C91C8A100BE648C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B3FB6AF1C91C8A100BE648C /* UIKit.framework */; };
-		2B3FB6D11C92B3D400BE648C /* CDTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6C01C92B3D400BE648C /* CDTabBarController.m */; };
-		2B3FB6D21C92B3D400BE648C /* CDTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6C31C92B3D400BE648C /* CDTabBar.m */; };
-		2B3FB6D31C92B3D400BE648C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6C81C92B3D400BE648C /* AppDelegate.m */; };
-		2B3FB6D41C92B3D400BE648C /* UIImage+CDImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6CB1C92B3D400BE648C /* UIImage+CDImage.m */; };
-		2B3FB6D51C92B3D400BE648C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6CC1C92B3D400BE648C /* main.m */; };
-		2B3FB6D81C92C0EE00BE648C /* CDHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6D71C92C0EE00BE648C /* CDHomeController.m */; };
+		2B3FB6B31C92A50200BE648C /* CDTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6B21C92A50200BE648C /* CDTabBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +39,9 @@
 
 /* Begin PBXFileReference section */
 		2B3FB6701C916C6E00BE648C /* cdongweibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cdongweibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B3FB6741C916C6E00BE648C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2B3FB6761C916C6E00BE648C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2B3FB6771C916C6E00BE648C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2B3FB6801C916C6E00BE648C /* cdongweibo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = cdongweibo.xcdatamodel; sourceTree = "<group>"; };
 		2B3FB6821C916C6E00BE648C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B3FB6851C916C6E00BE648C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -50,18 +52,13 @@
 		2B3FB6971C916C6E00BE648C /* cdongweiboUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cdongweiboUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B3FB69B1C916C6E00BE648C /* cdongweiboUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cdongweiboUITests.m; sourceTree = "<group>"; };
 		2B3FB69D1C916C6E00BE648C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B3FB6A91C91B45800BE648C /* CDTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTabBarController.h; sourceTree = "<group>"; };
+		2B3FB6AA1C91B45800BE648C /* CDTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTabBarController.m; sourceTree = "<group>"; };
+		2B3FB6AC1C91BC0A00BE648C /* UIImage+CDImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CDImage.h"; sourceTree = "<group>"; };
+		2B3FB6AD1C91BC0A00BE648C /* UIImage+CDImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CDImage.m"; sourceTree = "<group>"; };
 		2B3FB6AF1C91C8A100BE648C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		2B3FB6BF1C92B3D400BE648C /* CDTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTabBarController.h; sourceTree = "<group>"; };
-		2B3FB6C01C92B3D400BE648C /* CDTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTabBarController.m; sourceTree = "<group>"; };
-		2B3FB6C21C92B3D400BE648C /* CDTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTabBar.h; sourceTree = "<group>"; };
-		2B3FB6C31C92B3D400BE648C /* CDTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTabBar.m; sourceTree = "<group>"; };
-		2B3FB6C71C92B3D400BE648C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		2B3FB6C81C92B3D400BE648C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2B3FB6CA1C92B3D400BE648C /* UIImage+CDImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CDImage.h"; sourceTree = "<group>"; };
-		2B3FB6CB1C92B3D400BE648C /* UIImage+CDImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CDImage.m"; sourceTree = "<group>"; };
-		2B3FB6CC1C92B3D400BE648C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2B3FB6D61C92C0EE00BE648C /* CDHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDHomeController.h; sourceTree = "<group>"; };
-		2B3FB6D71C92C0EE00BE648C /* CDHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDHomeController.m; sourceTree = "<group>"; };
+		2B3FB6B11C92A50200BE648C /* CDTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTabBar.h; sourceTree = "<group>"; };
+		2B3FB6B21C92A50200BE648C /* CDTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTabBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +90,13 @@
 		2B3FB6671C916C6E00BE648C = {
 			isa = PBXGroup;
 			children = (
+				2B3FB6B11C92A50200BE648C /* CDTabBar.h */,
+				2B3FB6B21C92A50200BE648C /* CDTabBar.m */,
 				2B3FB6AF1C91C8A100BE648C /* UIKit.framework */,
+				2B3FB6A91C91B45800BE648C /* CDTabBarController.h */,
+				2B3FB6AA1C91B45800BE648C /* CDTabBarController.m */,
+				2B3FB6AC1C91BC0A00BE648C /* UIImage+CDImage.h */,
+				2B3FB6AD1C91BC0A00BE648C /* UIImage+CDImage.m */,
 				2B3FB6721C916C6E00BE648C /* cdongweibo */,
 				2B3FB68F1C916C6E00BE648C /* cdongweiboTests */,
 				2B3FB69A1C916C6E00BE648C /* cdongweiboUITests */,
@@ -114,7 +117,8 @@
 		2B3FB6721C916C6E00BE648C /* cdongweibo */ = {
 			isa = PBXGroup;
 			children = (
-				2B3FB6B41C92B3D400BE648C /* classes */,
+				2B3FB6761C916C6E00BE648C /* AppDelegate.h */,
+				2B3FB6771C916C6E00BE648C /* AppDelegate.m */,
 				2B3FB6821C916C6E00BE648C /* Assets.xcassets */,
 				2B3FB6841C916C6E00BE648C /* LaunchScreen.storyboard */,
 				2B3FB6871C916C6E00BE648C /* Info.plist */,
@@ -127,6 +131,7 @@
 		2B3FB6731C916C6E00BE648C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2B3FB6741C916C6E00BE648C /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -147,176 +152,6 @@
 				2B3FB69D1C916C6E00BE648C /* Info.plist */,
 			);
 			path = cdongweiboUITests;
-			sourceTree = "<group>";
-		};
-		2B3FB6B41C92B3D400BE648C /* classes */ = {
-			isa = PBXGroup;
-			children = (
-				2B3FB6B51C92B3D400BE648C /* discover */,
-				2B3FB6B91C92B3D400BE648C /* home */,
-				2B3FB6BD1C92B3D400BE648C /* main */,
-				2B3FB6C51C92B3D400BE648C /* message */,
-				2B3FB6C61C92B3D400BE648C /* other */,
-				2B3FB6CD1C92B3D400BE648C /* profile */,
-			);
-			path = classes;
-			sourceTree = "<group>";
-		};
-		2B3FB6B51C92B3D400BE648C /* discover */ = {
-			isa = PBXGroup;
-			children = (
-				2B3FB6B61C92B3D400BE648C /* controller */,
-				2B3FB6B71C92B3D400BE648C /* model */,
-				2B3FB6B81C92B3D400BE648C /* view */,
-			);
-			path = discover;
-			sourceTree = "<group>";
-		};
-		2B3FB6B61C92B3D400BE648C /* controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = controller;
-			sourceTree = "<group>";
-		};
-		2B3FB6B71C92B3D400BE648C /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		2B3FB6B81C92B3D400BE648C /* view */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		2B3FB6B91C92B3D400BE648C /* home */ = {
-			isa = PBXGroup;
-			children = (
-				2B3FB6BA1C92B3D400BE648C /* controller */,
-				2B3FB6BB1C92B3D400BE648C /* model */,
-				2B3FB6BC1C92B3D400BE648C /* view */,
-			);
-			path = home;
-			sourceTree = "<group>";
-		};
-		2B3FB6BA1C92B3D400BE648C /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				2B3FB6D61C92C0EE00BE648C /* CDHomeController.h */,
-				2B3FB6D71C92C0EE00BE648C /* CDHomeController.m */,
-			);
-			path = controller;
-			sourceTree = "<group>";
-		};
-		2B3FB6BB1C92B3D400BE648C /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		2B3FB6BC1C92B3D400BE648C /* view */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		2B3FB6BD1C92B3D400BE648C /* main */ = {
-			isa = PBXGroup;
-			children = (
-				2B3FB6BE1C92B3D400BE648C /* controller */,
-				2B3FB6C11C92B3D400BE648C /* model */,
-				2B3FB6C41C92B3D400BE648C /* view */,
-			);
-			path = main;
-			sourceTree = "<group>";
-		};
-		2B3FB6BE1C92B3D400BE648C /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				2B3FB6BF1C92B3D400BE648C /* CDTabBarController.h */,
-				2B3FB6C01C92B3D400BE648C /* CDTabBarController.m */,
-			);
-			path = controller;
-			sourceTree = "<group>";
-		};
-		2B3FB6C11C92B3D400BE648C /* model */ = {
-			isa = PBXGroup;
-			children = (
-				2B3FB6C21C92B3D400BE648C /* CDTabBar.h */,
-				2B3FB6C31C92B3D400BE648C /* CDTabBar.m */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		2B3FB6C41C92B3D400BE648C /* view */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		2B3FB6C51C92B3D400BE648C /* message */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = message;
-			sourceTree = "<group>";
-		};
-		2B3FB6C61C92B3D400BE648C /* other */ = {
-			isa = PBXGroup;
-			children = (
-				2B3FB6C71C92B3D400BE648C /* AppDelegate.h */,
-				2B3FB6C81C92B3D400BE648C /* AppDelegate.m */,
-				2B3FB6C91C92B3D400BE648C /* category */,
-				2B3FB6CC1C92B3D400BE648C /* main.m */,
-			);
-			path = other;
-			sourceTree = "<group>";
-		};
-		2B3FB6C91C92B3D400BE648C /* category */ = {
-			isa = PBXGroup;
-			children = (
-				2B3FB6CA1C92B3D400BE648C /* UIImage+CDImage.h */,
-				2B3FB6CB1C92B3D400BE648C /* UIImage+CDImage.m */,
-			);
-			path = category;
-			sourceTree = "<group>";
-		};
-		2B3FB6CD1C92B3D400BE648C /* profile */ = {
-			isa = PBXGroup;
-			children = (
-				2B3FB6CE1C92B3D400BE648C /* controller */,
-				2B3FB6CF1C92B3D400BE648C /* model */,
-				2B3FB6D01C92B3D400BE648C /* view */,
-			);
-			path = profile;
-			sourceTree = "<group>";
-		};
-		2B3FB6CE1C92B3D400BE648C /* controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = controller;
-			sourceTree = "<group>";
-		};
-		2B3FB6CF1C92B3D400BE648C /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		2B3FB6D01C92B3D400BE648C /* view */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -449,13 +284,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B3FB6D31C92B3D400BE648C /* AppDelegate.m in Sources */,
-				2B3FB6D21C92B3D400BE648C /* CDTabBar.m in Sources */,
-				2B3FB6D41C92B3D400BE648C /* UIImage+CDImage.m in Sources */,
-				2B3FB6D11C92B3D400BE648C /* CDTabBarController.m in Sources */,
-				2B3FB6D81C92C0EE00BE648C /* CDHomeController.m in Sources */,
-				2B3FB6D51C92B3D400BE648C /* main.m in Sources */,
+				2B3FB6B31C92A50200BE648C /* CDTabBar.m in Sources */,
 				2B3FB6811C916C6E00BE648C /* cdongweibo.xcdatamodeld in Sources */,
+				2B3FB6781C916C6E00BE648C /* AppDelegate.m in Sources */,
+				2B3FB6AE1C91BC0A00BE648C /* UIImage+CDImage.m in Sources */,
+				2B3FB6AB1C91B45800BE648C /* CDTabBarController.m in Sources */,
+				2B3FB6751C916C6E00BE648C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
