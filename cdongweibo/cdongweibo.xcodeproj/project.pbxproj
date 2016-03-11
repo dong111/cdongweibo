@@ -19,6 +19,9 @@
 		2B3FB6D41C92B3D400BE648C /* UIImage+CDImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6CB1C92B3D400BE648C /* UIImage+CDImage.m */; };
 		2B3FB6D51C92B3D400BE648C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6CC1C92B3D400BE648C /* main.m */; };
 		2B3FB6D81C92C0EE00BE648C /* CDHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6D71C92C0EE00BE648C /* CDHomeController.m */; };
+		2B3FB6DE1C92C20D00BE648C /* CDMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6DD1C92C20D00BE648C /* CDMessageController.m */; };
+		2B3FB6E11C92C24400BE648C /* CDProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6E01C92C24400BE648C /* CDProfileController.m */; };
+		2B3FB6E41C92C26800BE648C /* CDDiscoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6E31C92C26800BE648C /* CDDiscoverController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +65,12 @@
 		2B3FB6CC1C92B3D400BE648C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2B3FB6D61C92C0EE00BE648C /* CDHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDHomeController.h; sourceTree = "<group>"; };
 		2B3FB6D71C92C0EE00BE648C /* CDHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDHomeController.m; sourceTree = "<group>"; };
+		2B3FB6DC1C92C20D00BE648C /* CDMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMessageController.h; sourceTree = "<group>"; };
+		2B3FB6DD1C92C20D00BE648C /* CDMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMessageController.m; sourceTree = "<group>"; };
+		2B3FB6DF1C92C24400BE648C /* CDProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDProfileController.h; sourceTree = "<group>"; };
+		2B3FB6E01C92C24400BE648C /* CDProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDProfileController.m; sourceTree = "<group>"; };
+		2B3FB6E21C92C26800BE648C /* CDDiscoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDDiscoverController.h; sourceTree = "<group>"; };
+		2B3FB6E31C92C26800BE648C /* CDDiscoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDDiscoverController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +184,8 @@
 		2B3FB6B61C92B3D400BE648C /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				2B3FB6E21C92C26800BE648C /* CDDiscoverController.h */,
+				2B3FB6E31C92C26800BE648C /* CDDiscoverController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -264,6 +275,9 @@
 		2B3FB6C51C92B3D400BE648C /* message */ = {
 			isa = PBXGroup;
 			children = (
+				2B3FB6D91C92C1CB00BE648C /* controller */,
+				2B3FB6DA1C92C1CB00BE648C /* model */,
+				2B3FB6DB1C92C1CB00BE648C /* view */,
 			);
 			path = message;
 			sourceTree = "<group>";
@@ -301,6 +315,8 @@
 		2B3FB6CE1C92B3D400BE648C /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				2B3FB6DF1C92C24400BE648C /* CDProfileController.h */,
+				2B3FB6E01C92C24400BE648C /* CDProfileController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -313,6 +329,29 @@
 			sourceTree = "<group>";
 		};
 		2B3FB6D01C92B3D400BE648C /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		2B3FB6D91C92C1CB00BE648C /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				2B3FB6DC1C92C20D00BE648C /* CDMessageController.h */,
+				2B3FB6DD1C92C20D00BE648C /* CDMessageController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		2B3FB6DA1C92C1CB00BE648C /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		2B3FB6DB1C92C1CB00BE648C /* view */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -449,11 +488,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B3FB6E11C92C24400BE648C /* CDProfileController.m in Sources */,
+				2B3FB6DE1C92C20D00BE648C /* CDMessageController.m in Sources */,
 				2B3FB6D31C92B3D400BE648C /* AppDelegate.m in Sources */,
 				2B3FB6D21C92B3D400BE648C /* CDTabBar.m in Sources */,
 				2B3FB6D41C92B3D400BE648C /* UIImage+CDImage.m in Sources */,
 				2B3FB6D11C92B3D400BE648C /* CDTabBarController.m in Sources */,
 				2B3FB6D81C92C0EE00BE648C /* CDHomeController.m in Sources */,
+				2B3FB6E41C92C26800BE648C /* CDDiscoverController.m in Sources */,
 				2B3FB6D51C92B3D400BE648C /* main.m in Sources */,
 				2B3FB6811C916C6E00BE648C /* cdongweibo.xcdatamodeld in Sources */,
 			);

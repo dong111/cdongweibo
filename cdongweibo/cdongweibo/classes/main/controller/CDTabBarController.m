@@ -9,6 +9,10 @@
 #import "CDTabBarController.h"
 #import "UIImage+CDImage.h"
 #import "CDTabBar.h"
+#import "CDHomeController.h"
+#import "CDMessageController.h"
+#import "CDProfileController.h"
+#import "CDDiscoverController.h"
 
 @implementation CDTabBarController
 
@@ -69,21 +73,21 @@
 {
     //创建自控制器
     //首页
-    UIViewController *home = [[UIViewController alloc] init];
+    CDHomeController *home = [[CDHomeController alloc] init];
     [self setUpOneChildViewController:home image:[UIImage imageAlwaysOriginalName:@"tabbar_home"] selectedImage:[UIImage imageAlwaysOriginalName:@"tabbar_home_selected"] title:@"首页"];
     home.view.backgroundColor = [UIColor redColor];
     //消息
-    UIViewController *message = [[UIViewController alloc] init];
+    CDMessageController *message = [[CDMessageController alloc] init];
     [self setUpOneChildViewController:message image:[UIImage imageAlwaysOriginalName:@"tabbar_message_center"] selectedImage:[UIImage imageAlwaysOriginalName:@"tabbar_message_center_selected"] title:@"消息"];
     message.view.backgroundColor = [UIColor blueColor];
 
     //发现
-    UIViewController *discover = [[UIViewController alloc] init];
+    CDDiscoverController *discover = [[CDDiscoverController alloc] init];
     [self setUpOneChildViewController:discover image:[UIImage imageAlwaysOriginalName:@"tabbar_discover"] selectedImage:[UIImage imageAlwaysOriginalName:@"tabbar_discover_selected"] title:@"发现"];
     discover.view.backgroundColor = [UIColor purpleColor];
 
     //我
-    UIViewController *profile = [[UIViewController alloc] init];
+    CDProfileController *profile = [[CDProfileController alloc] init];
     [self setUpOneChildViewController:profile image:[UIImage imageAlwaysOriginalName:@"tabbar_profile"] selectedImage:[UIImage imageAlwaysOriginalName:@"tabbar_profile_selected"] title:@"我"];
     profile.view.backgroundColor = [UIColor lightGrayColor];
 
@@ -97,7 +101,11 @@
     //ios7以后tabbarItem 上的图片默认会渲染成蓝色
     vc.tabBarItem.image = image;
     vc.tabBarItem.selectedImage = selectedImage;
-    [self addChildViewController:vc];
+    
+    //设置子控件的rootView 为 NavigationController
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    [self addChildViewController:nav];
 }
 
 
