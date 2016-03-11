@@ -8,6 +8,7 @@
 
 #import "CDTabBarController.h"
 #import "UIImage+CDImage.h"
+#import "CDTabBar.h"
 
 @implementation CDTabBarController
 
@@ -45,6 +46,22 @@
     
     //加载自控制器
     [self setUpAllChildViewController];
+    
+    //自定义tabBar 替换系统自带tabBar
+    CDTabBar *tabBar = [[CDTabBar alloc]initWithFrame:self.tabBar.frame];
+    //**如果属性是readonly 又想复制使用kvc
+//    self.tabBar = tabBar;
+    [self setValue:tabBar forKey:@"tabBar"];
+    //***补充  kvc 底层代码 //    objc_msgSend(self, @selector(setTabBar:),tabBar);
+//    NSLog(@"现在tabBar %@",self.tabBar);
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //查看子控件是否在view里面了
+//     NSLog(@"%@",self.tabBar.subviews);
 }
 
 
