@@ -8,6 +8,7 @@
 
 #import "CDHomeController.h"
 #import "UIBarButtonItem+BarItem.h"
+#import "CDTitleButton.h"
 
 @interface CDHomeController ()
 
@@ -25,15 +26,46 @@
 - (void) setUpNavigation
 {
     //左边按钮
-    UIBarButtonItem *friendSearchItem = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"navigationbar_friendsearch"] ighLigtht:[UIImage imageNamed:@"navigationbar_friendsearch_highlighted"] target:self action:@selector(friendSearch) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *friendSearchItem = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"navigationbar_friendsearch"] ighLigtht:[UIImage imageNamed:@"navigationbar_friendsearch_highlighted"] target:self action:@selector(friendSearchAction) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationItem setLeftBarButtonItem:(friendSearchItem) animated:YES];
-    //标题设置
+
     //右边按钮
+    UIBarButtonItem *popItem = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"navigationbar_pop"] ighLigtht:[UIImage imageNamed:@"navigationbar_pop_highlighted"] target:self action:@selector(popAction) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = popItem;
+    
+    
+    //titleView 设置
+    //title按钮设置
+    CDTitleButton *titleBtn = [CDTitleButton buttonWithType:UIButtonTypeCustom];
+    [titleBtn setTitle:@"首页" forState:UIControlStateNormal];
+    [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
+    [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateSelected];
+
+    // 高亮的时候不需要调整图片
+    titleBtn.adjustsImageWhenHighlighted = NO;
+    
+    [titleBtn addTarget:self action:@selector(titleBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.titleView = titleBtn;
+    //添加弹出蒙层
+    
+    
 }
 
-- (void) friendSearch
+//点击标题按钮
+- (void) titleBtnClick
+{
+
+}
+
+//寻找联系人事件
+- (void) friendSearchAction
 {
     NSLog(@"friendSearch %s",__func__);
+}
+- (void) popAction
+{
+ NSLog(@"popAction %s",__func__);
 }
 
 - (void)didReceiveMemoryWarning {

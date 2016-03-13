@@ -19,4 +19,7 @@
  */
 + (instancetype) imageAlwaysOriginalName:(NSString *)imageName;
 
+//创建一个内容可拉伸，而边角不拉伸的图片
++ (instancetype) imageWithStretchableName:(UIImage *) image;
+
 @end
