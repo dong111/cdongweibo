@@ -7,6 +7,7 @@
 //
 
 #import "CDHomeController.h"
+#import "UIBarButtonItem+BarItem.h"
 
 @interface CDHomeController ()
 
@@ -16,12 +17,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //导航栏设置
+    [self setUpNavigation];
+}
+
+#pragma -mark设置导航栏
+- (void) setUpNavigation
+{
+    //左边按钮
+    UIBarButtonItem *friendSearchItem = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"navigationbar_friendsearch"] ighLigtht:[UIImage imageNamed:@"navigationbar_friendsearch_highlighted"] target:self action:@selector(friendSearch) forControlEvents:UIControlEventTouchUpInside];
+    [self.navigationItem setLeftBarButtonItem:(friendSearchItem) animated:YES];
+    //标题设置
+    //右边按钮
+}
+
+- (void) friendSearch
+{
+    NSLog(@"friendSearch %s",__func__);
 }
 
 - (void)didReceiveMemoryWarning {
