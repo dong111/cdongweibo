@@ -9,6 +9,7 @@
 #import "CDHomeController.h"
 #import "UIBarButtonItem+BarItem.h"
 #import "CDTitleButton.h"
+#import "CDCover.h"
 
 @interface CDHomeController ()
 
@@ -44,7 +45,7 @@
     // 高亮的时候不需要调整图片
     titleBtn.adjustsImageWhenHighlighted = NO;
     
-    [titleBtn addTarget:self action:@selector(titleBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [titleBtn addTarget:self action:@selector(titleBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.titleView = titleBtn;
     //添加弹出蒙层
@@ -53,9 +54,13 @@
 }
 
 //点击标题按钮
-- (void) titleBtnClick
+- (void) titleBtnClick:(UIButton *)button
 {
-
+    button.selected = !button.selected;
+    CDCover *cover = [CDCover show];
+//    [cover setDimBackground:YES];
+    
+    
 }
 
 //寻找联系人事件
