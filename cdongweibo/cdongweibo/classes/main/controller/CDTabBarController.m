@@ -96,7 +96,6 @@
 #pragma -mark 添加单个子控件方法
 - (void) setUpOneChildViewController:(UIViewController *)vc image:(UIImage *)image selectedImage:(UIImage *) selectedImage title:(NSString *)title
 {
-    vc.view.backgroundColor = [UIColor redColor];
     vc.tabBarItem.title = title;
     //ios7以后tabbarItem 上的图片默认会渲染成蓝色
     vc.tabBarItem.image = image;

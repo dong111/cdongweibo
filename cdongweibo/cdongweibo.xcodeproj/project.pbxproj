@@ -22,6 +22,8 @@
 		2B3FB6DE1C92C20D00BE648C /* CDMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6DD1C92C20D00BE648C /* CDMessageController.m */; };
 		2B3FB6E11C92C24400BE648C /* CDProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6E01C92C24400BE648C /* CDProfileController.m */; };
 		2B3FB6E41C92C26800BE648C /* CDDiscoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6E31C92C26800BE648C /* CDDiscoverController.m */; };
+		2BE1D0391C957D8B001BEC33 /* UIBarButtonItem+BarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1D0381C957D8B001BEC33 /* UIBarButtonItem+BarItem.m */; };
+		2BE1D03F1C9585DC001BEC33 /* NSString+utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1D03E1C9585DC001BEC33 /* NSString+utility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,10 @@
 		2B3FB6E01C92C24400BE648C /* CDProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDProfileController.m; sourceTree = "<group>"; };
 		2B3FB6E21C92C26800BE648C /* CDDiscoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDDiscoverController.h; sourceTree = "<group>"; };
 		2B3FB6E31C92C26800BE648C /* CDDiscoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDDiscoverController.m; sourceTree = "<group>"; };
+		2BE1D0371C957D8B001BEC33 /* UIBarButtonItem+BarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+BarItem.h"; sourceTree = "<group>"; };
+		2BE1D0381C957D8B001BEC33 /* UIBarButtonItem+BarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+BarItem.m"; sourceTree = "<group>"; };
+		2BE1D03D1C9585DC001BEC33 /* NSString+utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+utility.h"; sourceTree = "<group>"; };
+		2BE1D03E1C9585DC001BEC33 /* NSString+utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+utility.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +304,10 @@
 			children = (
 				2B3FB6CA1C92B3D400BE648C /* UIImage+CDImage.h */,
 				2B3FB6CB1C92B3D400BE648C /* UIImage+CDImage.m */,
+				2BE1D0371C957D8B001BEC33 /* UIBarButtonItem+BarItem.h */,
+				2BE1D0381C957D8B001BEC33 /* UIBarButtonItem+BarItem.m */,
+				2BE1D03D1C9585DC001BEC33 /* NSString+utility.h */,
+				2BE1D03E1C9585DC001BEC33 /* NSString+utility.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -488,8 +498,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BE1D03F1C9585DC001BEC33 /* NSString+utility.m in Sources */,
 				2B3FB6E11C92C24400BE648C /* CDProfileController.m in Sources */,
 				2B3FB6DE1C92C20D00BE648C /* CDMessageController.m in Sources */,
+				2BE1D0391C957D8B001BEC33 /* UIBarButtonItem+BarItem.m in Sources */,
 				2B3FB6D31C92B3D400BE648C /* AppDelegate.m in Sources */,
 				2B3FB6D21C92B3D400BE648C /* CDTabBar.m in Sources */,
 				2B3FB6D41C92B3D400BE648C /* UIImage+CDImage.m in Sources */,
@@ -717,6 +729,7 @@
 				2B3FB6A21C916C6E00BE648C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2B3FB6A31C916C6E00BE648C /* Build configuration list for PBXNativeTarget "cdongweiboTests" */ = {
 			isa = XCConfigurationList;
@@ -725,6 +738,7 @@
 				2B3FB6A51C916C6E00BE648C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2B3FB6A61C916C6E00BE648C /* Build configuration list for PBXNativeTarget "cdongweiboUITests" */ = {
 			isa = XCConfigurationList;
@@ -733,6 +747,7 @@
 				2B3FB6A81C916C6E00BE648C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
