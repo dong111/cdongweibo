@@ -16,10 +16,6 @@
 
 @implementation CDTabBar
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    return [super initWithFrame:frame];
-}
 
 - (UIButton *)centerBt
 {
@@ -68,6 +64,8 @@
     }
     //设置中心按钮的位置
     self.centerBt.center = CGPointMake(barWidth/2, barHeight/2);
+    self.backgroundColor = [UIColor whiteColor];
+    self.alpha = 0.7;
     
 }
 
