@@ -23,7 +23,6 @@ target:(id)target action:(SEL)aciton forControlEvents:(UIControlEvents) controlE
     [btn setBackgroundImage:highImage forState:UIControlStateHighlighted];
     
     //按钮大小设置
-    
     [btn sizeToFit];
     
     //添加事件

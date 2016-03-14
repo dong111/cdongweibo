@@ -24,6 +24,11 @@
 		2B3FB6E41C92C26800BE648C /* CDDiscoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB6E31C92C26800BE648C /* CDDiscoverController.m */; };
 		2BE1D0391C957D8B001BEC33 /* UIBarButtonItem+BarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1D0381C957D8B001BEC33 /* UIBarButtonItem+BarItem.m */; };
 		2BE1D03F1C9585DC001BEC33 /* NSString+utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1D03E1C9585DC001BEC33 /* NSString+utility.m */; };
+		2BE1D0421C959B83001BEC33 /* CDTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1D0411C959B83001BEC33 /* CDTitleButton.m */; };
+		2BE1D0451C95A50E001BEC33 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1D0441C95A50E001BEC33 /* UIView+Frame.m */; };
+		2BE1D0481C95B5A4001BEC33 /* CDCover.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1D0471C95B5A4001BEC33 /* CDCover.m */; };
+		2BE1D04C1C95C2BC001BEC33 /* CDPopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1D04B1C95C2BC001BEC33 /* CDPopMenu.m */; };
+		2BE1D04F1C964442001BEC33 /* CDPopMenuTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1D04E1C964442001BEC33 /* CDPopMenuTableController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +82,17 @@
 		2BE1D0381C957D8B001BEC33 /* UIBarButtonItem+BarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+BarItem.m"; sourceTree = "<group>"; };
 		2BE1D03D1C9585DC001BEC33 /* NSString+utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+utility.h"; sourceTree = "<group>"; };
 		2BE1D03E1C9585DC001BEC33 /* NSString+utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+utility.m"; sourceTree = "<group>"; };
+		2BE1D0401C959B83001BEC33 /* CDTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTitleButton.h; sourceTree = "<group>"; };
+		2BE1D0411C959B83001BEC33 /* CDTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTitleButton.m; sourceTree = "<group>"; };
+		2BE1D0431C95A50E001BEC33 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		2BE1D0441C95A50E001BEC33 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		2BE1D0461C95B5A4001BEC33 /* CDCover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCover.h; sourceTree = "<group>"; };
+		2BE1D0471C95B5A4001BEC33 /* CDCover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCover.m; sourceTree = "<group>"; };
+		2BE1D0491C95B87A001BEC33 /* cdongweibo.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cdongweibo.pch; sourceTree = "<group>"; };
+		2BE1D04A1C95C2BC001BEC33 /* CDPopMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPopMenu.h; sourceTree = "<group>"; };
+		2BE1D04B1C95C2BC001BEC33 /* CDPopMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPopMenu.m; sourceTree = "<group>"; };
+		2BE1D04D1C964442001BEC33 /* CDPopMenuTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPopMenuTableController.h; sourceTree = "<group>"; };
+		2BE1D04E1C964442001BEC33 /* CDPopMenuTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPopMenuTableController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +241,8 @@
 			children = (
 				2B3FB6D61C92C0EE00BE648C /* CDHomeController.h */,
 				2B3FB6D71C92C0EE00BE648C /* CDHomeController.m */,
+				2BE1D04D1C964442001BEC33 /* CDPopMenuTableController.h */,
+				2BE1D04E1C964442001BEC33 /* CDPopMenuTableController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -239,6 +257,12 @@
 		2B3FB6BC1C92B3D400BE648C /* view */ = {
 			isa = PBXGroup;
 			children = (
+				2BE1D0401C959B83001BEC33 /* CDTitleButton.h */,
+				2BE1D0411C959B83001BEC33 /* CDTitleButton.m */,
+				2BE1D0461C95B5A4001BEC33 /* CDCover.h */,
+				2BE1D0471C95B5A4001BEC33 /* CDCover.m */,
+				2BE1D04A1C95C2BC001BEC33 /* CDPopMenu.h */,
+				2BE1D04B1C95C2BC001BEC33 /* CDPopMenu.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -295,6 +319,7 @@
 				2B3FB6C81C92B3D400BE648C /* AppDelegate.m */,
 				2B3FB6C91C92B3D400BE648C /* category */,
 				2B3FB6CC1C92B3D400BE648C /* main.m */,
+				2BE1D0491C95B87A001BEC33 /* cdongweibo.pch */,
 			);
 			path = other;
 			sourceTree = "<group>";
@@ -308,6 +333,8 @@
 				2BE1D0381C957D8B001BEC33 /* UIBarButtonItem+BarItem.m */,
 				2BE1D03D1C9585DC001BEC33 /* NSString+utility.h */,
 				2BE1D03E1C9585DC001BEC33 /* NSString+utility.m */,
+				2BE1D0431C95A50E001BEC33 /* UIView+Frame.h */,
+				2BE1D0441C95A50E001BEC33 /* UIView+Frame.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -499,14 +526,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BE1D03F1C9585DC001BEC33 /* NSString+utility.m in Sources */,
+				2BE1D04C1C95C2BC001BEC33 /* CDPopMenu.m in Sources */,
 				2B3FB6E11C92C24400BE648C /* CDProfileController.m in Sources */,
+				2BE1D0421C959B83001BEC33 /* CDTitleButton.m in Sources */,
 				2B3FB6DE1C92C20D00BE648C /* CDMessageController.m in Sources */,
 				2BE1D0391C957D8B001BEC33 /* UIBarButtonItem+BarItem.m in Sources */,
 				2B3FB6D31C92B3D400BE648C /* AppDelegate.m in Sources */,
+				2BE1D0481C95B5A4001BEC33 /* CDCover.m in Sources */,
+				2BE1D04F1C964442001BEC33 /* CDPopMenuTableController.m in Sources */,
 				2B3FB6D21C92B3D400BE648C /* CDTabBar.m in Sources */,
 				2B3FB6D41C92B3D400BE648C /* UIImage+CDImage.m in Sources */,
 				2B3FB6D11C92B3D400BE648C /* CDTabBarController.m in Sources */,
 				2B3FB6D81C92C0EE00BE648C /* CDHomeController.m in Sources */,
+				2BE1D0451C95A50E001BEC33 /* UIView+Frame.m in Sources */,
 				2B3FB6E41C92C26800BE648C /* CDDiscoverController.m in Sources */,
 				2B3FB6D51C92B3D400BE648C /* main.m in Sources */,
 				2B3FB6811C916C6E00BE648C /* cdongweibo.xcdatamodeld in Sources */,
@@ -643,6 +675,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = cdongweibo/classes/other/cdongweibo.pch;
 				INFOPLIST_FILE = cdongweibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cdmq.cdongweibo;
@@ -655,6 +689,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = cdongweibo/classes/other/cdongweibo.pch;
 				INFOPLIST_FILE = cdongweibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cdmq.cdongweibo;
