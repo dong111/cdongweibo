@@ -10,7 +10,6 @@
 #import "UIBarButtonItem+BarItem.h"
 #import "CDTitleButton.h"
 #import "CDCover.h"
-#import "UIView+Frame.h"
 #import "CDPopMenu.h"
 #import "CDPopMenuTableController.h"
 

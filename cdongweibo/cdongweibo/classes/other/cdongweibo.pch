@@ -9,6 +9,8 @@
 #ifndef cdongweibo_pch
 #define cdongweibo_pch
 
+#import "UIView+Frame.h"
+
 
 #define CDKeyWindow [UIApplication sharedApplication].keyWindow
 
