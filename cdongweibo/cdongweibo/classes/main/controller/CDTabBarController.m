@@ -75,7 +75,7 @@
     //首页
     CDHomeController *home = [[CDHomeController alloc] init];
     [self setUpOneChildViewController:home image:[UIImage imageAlwaysOriginalName:@"tabbar_home"] selectedImage:[UIImage imageAlwaysOriginalName:@"tabbar_home_selected"] title:@"首页"];
-    home.view.backgroundColor = [UIColor redColor];
+//    home.view.backgroundColor = [UIColor redColor];
     //消息
     CDMessageController *message = [[CDMessageController alloc] init];
     [self setUpOneChildViewController:message image:[UIImage imageAlwaysOriginalName:@"tabbar_message_center"] selectedImage:[UIImage imageAlwaysOriginalName:@"tabbar_message_center_selected"] title:@"消息"];

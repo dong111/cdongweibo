@@ -10,12 +10,24 @@
 #import "UIBarButtonItem+BarItem.h"
 #import "CDTitleButton.h"
 #import "CDCover.h"
+#import "UIView+Frame.h"
+#import "CDPopMenu.h"
+#import "CDPopMenuTableController.h"
 
 @interface CDHomeController ()
 
+@property (nonatomic,strong) CDPopMenuTableController *popMenuTable;
 @end
 
 @implementation CDHomeController
+
+- (CDPopMenuTableController *)popMenuTable
+{
+    if (_popMenuTable==nil) {
+        _popMenuTable = [[CDPopMenuTableController alloc]init];
+    }
+    return _popMenuTable;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -59,7 +71,14 @@
     button.selected = !button.selected;
     CDCover *cover = [CDCover show];
 //    [cover setDimBackground:YES];
-    
+    //弹窗自定义菜单
+    CGFloat popW = 200;
+    CGFloat popH = popW;
+    CGFloat popX = (self.view.width -200) *0.5;
+    CGFloat popy = 55;
+    CDPopMenu *menu =[CDPopMenu showInRect:CGRectMake(popX, popy, popW, popH)];
+    menu.backgroundColor = [UIColor blackColor];
+    menu.contentView = self.popMenuTable.tableView;
     
 }
 
