@@ -14,8 +14,9 @@
 #import "CDPopMenu.h"
 #import "CDPopMenuTableController.h"
 
-@interface CDHomeController ()
-
+@interface CDHomeController () <CDCoverDelegate>
+@property (nonatomic,weak) CDTitleButton *titleBtn;
+//分类菜单table
 @property (nonatomic,strong) CDPopMenuTableController *popMenuTable;
 @end
 
@@ -50,6 +51,7 @@
     //titleView 设置
     //title按钮设置
     CDTitleButton *titleBtn = [CDTitleButton buttonWithType:UIButtonTypeCustom];
+    _titleBtn = titleBtn;
     [titleBtn setTitle:@"首页" forState:UIControlStateNormal];
     [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
     [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateSelected];
@@ -70,6 +72,7 @@
 {
     button.selected = !button.selected;
     CDCover *cover = [CDCover show];
+    cover.delegate = self;
 //    [cover setDimBackground:YES];
     //弹窗自定义菜单
     CGFloat popW = 200;
@@ -77,9 +80,17 @@
     CGFloat popX = (self.view.width -200) *0.5;
     CGFloat popy = 55;
     CDPopMenu *menu =[CDPopMenu showInRect:CGRectMake(popX, popy, popW, popH)];
-    menu.backgroundColor = [UIColor blackColor];
+//    menu.backgroundColor = [UIColor blackColor];
     menu.contentView = self.popMenuTable.tableView;
     
+}
+//点击蒙层事件
+- (void)coverDidClick:(CDCover *)cover
+{
+    //移除菜单
+    [CDPopMenu hide];
+    //按钮选中状态改变
+    self.titleBtn.selected = NO;
 }
 
 //寻找联系人事件
