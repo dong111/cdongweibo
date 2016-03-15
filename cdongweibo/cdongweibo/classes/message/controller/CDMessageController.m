@@ -24,10 +24,6 @@
 - (void) initNavigationBtns
 {
     UIBarButtonItem *chatBtn = [[UIBarButtonItem alloc] initWithTitle:@"发起聊天" style:UIBarButtonItemStylePlain target:self action:@selector(chatClick)];
-    NSMutableDictionary *attrs = [[NSMutableDictionary alloc] init];
-    attrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
-    [chatBtn setTitleTextAttributes:attrs forState:UIControlStateNormal];
-    [chatBtn setTitleTextAttributes:attrs forState:UIControlStateHighlighted];
     self.navigationItem.rightBarButtonItem = chatBtn;
     
     self.navigationItem.title = @"消息";

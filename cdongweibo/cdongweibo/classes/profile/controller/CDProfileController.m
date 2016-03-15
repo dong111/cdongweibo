@@ -24,10 +24,6 @@
 - (void) initNavigationBtns
 {
     UIBarButtonItem *setingsBtn = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(settingsClick)];
-    NSMutableDictionary *attrs = [[NSMutableDictionary alloc] init];
-    attrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
-    [setingsBtn setTitleTextAttributes:attrs forState:UIControlStateNormal];
-    [setingsBtn setTitleTextAttributes:attrs forState:UIControlStateHighlighted];
     self.navigationItem.rightBarButtonItem = setingsBtn;
     
     self.navigationItem.title = @"我";
