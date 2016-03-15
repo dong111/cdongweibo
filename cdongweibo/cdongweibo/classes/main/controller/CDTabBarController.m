@@ -15,8 +15,22 @@
 #import "CDDiscoverController.h"
 #import "CDNavigationController.h"
 
+@interface CDTabBarController ()
+
+
+@property (nonatomic,strong) NSMutableArray *barItems;
+
+@end
+
 @implementation CDTabBarController
 
+- (NSMutableArray *)barItems
+{
+    if (_barItems==nil) {
+        _barItems = [[NSMutableArray alloc] init];
+    }
+    return _barItems;
+}
 /**
  *  
  什么时候调用:程序已启动把所有类加入内存  在执行Main方法之前
@@ -52,14 +66,24 @@
     //加载自控制器
     [self setUpAllChildViewController];
     
+
+    [self setUpTabBar];
+}
+#pragma -mark 自定义tableBar
+- (void) setUpTabBar
+{
+
     //自定义tabBar 替换系统自带tabBar
     CDTabBar *tabBar = [[CDTabBar alloc]initWithFrame:self.tabBar.frame];
     //**如果属性是readonly 又想复制使用kvc
-//    self.tabBar = tabBar;
-    [self setValue:tabBar forKey:@"tabBar"];
+    //    self.tabBar = tabBar;
+//    [self setValue:tabBar forKey:@"tabBar"];
+//    tabBar.backgroundColor = [UIColor orangeColor];
+    tabBar.items = self.barItems;
+    [self.view addSubview:tabBar];
+    [self.tabBar removeFromSuperview];
     //***补充  kvc 底层代码 //    objc_msgSend(self, @selector(setTabBar:),tabBar);
-//    NSLog(@"现在tabBar %@",self.tabBar);
-    
+    //    NSLog(@"现在tabBar %@",self.tabBar);
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -75,6 +99,7 @@
     //创建自控制器
     //首页
     CDHomeController *home = [[CDHomeController alloc] init];
+    home.tabBarItem.badgeValue = @"11";
     [self setUpOneChildViewController:home image:[UIImage imageAlwaysOriginalName:@"tabbar_home"] selectedImage:[UIImage imageAlwaysOriginalName:@"tabbar_home_selected"] title:@"首页"];
 //    home.view.backgroundColor = [UIColor redColor];
     //消息
@@ -102,6 +127,7 @@
     vc.tabBarItem.image = image;
     vc.tabBarItem.selectedImage = selectedImage;
     
+    [self.barItems addObject:vc.tabBarItem];
     //设置子控件的rootView 为 NavigationController
     CDNavigationController *nav = [[CDNavigationController alloc] initWithRootViewController:vc];
     

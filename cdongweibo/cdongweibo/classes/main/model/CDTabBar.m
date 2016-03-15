@@ -13,6 +13,9 @@
 
 //自定义tabBarItem 为中间button按钮
 @property (nonatomic,weak) UIButton *centerBt;
+
+@property (nonatomic, strong) NSMutableArray *buttons;
+
 @end
 
 @implementation CDTabBar
@@ -37,7 +40,12 @@
     return _centerBt;
 }
 
-
+- (NSMutableArray *)buttons{
+    if (_buttons == nil) {
+        _buttons = [NSMutableArray array];
+    }
+    return _buttons;
+}
 
 - (void)setItems:(NSMutableArray *)items
 {
@@ -46,9 +54,10 @@
         CDTabBarButton *button = [CDTabBarButton buttonWithType:UIButtonTypeCustom];
         //按钮内容模型赋值
         button.item = item;
-        [button setBackgroundColor:[UIColor orangeColor]];
+//        [button setBackgroundColor:[UIColor orangeColor]];
         
         [self addSubview:button];
+        [self.buttons addObject:button];
     }
 }
 
@@ -67,7 +76,7 @@
     
     //设置子控件的距离
     int i=0;
-    for (UIView *tabBarBtton in self.subviews) {
+    for (UIView *tabBarBtton in self.buttons) {
             //计算每个button 的frame
             if (i==2) {
                 i=3;
