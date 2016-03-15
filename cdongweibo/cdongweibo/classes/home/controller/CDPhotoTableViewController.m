@@ -7,7 +7,7 @@
 //
 
 #import "CDPhotoTableViewController.h"
-#import "UIBarButtonItem+BarItem.h"
+
 
 @interface CDPhotoTableViewController ()
 
@@ -21,25 +21,9 @@
 }
 - (void) initNavigationBtns
 {
-    UIBarButtonItem *leftBtn = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"navigationbar_back"] ighLigtht:[UIImage imageNamed:@"navigationbar_back_highlighted"] target:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = leftBtn;
-    
-    UIBarButtonItem *rightBtn = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"navigationbar_more"] ighLigtht:[UIImage imageNamed:@"navigationbar_more_highlighted"] target:self action:@selector(moreClick) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = rightBtn;
-    
-}
-- (void) backClick
-{
-    [self.navigationController popViewControllerAnimated:YES];
-    
+
 }
 
-
-- (void) moreClick
-{
-    
-    
-}
 
 
 - (void)didReceiveMemoryWarning {

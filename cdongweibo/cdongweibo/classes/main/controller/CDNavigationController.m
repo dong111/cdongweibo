@@ -7,6 +7,7 @@
 //
 
 #import "CDNavigationController.h"
+#import "UIBarButtonItem+BarItem.h"
 
 @interface CDNavigationController ()
 
@@ -36,14 +37,39 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+
+//    NSLog(@"%@-->%@",viewController,self.childViewControllers);
+    
+    if (self.childViewControllers.count) {//不是根控制器
+        UIBarButtonItem *leftBtn = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"navigationbar_back"] ighLigtht:[UIImage imageNamed:@"navigationbar_back_highlighted"] target:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
+        viewController.navigationItem.leftBarButtonItem = leftBtn;
+        
+        UIBarButtonItem *rightBtn = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"navigationbar_more"] ighLigtht:[UIImage imageNamed:@"navigationbar_more_highlighted"] target:self action:@selector(moreClick) forControlEvents:UIControlEventTouchUpInside];
+        viewController.navigationItem.rightBarButtonItem = rightBtn;
+        
+    }
+    
+    
+    [super pushViewController:viewController animated:animated];
+    
 }
-*/
+
+
+- (void) backClick
+{
+    [self popViewControllerAnimated:YES];
+    
+}
+
+
+- (void) moreClick
+{
+    
+    
+}
+
 
 @end
