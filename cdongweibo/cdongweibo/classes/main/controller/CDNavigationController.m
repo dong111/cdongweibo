@@ -8,6 +8,8 @@
 
 #import "CDNavigationController.h"
 #import "UIBarButtonItem+BarItem.h"
+#import "CDUitiity.h"
+
 
 @interface CDNavigationController ()<UINavigationControllerDelegate>
 @property(nonatomic,strong) id <UIGestureRecognizerDelegate> popDelegate;
@@ -70,8 +72,8 @@
 
 - (void) moreClick
 {
-    
-    
+     [self popToRootViewControllerAnimated:YES];
+
 }
 
 //导航控制器跳转完成使用调用
@@ -86,4 +88,20 @@
     }
 
 }
+
+//导航控制器将要显示时候调用
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    
+    UITabBarController *tabBarVc = (UITabBarController *) CDKeyWindow.rootViewController;
+    //移除系统tabBar按钮
+    for (UIView *barBtn in tabBarVc.tabBar.subviews) {
+        if ([barBtn isKindOfClass:NSClassFromString(@"UITabBarButton")])
+        {
+            [barBtn removeFromSuperview];
+        }
+    }
+}
+
+
 @end
