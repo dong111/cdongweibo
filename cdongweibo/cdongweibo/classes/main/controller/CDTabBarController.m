@@ -13,6 +13,7 @@
 #import "CDMessageController.h"
 #import "CDProfileController.h"
 #import "CDDiscoverController.h"
+#import "CDNavigationController.h"
 
 @implementation CDTabBarController
 
@@ -102,7 +103,7 @@
     vc.tabBarItem.selectedImage = selectedImage;
     
     //设置子控件的rootView 为 NavigationController
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    CDNavigationController *nav = [[CDNavigationController alloc] initWithRootViewController:vc];
     
     [self addChildViewController:nav];
 }
