@@ -62,7 +62,6 @@
 {
     //实现父类
     [super loadView];
-    
     //加载自控制器
     [self setUpAllChildViewController];
     
@@ -74,14 +73,15 @@
 {
 
     //自定义tabBar 替换系统自带tabBar
-    CDTabBar *tabBar = [[CDTabBar alloc]initWithFrame:self.tabBar.frame];
+    CDTabBar *tabBar = [[CDTabBar alloc]initWithFrame:self.tabBar.bounds];
     //**如果属性是readonly 又想复制使用kvc
     //    self.tabBar = tabBar;
 //    [self setValue:tabBar forKey:@"tabBar"];
 //    tabBar.backgroundColor = [UIColor orangeColor];
     tabBar.items = self.barItems;
-    [self.view addSubview:tabBar];
-    [self.tabBar removeFromSuperview];
+//    [self setValue:tabBar forKey:@"tabBar"];  tabBar kvc 无法赋值
+    [self.tabBar addSubview:tabBar];
+//    [self.tabBar removeFromSuperview];
     //***补充  kvc 底层代码 //    objc_msgSend(self, @selector(setTabBar:),tabBar);
     //    NSLog(@"现在tabBar %@",self.tabBar);
 }
@@ -91,6 +91,14 @@
     [super viewWillAppear:animated];
     //查看子控件是否在view里面了
 //     NSLog(@"%@",self.tabBar.subviews);
+    
+    //移除系统tabBar按钮
+    for (UIView *barBtn in self.tabBar.subviews) {
+        if ([barBtn isKindOfClass:NSClassFromString(@"UITabBarButton")])
+        {
+            [barBtn removeFromSuperview];
+        }
+    }
 }
 
 
