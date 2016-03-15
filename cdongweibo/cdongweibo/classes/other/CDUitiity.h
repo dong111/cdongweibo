@@ -13,6 +13,7 @@
 #define cdongweibo_utility.h
 
 #import "UIView+Frame.h"
+#import "UIImage+CDImage.h"
 
 
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width

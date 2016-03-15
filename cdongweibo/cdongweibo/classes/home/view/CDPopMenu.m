@@ -7,7 +7,6 @@
 //
 
 #import "CDPopMenu.h"
-#import "UIImage+CDImage.h"
 #import "CDUitiity.h"
 @implementation CDPopMenu
 

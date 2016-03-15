@@ -7,7 +7,6 @@
 //
 
 #import "CDTitleButton.h"
-#import "UIImage+CDImage.h"
 #import "CDUitiity.h"
 
 @implementation CDTitleButton

@@ -7,7 +7,7 @@
 //
 
 #import "CDTabBarController.h"
-#import "UIImage+CDImage.h"
+#import "CDUitiity.h"
 #import "CDTabBar.h"
 #import "CDHomeController.h"
 #import "CDMessageController.h"
