@@ -9,8 +9,8 @@
 #import "CDNavigationController.h"
 #import "UIBarButtonItem+BarItem.h"
 
-@interface CDNavigationController ()
-
+@interface CDNavigationController ()<UINavigationControllerDelegate>
+@property(nonatomic,strong) id <UIGestureRecognizerDelegate> popDelegate;
 @end
 
 @implementation CDNavigationController
@@ -30,6 +30,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.popDelegate = self.interactivePopGestureRecognizer.delegate;
+    self.delegate = self;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,6 +47,7 @@
 //    NSLog(@"%@-->%@",viewController,self.childViewControllers);
     
     if (self.childViewControllers.count) {//不是根控制器
+        //左边按钮设置后，滑动返回功能就没有了
         UIBarButtonItem *leftBtn = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"navigationbar_back"] ighLigtht:[UIImage imageNamed:@"navigationbar_back_highlighted"] target:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
         viewController.navigationItem.leftBarButtonItem = leftBtn;
         
@@ -56,7 +60,6 @@
     [super pushViewController:viewController animated:animated];
     
 }
-
 
 - (void) backClick
 {
@@ -71,5 +74,16 @@
     
 }
 
+//导航控制器跳转完成使用调用
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    if (viewController==self.viewControllers[0]) {
+        self.interactivePopGestureRecognizer.delegate = self.popDelegate;
+    }else{
+        //实现滑动返回功能
+        //清空滑动手势代理，就能实现滑动返回功能
+        self.interactivePopGestureRecognizer.delegate = nil;
+    }
 
+}
 @end
