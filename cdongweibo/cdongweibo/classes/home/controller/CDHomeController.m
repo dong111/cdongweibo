@@ -12,6 +12,7 @@
 #import "CDCover.h"
 #import "CDPopMenu.h"
 #import "CDPopMenuTableController.h"
+#import "CDUitiity.h"
 
 @interface CDHomeController () <CDCoverDelegate>
 @property (nonatomic,weak) CDTitleButton *titleBtn;

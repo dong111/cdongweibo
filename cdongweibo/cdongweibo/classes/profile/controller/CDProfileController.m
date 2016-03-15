@@ -7,6 +7,7 @@
 //
 
 #import "CDProfileController.h"
+#import "CDUitiity.h"
 
 @interface CDProfileController ()
 

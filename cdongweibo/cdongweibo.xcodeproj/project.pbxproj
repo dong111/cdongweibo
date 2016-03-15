@@ -30,6 +30,7 @@
 		2BE1D04C1C95C2BC001BEC33 /* CDPopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1D04B1C95C2BC001BEC33 /* CDPopMenu.m */; };
 		2BE1D04F1C964442001BEC33 /* CDPopMenuTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1D04E1C964442001BEC33 /* CDPopMenuTableController.m */; };
 		2BE1D0521C97886C001BEC33 /* CDNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1D0511C97886C001BEC33 /* CDNavigationController.m */; };
+		2BE1D0551C978F14001BEC33 /* CDSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1D0541C978F14001BEC33 /* CDSearchBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,9 @@
 		2BE1D04E1C964442001BEC33 /* CDPopMenuTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPopMenuTableController.m; sourceTree = "<group>"; };
 		2BE1D0501C97886C001BEC33 /* CDNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDNavigationController.h; sourceTree = "<group>"; };
 		2BE1D0511C97886C001BEC33 /* CDNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDNavigationController.m; sourceTree = "<group>"; };
+		2BE1D0531C978F14001BEC33 /* CDSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDSearchBar.h; sourceTree = "<group>"; };
+		2BE1D0541C978F14001BEC33 /* CDSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDSearchBar.m; sourceTree = "<group>"; };
+		2BE1D0561C9790C7001BEC33 /* CDUitiity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUitiity.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +229,8 @@
 		2B3FB6B81C92B3D400BE648C /* view */ = {
 			isa = PBXGroup;
 			children = (
+				2BE1D0531C978F14001BEC33 /* CDSearchBar.h */,
+				2BE1D0541C978F14001BEC33 /* CDSearchBar.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -325,6 +331,7 @@
 				2B3FB6C91C92B3D400BE648C /* category */,
 				2B3FB6CC1C92B3D400BE648C /* main.m */,
 				2BE1D0491C95B87A001BEC33 /* cdongweibo.pch */,
+				2BE1D0561C9790C7001BEC33 /* CDUitiity.h */,
 			);
 			path = other;
 			sourceTree = "<group>";
@@ -548,6 +555,7 @@
 				2B3FB6E41C92C26800BE648C /* CDDiscoverController.m in Sources */,
 				2B3FB6D51C92B3D400BE648C /* main.m in Sources */,
 				2B3FB6811C916C6E00BE648C /* cdongweibo.xcdatamodeld in Sources */,
+				2BE1D0551C978F14001BEC33 /* CDSearchBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

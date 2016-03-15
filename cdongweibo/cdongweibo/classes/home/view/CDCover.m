@@ -9,6 +9,7 @@
 //
 
 #import "CDCover.h"
+#import "CDUitiity.h"
 
 @implementation CDCover
 

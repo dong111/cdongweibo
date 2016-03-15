@@ -80,17 +80,17 @@
     //消息
     CDMessageController *message = [[CDMessageController alloc] init];
     [self setUpOneChildViewController:message image:[UIImage imageAlwaysOriginalName:@"tabbar_message_center"] selectedImage:[UIImage imageAlwaysOriginalName:@"tabbar_message_center_selected"] title:@"消息"];
-    message.view.backgroundColor = [UIColor blueColor];
+//    message.view.backgroundColor = [UIColor blueColor];
 
     //发现
     CDDiscoverController *discover = [[CDDiscoverController alloc] init];
     [self setUpOneChildViewController:discover image:[UIImage imageAlwaysOriginalName:@"tabbar_discover"] selectedImage:[UIImage imageAlwaysOriginalName:@"tabbar_discover_selected"] title:@"发现"];
-    discover.view.backgroundColor = [UIColor purpleColor];
+//    discover.view.backgroundColor = [UIColor purpleColor];
 
     //我
     CDProfileController *profile = [[CDProfileController alloc] init];
     [self setUpOneChildViewController:profile image:[UIImage imageAlwaysOriginalName:@"tabbar_profile"] selectedImage:[UIImage imageAlwaysOriginalName:@"tabbar_profile_selected"] title:@"我"];
-    profile.view.backgroundColor = [UIColor lightGrayColor];
+//    profile.view.backgroundColor = [UIColor lightGrayColor];
 
 }
 

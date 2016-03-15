@@ -7,6 +7,8 @@
 //
 
 #import "CDDiscoverController.h"
+#import "CDSearchBar.h"
+#import "CDUitiity.h"
 
 @interface CDDiscoverController ()
 
@@ -17,11 +19,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    CDSearchBar *searchBar = [[CDSearchBar alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 35)];
+    searchBar.backgroundColor = [UIColor blackColor];
+    searchBar.placeholder = @"大家都在搜";
+    self.navigationItem.titleView = searchBar;
+
+//    //创建搜索框 不符合需求，只能自定义
+//    UISearchBar *searchBar = [[UISearchBar alloc] init];
+//    searchBar.placeholder = @"大家都在搜";
+//    self.navigationItem.titleView = searchBar;
+
 }
 
 - (void)didReceiveMemoryWarning {

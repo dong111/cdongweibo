@@ -7,6 +7,7 @@
 //
 
 #import "CDMessageController.h"
+#import "CDUitiity.h"
 
 @interface CDMessageController ()
 
