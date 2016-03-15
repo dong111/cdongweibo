@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) NSMutableArray *buttons;
 
+@property (nonatomic,weak) CDTabBarButton *selectedBtn;
+
 @end
 
 @implementation CDTabBar
@@ -54,10 +56,27 @@
         CDTabBarButton *button = [CDTabBarButton buttonWithType:UIButtonTypeCustom];
         //按钮内容模型赋值
         button.item = item;
-//        [button setBackgroundColor:[UIColor orangeColor]];
+
+        button.tag = self.buttons.count;
+        //button 添加事件
+        [button addTarget:self action:@selector(barBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        if (button.tag==0) {
+            [self barBtnClick:button];
+        }
         
         [self addSubview:button];
         [self.buttons addObject:button];
+    }
+}
+
+- (void) barBtnClick:(CDTabBarButton *)button
+{
+    _selectedBtn.selected = NO;
+    button.selected = YES;
+    _selectedBtn = button;
+    //通知tabBarVc切换控制器
+    if ([self.delegate respondsToSelector:@selector(tabBar:didClickButton:)]) {
+        [self.delegate tabBar:self didClickButton:button.tag];
     }
 }
 

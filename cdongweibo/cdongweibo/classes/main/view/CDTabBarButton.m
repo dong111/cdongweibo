@@ -49,7 +49,7 @@
 {
     [self setTitle:self.item.title forState:UIControlStateNormal];
     [self setImage:self.item.image forState:UIControlStateNormal];
-    [self setImage:self.item.image forState:UIControlStateSelected];
+    [self setImage:self.item.selectedImage forState:UIControlStateSelected];
     
     self.badgeView.badgeValue = self.item.badgeValue;
 }
@@ -97,6 +97,8 @@
         // 文字居中
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         //文字字体
+        self.titleLabel.font = [UIFont systemFontOfSize:12];
+
     }
     return self;
 }

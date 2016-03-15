@@ -15,7 +15,7 @@
 #import "CDDiscoverController.h"
 #import "CDNavigationController.h"
 
-@interface CDTabBarController ()
+@interface CDTabBarController ()<CDTabBarButtonDelegate>
 
 
 @property (nonatomic,strong) NSMutableArray *barItems;
@@ -68,6 +68,12 @@
 
     [self setUpTabBar];
 }
+#pragma -mark切换控制器
+- (void)tabBar:(CDTabBar *)tabBar didClickButton:(NSInteger)index
+{
+    self.selectedIndex = index;
+}
+
 #pragma -mark 自定义tableBar
 - (void) setUpTabBar
 {
@@ -78,6 +84,7 @@
     //    self.tabBar = tabBar;
 //    [self setValue:tabBar forKey:@"tabBar"];
 //    tabBar.backgroundColor = [UIColor orangeColor];
+    tabBar.delegate = self;
     tabBar.items = self.barItems;
 //    [self setValue:tabBar forKey:@"tabBar"];  tabBar kvc 无法赋值
     [self.tabBar addSubview:tabBar];
