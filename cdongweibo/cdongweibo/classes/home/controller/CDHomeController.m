@@ -12,6 +12,7 @@
 #import "CDCover.h"
 #import "CDPopMenu.h"
 #import "CDPopMenuTableController.h"
+#import "CDPhotoTableViewController.h"
 #import "CDUitiity.h"
 
 @interface CDHomeController () <CDCoverDelegate>
@@ -100,7 +101,14 @@
 }
 - (void) popAction
 {
- NSLog(@"popAction %s",__func__);
+    CDPhotoTableViewController *photoVc = [[CDPhotoTableViewController alloc] init];
+        self.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:photoVc animated:YES];
+    //并在push后设置self.hidesBottomBarWhenPushed=NO;
+    //这样back回来的时候，tabBar会恢复正常显示。
+         self.hidesBottomBarWhenPushed = NO;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
