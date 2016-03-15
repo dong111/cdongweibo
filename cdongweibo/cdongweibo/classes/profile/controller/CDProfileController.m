@@ -17,11 +17,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    [self initNavigationBtns];
+}
+
+
+- (void) initNavigationBtns
+{
+    UIBarButtonItem *setingsBtn = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(settingsClick)];
+    NSMutableDictionary *attrs = [[NSMutableDictionary alloc] init];
+    attrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
+    [setingsBtn setTitleTextAttributes:attrs forState:UIControlStateNormal];
+    [setingsBtn setTitleTextAttributes:attrs forState:UIControlStateHighlighted];
+    self.navigationItem.rightBarButtonItem = setingsBtn;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.title = @"我";
+}
+
+
+
+- (void)settingsClick
+{
+    CDLog(@"%s",__func__);
 }
 
 - (void)didReceiveMemoryWarning {

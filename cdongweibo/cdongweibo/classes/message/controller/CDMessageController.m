@@ -16,13 +16,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self initNavigationBtns];
+
 }
+
+
+- (void) initNavigationBtns
+{
+    UIBarButtonItem *chatBtn = [[UIBarButtonItem alloc] initWithTitle:@"发起聊天" style:UIBarButtonItemStylePlain target:self action:@selector(chatClick)];
+    NSMutableDictionary *attrs = [[NSMutableDictionary alloc] init];
+    attrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
+    [chatBtn setTitleTextAttributes:attrs forState:UIControlStateNormal];
+    [chatBtn setTitleTextAttributes:attrs forState:UIControlStateHighlighted];
+    self.navigationItem.rightBarButtonItem = chatBtn;
+    
+    self.navigationItem.title = @"消息";
+}
+
+
+
+- (void)chatClick
+{
+     CDLog(@"%s",__func__);
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
