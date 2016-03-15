@@ -20,9 +20,6 @@
     [super viewDidLoad];
     
     CDSearchBar *searchBar = [[CDSearchBar alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 35)];
-    [searchBar setBackground:[UIImage imageWithStretchableName:[UIImage imageNamed:@"searchbar_textfield_background"]]];
-//    searchBar.backgroundColor = [UIColor orangeColor];
-    searchBar.placeholder = @"大家都在搜";
     self.navigationItem.titleView = searchBar;
 
 //    //创建搜索框 不符合需求，只能自定义
