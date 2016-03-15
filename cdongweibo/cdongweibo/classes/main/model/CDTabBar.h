@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CDTabBar : UITabBar
-
+@interface CDTabBar : UIView
+//保存每个按钮对应的tabBarItem模型
+@property (nonatomic,strong) NSMutableArray *items;
 
 @end

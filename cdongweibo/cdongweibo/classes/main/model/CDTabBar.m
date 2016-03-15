@@ -7,6 +7,7 @@
 //
 
 #import "CDTabBar.h"
+#import "CDTabBarButton.h"
 
 @interface CDTabBar ()
 
@@ -37,6 +38,21 @@
 }
 
 
+
+- (void)setItems:(NSMutableArray *)items
+{
+    _items = items;
+    for (UITabBarItem *item in items) {
+        CDTabBarButton *button = [CDTabBarButton buttonWithType:UIButtonTypeCustom];
+        //按钮内容模型赋值
+        button.item = item;
+        [button setBackgroundColor:[UIColor orangeColor]];
+        
+        [self addSubview:button];
+    }
+}
+
+
 /**
  *  调整子控件的位置
  */
@@ -52,7 +68,6 @@
     //设置子控件的距离
     int i=0;
     for (UIView *tabBarBtton in self.subviews) {
-        if ([tabBarBtton isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
             //计算每个button 的frame
             if (i==2) {
                 i=3;
@@ -60,7 +75,6 @@
             CGFloat itemX = i*itemWidth;
             tabBarBtton.frame = CGRectMake(itemX, 0, itemWidth, barHeight);
             i++;
-        }
     }
     //设置中心按钮的位置
     self.centerBt.center = CGPointMake(barWidth/2, barHeight/2);
