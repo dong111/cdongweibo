@@ -91,7 +91,12 @@ static NSString * const reuseIdentifier = @"Cell";
 //    cell.frame = [UIScreen mainScreen].bounds;
 //    cell.backgroundColor = [UIColor grayColor];
     
-    [cell setImage:[UIImage imageNamed:[NSString stringWithFormat:@"new_feature_%ld",(indexPath.row+1)]]];
+    NSString *imageName = [NSString stringWithFormat:@"new_feature_%ld",(indexPath.row+1)];
+    if (SCREEN_WIDTH>400) {// 5 , 6 , 6 plus
+        imageName = [NSString stringWithFormat:@"new_feature_%ld-568h",(indexPath.row+1)];
+    }
+    [cell setImage:[UIImage imageNamed:imageName]];
+    [cell setIndexPath:indexPath count:4];
 //    NSLog(@"%@",cell);
     
     return cell;
