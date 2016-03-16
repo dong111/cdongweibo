@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "CDTabBarController.h"
+#import "CDNewFeatureController.h"
 /**
  *  launchScreen 代替之前的启动图片
  好处：
@@ -41,9 +42,16 @@
     self.window.backgroundColor = [UIColor yellowColor];
     
     //创建tabbarview为   root view
-    CDTabBarController *tabBarVc = [[CDTabBarController alloc] init];
+//    CDTabBarController *tabBarVc = [[CDTabBarController alloc] init];
+//    
+//    self.window.rootViewController = tabBarVc;
+    //UICollectionView must be initialized with a non-nil layout parameter'
+
     
-    self.window.rootViewController = tabBarVc;
+    CDNewFeatureController *featureVc = [[CDNewFeatureController alloc] init];
+    featureVc.collectionView.backgroundColor = [UIColor whiteColor];
+    
+    self.window.rootViewController = featureVc;
     
     [self.window makeKeyAndVisible];
     

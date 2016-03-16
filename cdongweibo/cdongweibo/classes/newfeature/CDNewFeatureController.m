@@ -7,6 +7,7 @@
 //
 
 #import "CDNewFeatureController.h"
+#import "CDNewFeatureCell.h"
 
 @interface CDNewFeatureController ()
 
@@ -34,7 +35,7 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerClass:[CDNewFeatureCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     
     
@@ -43,23 +44,22 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete implementation, return the number of sections
     return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of items
-    return 6;
+    return 4;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    CDNewFeatureCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     //cell大小由layout决定
 //    cell.frame = [UIScreen mainScreen].bounds;
-    cell.backgroundColor = [UIColor grayColor];
+//    cell.backgroundColor = [UIColor grayColor];
     
-    // Configure the cell
+    [cell setImage:[UIImage imageNamed:[NSString stringWithFormat:@"new_feature_%ld",(indexPath.row+1)]]];
+//    NSLog(@"%@",cell);
     
     return cell;
 }
