@@ -68,6 +68,9 @@
 
     [self setUpTabBar];
 }
+
+
+
 #pragma -mark切换控制器
 - (void)tabBar:(CDTabBar *)tabBar didClickButton:(NSInteger)index
 {

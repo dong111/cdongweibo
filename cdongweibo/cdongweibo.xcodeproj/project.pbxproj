@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0883B91C98DA3A00663E26 /* CDNewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0883B81C98DA3A00663E26 /* CDNewFeatureController.m */; };
+		2B0883BF1C98E2BC00663E26 /* CDNewFeatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0883BE1C98E2BC00663E26 /* CDNewFeatureCell.m */; };
 		2B3FB6811C916C6E00BE648C /* cdongweibo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB67F1C916C6E00BE648C /* cdongweibo.xcdatamodeld */; };
 		2B3FB6831C916C6E00BE648C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B3FB6821C916C6E00BE648C /* Assets.xcassets */; };
 		2B3FB6861C916C6E00BE648C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B3FB6841C916C6E00BE648C /* LaunchScreen.storyboard */; };
@@ -31,6 +33,12 @@
 		2BE1D04F1C964442001BEC33 /* CDPopMenuTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1D04E1C964442001BEC33 /* CDPopMenuTableController.m */; };
 		2BE1D0521C97886C001BEC33 /* CDNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1D0511C97886C001BEC33 /* CDNavigationController.m */; };
 		2BE1D0551C978F14001BEC33 /* CDSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1D0541C978F14001BEC33 /* CDSearchBar.m */; };
+		2BE1D05B1C97AE17001BEC33 /* CDTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1D05A1C97AE17001BEC33 /* CDTabBarButton.m */; };
+		2BE1D05E1C97C69D001BEC33 /* CDBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1D05D1C97C69D001BEC33 /* CDBadgeView.m */; };
+		2BE1D0671C98401F001BEC33 /* CDPhotoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1D0651C98401F001BEC33 /* CDPhotoTableViewController.m */; };
+		2BE1D0681C98401F001BEC33 /* CDPhotoTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BE1D0661C98401F001BEC33 /* CDPhotoTableViewController.xib */; };
+		2BE1D06C1C98696E001BEC33 /* CDPhoto2TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE1D06A1C98696E001BEC33 /* CDPhoto2TableViewController.m */; };
+		2BE1D06D1C98696E001BEC33 /* CDPhoto2TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BE1D06B1C98696E001BEC33 /* CDPhoto2TableViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +59,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B0883B71C98DA3A00663E26 /* CDNewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDNewFeatureController.h; path = ../CDNewFeatureController.h; sourceTree = "<group>"; };
+		2B0883B81C98DA3A00663E26 /* CDNewFeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDNewFeatureController.m; path = ../CDNewFeatureController.m; sourceTree = "<group>"; };
+		2B0883BD1C98E2BC00663E26 /* CDNewFeatureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDNewFeatureCell.h; sourceTree = "<group>"; };
+		2B0883BE1C98E2BC00663E26 /* CDNewFeatureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDNewFeatureCell.m; sourceTree = "<group>"; };
 		2B3FB6701C916C6E00BE648C /* cdongweibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cdongweibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B3FB6801C916C6E00BE648C /* cdongweibo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = cdongweibo.xcdatamodel; sourceTree = "<group>"; };
 		2B3FB6821C916C6E00BE648C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,8 +77,8 @@
 		2B3FB6AF1C91C8A100BE648C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2B3FB6BF1C92B3D400BE648C /* CDTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTabBarController.h; sourceTree = "<group>"; };
 		2B3FB6C01C92B3D400BE648C /* CDTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTabBarController.m; sourceTree = "<group>"; };
-		2B3FB6C21C92B3D400BE648C /* CDTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTabBar.h; sourceTree = "<group>"; };
-		2B3FB6C31C92B3D400BE648C /* CDTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTabBar.m; sourceTree = "<group>"; };
+		2B3FB6C21C92B3D400BE648C /* CDTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDTabBar.h; path = ../model/CDTabBar.h; sourceTree = "<group>"; };
+		2B3FB6C31C92B3D400BE648C /* CDTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDTabBar.m; path = ../model/CDTabBar.m; sourceTree = "<group>"; };
 		2B3FB6C71C92B3D400BE648C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2B3FB6C81C92B3D400BE648C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2B3FB6CA1C92B3D400BE648C /* UIImage+CDImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CDImage.h"; sourceTree = "<group>"; };
@@ -100,6 +112,16 @@
 		2BE1D0531C978F14001BEC33 /* CDSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDSearchBar.h; sourceTree = "<group>"; };
 		2BE1D0541C978F14001BEC33 /* CDSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDSearchBar.m; sourceTree = "<group>"; };
 		2BE1D0561C9790C7001BEC33 /* CDUitiity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUitiity.h; sourceTree = "<group>"; };
+		2BE1D0591C97AE17001BEC33 /* CDTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTabBarButton.h; sourceTree = "<group>"; };
+		2BE1D05A1C97AE17001BEC33 /* CDTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTabBarButton.m; sourceTree = "<group>"; };
+		2BE1D05C1C97C69D001BEC33 /* CDBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDBadgeView.h; sourceTree = "<group>"; };
+		2BE1D05D1C97C69D001BEC33 /* CDBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDBadgeView.m; sourceTree = "<group>"; };
+		2BE1D0641C98401F001BEC33 /* CDPhotoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPhotoTableViewController.h; sourceTree = "<group>"; };
+		2BE1D0651C98401F001BEC33 /* CDPhotoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPhotoTableViewController.m; sourceTree = "<group>"; };
+		2BE1D0661C98401F001BEC33 /* CDPhotoTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDPhotoTableViewController.xib; sourceTree = "<group>"; };
+		2BE1D0691C98696E001BEC33 /* CDPhoto2TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPhoto2TableViewController.h; sourceTree = "<group>"; };
+		2BE1D06A1C98696E001BEC33 /* CDPhoto2TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPhoto2TableViewController.m; sourceTree = "<group>"; };
+		2BE1D06B1C98696E001BEC33 /* CDPhoto2TableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDPhoto2TableViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +150,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B0883B61C98DA2A00663E26 /* newfeature */ = {
+			isa = PBXGroup;
+			children = (
+				2B0883BA1C98DB0700663E26 /* controller */,
+				2B0883BB1C98DB0700663E26 /* model */,
+				2B0883BC1C98DB0700663E26 /* view */,
+			);
+			path = newfeature;
+			sourceTree = "<group>";
+		};
+		2B0883BA1C98DB0700663E26 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				2B0883B71C98DA3A00663E26 /* CDNewFeatureController.h */,
+				2B0883B81C98DA3A00663E26 /* CDNewFeatureController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		2B0883BB1C98DB0700663E26 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		2B0883BC1C98DB0700663E26 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				2B0883BD1C98E2BC00663E26 /* CDNewFeatureCell.h */,
+				2B0883BE1C98E2BC00663E26 /* CDNewFeatureCell.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		2B3FB6671C916C6E00BE648C = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +247,7 @@
 		2B3FB6B41C92B3D400BE648C /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				2B0883B61C98DA2A00663E26 /* newfeature */,
 				2B3FB6B51C92B3D400BE648C /* discover */,
 				2B3FB6B91C92B3D400BE648C /* home */,
 				2B3FB6BD1C92B3D400BE648C /* main */,
@@ -252,6 +310,12 @@
 				2B3FB6D71C92C0EE00BE648C /* CDHomeController.m */,
 				2BE1D04D1C964442001BEC33 /* CDPopMenuTableController.h */,
 				2BE1D04E1C964442001BEC33 /* CDPopMenuTableController.m */,
+				2BE1D0641C98401F001BEC33 /* CDPhotoTableViewController.h */,
+				2BE1D0651C98401F001BEC33 /* CDPhotoTableViewController.m */,
+				2BE1D0661C98401F001BEC33 /* CDPhotoTableViewController.xib */,
+				2BE1D0691C98696E001BEC33 /* CDPhoto2TableViewController.h */,
+				2BE1D06A1C98696E001BEC33 /* CDPhoto2TableViewController.m */,
+				2BE1D06B1C98696E001BEC33 /* CDPhoto2TableViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -300,8 +364,6 @@
 		2B3FB6C11C92B3D400BE648C /* model */ = {
 			isa = PBXGroup;
 			children = (
-				2B3FB6C21C92B3D400BE648C /* CDTabBar.h */,
-				2B3FB6C31C92B3D400BE648C /* CDTabBar.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -309,6 +371,12 @@
 		2B3FB6C41C92B3D400BE648C /* view */ = {
 			isa = PBXGroup;
 			children = (
+				2B3FB6C21C92B3D400BE648C /* CDTabBar.h */,
+				2B3FB6C31C92B3D400BE648C /* CDTabBar.m */,
+				2BE1D0591C97AE17001BEC33 /* CDTabBarButton.h */,
+				2BE1D05A1C97AE17001BEC33 /* CDTabBarButton.m */,
+				2BE1D05C1C97C69D001BEC33 /* CDBadgeView.h */,
+				2BE1D05D1C97C69D001BEC33 /* CDBadgeView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -513,6 +581,8 @@
 			files = (
 				2B3FB6861C916C6E00BE648C /* LaunchScreen.storyboard in Resources */,
 				2B3FB6831C916C6E00BE648C /* Assets.xcassets in Resources */,
+				2BE1D06D1C98696E001BEC33 /* CDPhoto2TableViewController.xib in Resources */,
+				2BE1D0681C98401F001BEC33 /* CDPhotoTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,17 +613,23 @@
 				2BE1D0421C959B83001BEC33 /* CDTitleButton.m in Sources */,
 				2BE1D0521C97886C001BEC33 /* CDNavigationController.m in Sources */,
 				2B3FB6DE1C92C20D00BE648C /* CDMessageController.m in Sources */,
+				2BE1D05B1C97AE17001BEC33 /* CDTabBarButton.m in Sources */,
 				2BE1D0391C957D8B001BEC33 /* UIBarButtonItem+BarItem.m in Sources */,
 				2B3FB6D31C92B3D400BE648C /* AppDelegate.m in Sources */,
 				2BE1D0481C95B5A4001BEC33 /* CDCover.m in Sources */,
+				2BE1D05E1C97C69D001BEC33 /* CDBadgeView.m in Sources */,
 				2BE1D04F1C964442001BEC33 /* CDPopMenuTableController.m in Sources */,
+				2B0883B91C98DA3A00663E26 /* CDNewFeatureController.m in Sources */,
 				2B3FB6D21C92B3D400BE648C /* CDTabBar.m in Sources */,
 				2B3FB6D41C92B3D400BE648C /* UIImage+CDImage.m in Sources */,
 				2B3FB6D11C92B3D400BE648C /* CDTabBarController.m in Sources */,
 				2B3FB6D81C92C0EE00BE648C /* CDHomeController.m in Sources */,
 				2BE1D0451C95A50E001BEC33 /* UIView+Frame.m in Sources */,
+				2BE1D0671C98401F001BEC33 /* CDPhotoTableViewController.m in Sources */,
 				2B3FB6E41C92C26800BE648C /* CDDiscoverController.m in Sources */,
+				2BE1D06C1C98696E001BEC33 /* CDPhoto2TableViewController.m in Sources */,
 				2B3FB6D51C92B3D400BE648C /* main.m in Sources */,
+				2B0883BF1C98E2BC00663E26 /* CDNewFeatureCell.m in Sources */,
 				2B3FB6811C916C6E00BE648C /* cdongweibo.xcdatamodeld in Sources */,
 				2BE1D0551C978F14001BEC33 /* CDSearchBar.m in Sources */,
 			);
