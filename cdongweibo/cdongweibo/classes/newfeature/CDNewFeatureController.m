@@ -8,8 +8,11 @@
 
 #import "CDNewFeatureController.h"
 #import "CDNewFeatureCell.h"
+#import "CDUitiity.h"
 
 @interface CDNewFeatureController ()
+
+@property (nonatomic,strong) UIPageControl *pageController;
 
 @end
 
@@ -36,10 +39,40 @@ static NSString * const reuseIdentifier = @"Cell";
     [super viewDidLoad];
     
     [self.collectionView registerClass:[CDNewFeatureCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    //分页
+    self.collectionView.pagingEnabled = YES;
+    self.collectionView.bounces = NO;//取消弹簧效果
+    self.collectionView.showsHorizontalScrollIndicator = NO;//滚动条indicator
     
+    //添加PageController
+    [self setUPPageController];
+}
+//添加PageController
+- (void) setUPPageController
+{
+    //添加pageController 只需要添加位置 不需要设置代销
+    UIPageControl *pageController = [[UIPageControl alloc]init];
+    //参数设置
+    pageController.numberOfPages = 4;//多少页
+    //设置indicator（指示器的颜色-->滚动的点）
+    pageController.pageIndicatorTintColor = [UIColor blackColor];
+    pageController.currentPageIndicatorTintColor  = [UIColor redColor];
     
+    //通过center设置位置
+    pageController.center = CGPointMake(self.view.width*0.5, self.view.height-20);
+    self.pageController = pageController;
+    [self.view addSubview:pageController];
+}
+
+#pragma mark UIScrollViewDelegate 方法实现
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    //获取当前的偏移量，计算单前第几页
+   int page =  scrollView.contentOffset.x / scrollView.bounds.size.width +0.5;
+    self.pageController.currentPage = page;
     
 }
+
 
 #pragma mark <UICollectionViewDataSource>
 
