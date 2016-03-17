@@ -11,6 +11,8 @@
 #import "CDUserService.h"
 #import "CDStatus.h"
 #import "NSString+utility.h"
+#import "CDStatusResult.h"
+#import "CDStatusParams.h"
 
 #define FRIENDS_TIME_URL @"https://api.weibo.com/2/statuses/friends_timeline.json"
 
@@ -25,21 +27,19 @@
  */
 + (void) weiboGetNewInfosFromSinceId:(NSString *)sinceId sucess:(void(^)(NSArray *statuses))sucess failure:(void(^)(NSError *error)) failure
 {
-    
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"access_token"] = [CDUserService user].access_token;
+    CDStatusParams *params = [[CDStatusParams alloc] init];
+    params.access_token = [CDUserService user].access_token;
     //    since_id	false	int64	若指定此参数，则返回ID比since_id大的微博（即比since_id时间晚的微博），默认为0。
     if (![NSString isBlankString:sinceId]) {
-        params[@"since_id"] = sinceId;
+        params.since_id= sinceId;
     }
     
-    [CDHttpService GET:FRIENDS_TIME_URL parameters:params success:^(id responseObject) {
+    [CDHttpService GET:FRIENDS_TIME_URL parameters:params.mj_keyValues success:^(id responseObject) {
         //请求成功
-        NSArray *statuses = responseObject[@"statuses"];
-        NSArray *weibostatus = [CDStatus mj_objectArrayWithKeyValuesArray:statuses];
+        CDStatusResult *result = [CDStatusResult mj_objectWithKeyValues:responseObject];
         //        CDLog(@"加载了老数据数量:%ld",weibostatus.count);
         if (sucess) {
-            sucess(weibostatus);
+            sucess(result.statuses);
         }
         
     } failure:^(NSError *error) {
@@ -59,19 +59,19 @@
  */
 + (void) weiboGetOldInfosFromMaxId:(NSString *)maxId sucess:(void(^)(NSArray *statuses))sucess failure:(void(^)(NSError *error)) failure
 {
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"access_token"] = [CDUserService user].access_token;
+    CDStatusParams *params = [[CDStatusParams alloc] init];
+
+    params.access_token = [CDUserService user].access_token;
     //    since_id	false	int64	若指定此参数，则返回ID比since_id大的微博（即比since_id时间晚的微博），默认为0。
     if (![NSString isBlankString:maxId]) {
-        params[@"max_id"] = maxId;
+        params.max_id= maxId;
     }
     
-    [CDHttpService GET:FRIENDS_TIME_URL parameters:params success:^(id responseObject) {
+    [CDHttpService GET:FRIENDS_TIME_URL parameters:params.mj_keyValues success:^(id responseObject) {
         //请求成功
-        NSArray *statuses = responseObject[@"statuses"];
-        NSArray *weibostatus = [CDStatus mj_objectArrayWithKeyValuesArray:statuses];
+        CDStatusResult *result = [CDStatusResult mj_objectWithKeyValues:responseObject];
         if (sucess) {
-            sucess(weibostatus);
+            sucess(result.statuses);
         }
         
     } failure:^(NSError *error) {
