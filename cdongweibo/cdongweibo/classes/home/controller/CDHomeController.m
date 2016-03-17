@@ -14,12 +14,12 @@
 #import "CDPopMenuTableController.h"
 #import "CDPhotoTableViewController.h"
 #import "CDUitiity.h"
-#import "AFNetworking.h"
-#import "CDUserService.h"
 #import "CDStatus.h"
 #import "MJExtension.h"
 #import "UIImageView+WebCache.h"
 #import "MJRefresh.h"
+#import "CDWeiBoTopService.h"
+
 
 @interface CDHomeController () <CDCoverDelegate>
 @property (nonatomic,weak) CDTitleButton *titleBtn;
@@ -64,71 +64,54 @@
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(weiboGetOldInfos)];
     
 }
+
+
+
+
 #pragma mark 获取旧微博数据
 - (void) weiboGetOldInfos
 {
-    NSString *friendsTimeUrl = @"https://api.weibo.com/2/statuses/friends_timeline.json";
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"access_token"] = [CDUserService user].access_token;
-    // max_id	false	int64	若指定此参数，则返回ID小于或等于max_id的微博，默认为0。
+    NSString *maxId = nil;
     if (self.weiboStatuses.count>0) {
         CDStatus *lastStatus = [self.weiboStatuses lastObject];
-        long long  maxId = lastStatus.idstr.longLongValue -1;
-        params[@"max_id"] = [NSString stringWithFormat:@"%lld",maxId];
+        long long  maxIdLong = lastStatus.idstr.longLongValue -1;
+        maxId = [NSString stringWithFormat:@"%lld",maxIdLong];
     }
     
-    [[AFHTTPRequestOperationManager manager] GET:friendsTimeUrl parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //请求成功
-        NSArray *statuses = responseObject[@"statuses"];
-        
-        NSArray *weibostatus = [CDStatus mj_objectArrayWithKeyValuesArray:statuses];
-//        CDLog(@"加载了老数据数量:%ld",weibostatus.count);
-        [self.weiboStatuses addObjectsFromArray:weibostatus];
-        
-        
+    [CDWeiBoTopService weiboGetOldInfosFromMaxId:maxId sucess:^(NSArray *statuses) {
+        CDLog(@"加载了老数据数量:%ld",statuses.count);
+        [self.weiboStatuses addObjectsFromArray:statuses];
         [self.tableView reloadData];
         [self.tableView.mj_footer endRefreshing];
-        //        CDStatus *status =self.weiboStatuses[0];
-        //        NSLog(@"%@,%@",status.pic_urls,status.user);
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         //请求失败
         NSLog(@"%@",error);
         [self.tableView.mj_footer endRefreshing];
     }];
+    
 }
 #pragma mark 获取最新微博数据
 - (void) weiboGetNewInfos
 {
-    NSString *friendsTimeUrl = @"https://api.weibo.com/2/statuses/friends_timeline.json";
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"access_token"] = [CDUserService user].access_token;
 //    since_id	false	int64	若指定此参数，则返回ID比since_id大的微博（即比since_id时间晚的微博），默认为0。
+    NSString *sinceId = nil;
     if (self.weiboStatuses.count>0) {
         CDStatus *preStatus = self.weiboStatuses[0];
-        params[@"since_id"] = preStatus.idstr;
+        sinceId = preStatus.idstr;
     }
     
-    [[AFHTTPRequestOperationManager manager] GET:friendsTimeUrl parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-       //请求成功
-        NSArray *statuses = responseObject[@"statuses"];
-        
-        NSArray *weibostatus = [CDStatus mj_objectArrayWithKeyValuesArray:statuses];
-//        CDLog(@"加载了数据数量:%ld",weibostatus.count);
-        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0,weibostatus.count)];
-        [self.weiboStatuses insertObjects:weibostatus atIndexes:indexSet];
-        
-        
+    [CDWeiBoTopService weiboGetNewInfosFromSinceId:sinceId sucess:^(NSArray *statuses) {
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0,statuses.count)];
+        [self.weiboStatuses insertObjects:statuses atIndexes:indexSet];
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
-//        CDStatus *status =self.weiboStatuses[0];
-//        NSLog(@"%@,%@",status.pic_urls,status.user);
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         //请求失败
         NSLog(@"%@",error);
-         [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_header endRefreshing];
     }];
+    
+    
 }
 
 
