@@ -10,10 +10,14 @@
 #import "CDUitiity.h"
 #import "AFNetworking.h"
 #import "MBProgressHUD+CD.h"
-
+#import "CDUser.h"
+#import "CDUserService.h"
+#import "CDRootService.h"
 
 #define CLIENT_ID @"2355429710"
 #define REDIRECT_URL @"http://www.baidu.com"
+
+
 
 @interface CDAutherViewController () <UIWebViewDelegate>
 
@@ -98,7 +102,12 @@
     
     [mgr POST:baseUrl parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSLog(@"%@",responseObject);
+        CDUser *user = [CDUser userWithDic:responseObject];
+        //归档设置
+        [CDUserService saveUser:user];
+        //跳转到选择跟控制器
+        [CDRootService chooseRootView:CDKeyWindow];
+//        NSLog(@"%@",responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@",error);
     }];
