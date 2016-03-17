@@ -14,14 +14,30 @@
 #import "CDPopMenuTableController.h"
 #import "CDPhotoTableViewController.h"
 #import "CDUitiity.h"
+#import "AFNetworking.h"
+#import "CDUserService.h"
+#import "CDStatus.h"]
+
+#import "MJExtension.h"
+#import "UIImageView+WebCache.h"
 
 @interface CDHomeController () <CDCoverDelegate>
 @property (nonatomic,weak) CDTitleButton *titleBtn;
 //分类菜单table
 @property (nonatomic,strong) CDPopMenuTableController *popMenuTable;
+
+@property (nonatomic,strong) NSMutableArray *weiboStatuses;
 @end
 
 @implementation CDHomeController
+
+- (NSMutableArray *)weiboStatuses
+{
+    if (_weiboStatuses==nil) {
+        _weiboStatuses = [NSMutableArray array];
+    }
+    return _weiboStatuses;
+}
 
 - (CDPopMenuTableController *)popMenuTable
 {
@@ -35,7 +51,34 @@
     [super viewDidLoad];
     //导航栏设置
     [self setUpNavigation];
+    
+    [self weiboGetNewInfos];
+    
 }
+#pragma mark 获取旧微博数据
+
+#pragma mark 获取最新微博数据
+- (void) weiboGetNewInfos
+{
+    NSString *friendsTimeUrl = @"https://api.weibo.com/2/statuses/friends_timeline.json";
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = [CDUserService user].access_token;
+    
+    [[AFHTTPRequestOperationManager manager] GET:friendsTimeUrl parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+       //请求成功
+        NSArray *statuses = responseObject[@"statuses"];
+        self.weiboStatuses = [CDStatus mj_objectArrayWithKeyValuesArray:statuses];
+        [self.tableView reloadData];
+        
+//        CDStatus *status =self.weiboStatuses[0];
+//        NSLog(@"%@,%@",status.pic_urls,status.user);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //请求失败
+        NSLog(@"%@",error);
+    }];
+}
+
 
 #pragma -mark设置导航栏
 - (void) setUpNavigation
@@ -120,23 +163,33 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 0;
+    return self.weiboStatuses.count;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    NSString *requerId = @"homeCell";
     
-    // Configure the cell...
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:requerId];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:requerId];
+    }
+    CDStatus *status = self.weiboStatuses[indexPath.row];
+    cell.textLabel.text = status.user.name;
+    [cell.imageView sd_setImageWithURL:status.user.profile_image_url placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+    cell.textLabel.text = status.text;
+    
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
