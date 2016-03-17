@@ -7,6 +7,11 @@
 //
 
 #import "CDUser.h"
+
+#define CDUserToken @"token"
+#define CDUserId @"uid"
+#define CDUserExpires @"expires"
+
 /**
  *  KVC底层实现：遍历字典里面的所有key(uid)
  一个一个获取key，会去模型里面查找setKey:setUid,直接调用这个方法，赋值setUid(obj)
@@ -24,5 +29,24 @@
     
     return user;
 }
+
+#pragma mark NScoding 实现对象归档解档方法
+//归档时候调用  告诉系统哪个属性需要归档  如何归档
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:_access_token forKey:CDUserToken];
+    [aCoder encodeObject:_uid forKey:CDUserId];
+    [aCoder encodeObject:_expires_in forKey:CDUserExpires];
+}
+//解档时候调用  告诉系统哪个属性需要解档  如何解档
+- (id)awakeAfterUsingCoder:(NSCoder *)aDecoder
+{
+    //解档后一定要记得赋值给属性
+    _access_token = [aDecoder decodeObjectForKey:CDUserToken];
+    _uid = [aDecoder decodeObjectForKey:CDUserId];
+    _expires_in = [aDecoder decodeObjectForKey:CDUserExpires];
+    return self;
+}
+
 
 @end

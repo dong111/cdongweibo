@@ -16,7 +16,7 @@
  }
  
  */
-@interface CDUser : NSObject
+@interface CDUser : NSObject<NSCoding>
 /**
  *  获取数据访问时候的令牌
  */
