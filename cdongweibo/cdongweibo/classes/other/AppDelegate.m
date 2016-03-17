@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "CDTabBarController.h"
 #import "CDNewFeatureController.h"
+#import "CDAutherViewController.h"
 /**
  *  launchScreen 代替之前的启动图片
  好处：
@@ -20,6 +21,8 @@
  
  程序中碰见模拟器尺寸不对，马上去找启动图片，默认模拟器的尺寸由启动图片决定。
  */
+
+#define CDVersionKey @"appVersion"
 
 @interface AppDelegate ()
 
@@ -46,15 +49,37 @@
 //    
 //    self.window.rootViewController = tabBarVc;
     //UICollectionView must be initialized with a non-nil layout parameter'
+    
+    //新浪应用授权
+    CDAutherViewController *autherVc = [[CDAutherViewController alloc] init];
+    self.window.rootViewController = autherVc;
+//    [self chooseRootView];
 
-    
-    CDNewFeatureController *featureVc = [[CDNewFeatureController alloc] init];
-    featureVc.collectionView.backgroundColor = [UIColor whiteColor];
-    
-    self.window.rootViewController = featureVc;
-    
     [self.window makeKeyAndVisible];
     
+}
+
+- (void) chooseRootView
+{
+    //获取当前版本
+    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
+    //2.获取上次版本号，存储在preferces中
+    NSString *lastVersion = [[NSUserDefaults standardUserDefaults]stringForKey:CDVersionKey];;
+    
+    if ([lastVersion isEqualToString:currentVersion]) {
+        //不用显示新特效
+        //创建tabbarview为   root view
+        CDTabBarController *tabBarVc = [[CDTabBarController alloc] init];
+        self.window.rootViewController = tabBarVc;
+        //UICollectionView must be initialized with a non-nil layout parameter'
+    }else{
+        CDNewFeatureController *featureVc = [[CDNewFeatureController alloc] init];
+        featureVc.collectionView.backgroundColor = [UIColor whiteColor];
+        self.window.rootViewController = featureVc;
+        //存储当前版本信息
+        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:CDVersionKey];
+    }
+
 }
 
 
