@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class CDUser;
+#import "CDUser.h"
 
 @interface CDUserService : NSObject
 

@@ -9,7 +9,7 @@
 #import "CDUserService.h"
 
 
-#define CD_USER_ARCHIVE_FILE [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingString:@"user.data"]
+#define CD_USER_ARCHIVE_FILE [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"user.data"]
 
 @implementation CDUserService
 
@@ -37,8 +37,11 @@ static CDUser *_user;
 {
     if (_user== nil) {
         _user =[NSKeyedUnarchiver unarchiveObjectWithFile:CD_USER_ARCHIVE_FILE];
-        //用户信息是否过期
+        //用户信息是否过期 如果过期直接放回nil 否则放回获取用户信息
         
+        if ([[NSDate date] compare:_user.expires_date] ==NSOrderedDescending) {
+            return nil;
+        }
     }
     return _user;
 }
