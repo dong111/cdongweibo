@@ -10,6 +10,7 @@
 #import "CDAutherViewController.h"
 #import "CDRootService.h"
 #import "CDUserService.h"
+#import "UIImageView+WebCache.h"
 /**
  *  launchScreen 代替之前的启动图片
  好处：
@@ -63,7 +64,14 @@
     
 }
 
-
+//接受到内存警告时候调用
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
+{
+    //停止所有图片下载
+    [[SDWebImageManager sharedManager] cancelAll];
+    //删除图片缓存
+    [[SDWebImageManager sharedManager].imageCache clearMemory];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
