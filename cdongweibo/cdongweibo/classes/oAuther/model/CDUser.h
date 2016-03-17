@@ -25,6 +25,12 @@
  *  access_token的生命周期
  */
 @property (nonatomic,copy) NSString *expires_in;
+
+/**
+ *  用户信息过期日期 过期时间 = 当前保存时间+有效期
+ */
+@property (nonatomic,strong) NSDate *expires_date;
+
 /**
  *  access_token的生命周期 已经废弃
  */
