@@ -9,6 +9,8 @@
 #import "CDAutherViewController.h"
 #import "CDUitiity.h"
 #import "AFNetworking.h"
+#import "MBProgressHUD+CD.h"
+
 
 #define CLIENT_ID @"2355429710"
 #define REDIRECT_URL @"http://www.baidu.com"
@@ -41,6 +43,7 @@
     [webView loadRequest:request];
     
 }
+
 
 
 
@@ -100,8 +103,22 @@
         NSLog(@"%@",error);
     }];
 }
-
-
+//网页开始加载
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    //提示用户加载
+    [MBProgressHUD showMessage:@"正在加载……"];
+}
+//网页完成加载
+- (void) webViewDidFinishLoad:(UIWebView *)webView
+{
+    [MBProgressHUD hideHUD];
+}
+//网页加载失败
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+     [MBProgressHUD hideHUD];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
