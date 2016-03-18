@@ -20,8 +20,8 @@
     _badgeValue = badgeValue;
 //    self.titleLabel.text = _badgeValue;
     [self setTitle:badgeValue forState:UIControlStateNormal];
-    self.hidden = [NSString isBlankString:_badgeValue];
-    
+    self.hidden = [NSString isBlankString:_badgeValue]
+                    ||[_badgeValue isEqualToString:@"0"];
     //计算文字图片大小
     CGSize textSize = [badgeValue sizeWithFont:CDBadgeViewFont];
 //    CDLog(@"%f---%f",textSize.width,self.width);
