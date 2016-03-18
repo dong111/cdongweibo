@@ -15,7 +15,13 @@
 
 @implementation CDUserService
 
-
+/**
+ *  通过appkey获取用户信息accessCode
+ *
+ *  @param code    appkey
+ *  @param success 成功时候回调
+ *  @param failure 失败时候回调
+ */
 +(void)accessCodeWithCode:(NSString *)code success:(void (^)())success failure:(void (^)(NSError *error))failure
 {
 
@@ -40,6 +46,32 @@
         }
     }];
     
+}
+
+
+/**
+ *  获取用户未读取通知
+ *
+ *  @param success 成功时候回调
+ *  @param failure  失败时候回调
+ */
++ (void) unreadCountWithSuccess:(void(^)(CDUnReadCountResult *result)) success failure:(void(^)(NSError *error)) failure
+{
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"uid"] = [CDUserService user].uid;
+    params[@"access_token"] = [CDUserService user].access_token;
+    
+    [CDHttpService GET:CD_UNREAD_COUNT_URL parameters:params success:^(id responseObject) {
+       CDUnReadCountResult *result = [CDUnReadCountResult mj_objectWithKeyValues:responseObject];
+        if (success) {
+            success(result);
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
 }
 
 //类方法一般使用静态变量代替成员属性

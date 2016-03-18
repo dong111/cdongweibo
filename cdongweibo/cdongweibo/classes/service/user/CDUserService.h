@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "CDUser.h"
+#import "CDUnReadCountResult.h"
 #import "CDWeiBoSystemParams.h"
+#import "MJExtension.h"
 
 @interface CDUserService : NSObject
 /**
@@ -32,6 +34,17 @@
  *  @param failure 失败时候回调
  */
 + (void) accessCodeWithCode:(NSString *)code success:(void(^)()) success failure:(void(^)(NSError *error)) failure;
+
+
+/**
+ *  获取用户未读取通知
+ *
+ *  @param success 成功时候回调
+ *  @param failure  失败时候回调
+ */
++ (void) unreadCountWithSuccess:(void(^)(CDUnReadCountResult *result)) success failure:(void(^)(NSError *error)) failure;
+
+
 
 
 

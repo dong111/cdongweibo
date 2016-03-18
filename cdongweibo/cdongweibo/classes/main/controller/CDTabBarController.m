@@ -14,11 +14,17 @@
 #import "CDProfileController.h"
 #import "CDDiscoverController.h"
 #import "CDNavigationController.h"
+#import "CDUserService.h"
 
 @interface CDTabBarController ()<CDTabBarButtonDelegate>
 
 
 @property (nonatomic,strong) NSMutableArray *barItems;
+
+@property (nonatomic,weak) CDHomeController *homeVc ;
+@property (nonatomic,weak) CDMessageController *messageVc ;
+@property (nonatomic,weak) CDDiscoverController *discoverVc ;
+@property (nonatomic,weak) CDProfileController *profileVc ;
 
 @end
 
@@ -67,8 +73,30 @@
     
 
     [self setUpTabBar];
+#warning 这个地方使用的是主进程
+    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(unreadCountGet) userInfo:nil repeats:YES];
+    
+//    [NSTimer timerWithTimeInterval:2 target:self selector:@selector(unreadCountGet) userInfo:nil repeats:YES];
+
 }
 
+#pragma mark  获取用户消息数badge
+- (void) unreadCountGet
+{
+//    NSLog(@"%@",[NSThread currentThread]);
+    [CDUserService unreadCountWithSuccess:^(CDUnReadCountResult *result) {
+        //设置微博未读数
+        self.homeVc.tabBarItem.badgeValue =[NSString stringWithFormat:@"%d", result.status];
+        //设置消息未读数
+        self.messageVc.tabBarItem.badgeValue =[NSString stringWithFormat:@"%d", result.messageCount];
+        //我的粉丝
+        self.profileVc.tabBarItem.badgeValue =[NSString stringWithFormat:@"%d", result.follower];
+        
+        
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
+}
 
 
 #pragma -mark切换控制器
@@ -117,22 +145,24 @@
     //创建自控制器
     //首页
     CDHomeController *home = [[CDHomeController alloc] init];
-    home.tabBarItem.badgeValue = @"11";
     [self setUpOneChildViewController:home image:[UIImage imageAlwaysOriginalName:@"tabbar_home"] selectedImage:[UIImage imageAlwaysOriginalName:@"tabbar_home_selected"] title:@"首页"];
+    _homeVc = home;
 //    home.view.backgroundColor = [UIColor redColor];
     //消息
     CDMessageController *message = [[CDMessageController alloc] init];
     [self setUpOneChildViewController:message image:[UIImage imageAlwaysOriginalName:@"tabbar_message_center"] selectedImage:[UIImage imageAlwaysOriginalName:@"tabbar_message_center_selected"] title:@"消息"];
 //    message.view.backgroundColor = [UIColor blueColor];
-
+    _messageVc = message;
     //发现
     CDDiscoverController *discover = [[CDDiscoverController alloc] init];
     [self setUpOneChildViewController:discover image:[UIImage imageAlwaysOriginalName:@"tabbar_discover"] selectedImage:[UIImage imageAlwaysOriginalName:@"tabbar_discover_selected"] title:@"发现"];
+     _discoverVc = discover;
 //    discover.view.backgroundColor = [UIColor purpleColor];
 
     //我
     CDProfileController *profile = [[CDProfileController alloc] init];
     [self setUpOneChildViewController:profile image:[UIImage imageAlwaysOriginalName:@"tabbar_profile"] selectedImage:[UIImage imageAlwaysOriginalName:@"tabbar_profile_selected"] title:@"我"];
+     _profileVc = profile;
 //    profile.view.backgroundColor = [UIColor lightGrayColor];
 
 }
