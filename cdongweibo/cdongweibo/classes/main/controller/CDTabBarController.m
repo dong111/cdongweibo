@@ -91,8 +91,8 @@
         self.messageVc.tabBarItem.badgeValue =[NSString stringWithFormat:@"%d", result.messageCount];
         //我的粉丝
         self.profileVc.tabBarItem.badgeValue =[NSString stringWithFormat:@"%d", result.follower];
-        
-        
+        //设置应用程序所有未读取消息数组
+        [UIApplication sharedApplication].applicationIconBadgeNumber = result.totalCount;
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
     }];

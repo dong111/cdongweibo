@@ -34,8 +34,13 @@
     
     [self initWindow];
     
+    //注册通知
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge categories:nil];
+    [application registerUserNotificationSettings:settings];
+    
     return YES;
 }
+
 
 - (void) initWindow
 {
