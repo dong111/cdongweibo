@@ -24,4 +24,19 @@
     success:(void (^)(id responseObject))success
     failure:(void (^)(NSError *error))failure;
 
+
+
+
+/**
+ *  post请求 减少对AFNetworking 的依赖
+ *
+ *  @param URLString  请求头
+ *  @param parameters 请求参数
+ *  @param success    请求成功处理block
+ *  @param failure    请求失败处理block
+ */
++ (void)POST:(NSString *)URLString parameters:(id)parameters
+    success:(void (^)(id responseObject))success
+    failure:(void (^)(NSError *error))failure;
+
 @end
