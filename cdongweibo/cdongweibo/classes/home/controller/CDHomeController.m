@@ -79,7 +79,7 @@
     }
     
     [CDWeiBoTopService weiboGetOldInfosFromMaxId:maxId sucess:^(NSArray *statuses) {
-        CDLog(@"加载了老数据数量:%ld",statuses.count);
+//        CDLog(@"加载了老数据数量:%ld",statuses.count);
         [self.weiboStatuses addObjectsFromArray:statuses];
         [self.tableView reloadData];
         [self.tableView.mj_footer endRefreshing];

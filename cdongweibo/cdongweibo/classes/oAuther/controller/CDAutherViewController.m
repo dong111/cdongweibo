@@ -14,11 +14,6 @@
 #import "CDUserService.h"
 #import "CDRootService.h"
 
-#define CLIENT_ID @"2355429710"
-#define REDIRECT_URL @"http://www.baidu.com"
-
-
-
 @interface CDAutherViewController () <UIWebViewDelegate>
 
 @end
@@ -31,14 +26,8 @@
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:webView];
     
-    
-    
     //构造请求: https://api.weibo.com/oauth2/authorize?client_id=2355429710&redirect_uri=http://www.baidu.com
-
-    
-    NSString *baseUrl =@"https://api.weibo.com/oauth2/authorize";
-    
-    NSString *url =[NSString stringWithFormat:@"%@?client_id=%@&redirect_uri=%@",baseUrl,CLIENT_ID,REDIRECT_URL];
+    NSString *url =[NSString stringWithFormat:@"%@?client_id=%@&redirect_uri=%@",CD_AUTHORIZE_URL,CD_CLIENT_ID,CD_REDIRECT_URL];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     
@@ -74,43 +63,17 @@
     
     return YES;
 }
-/**
- 必选	类型及范围	说明
- client_id	true	string	申请应用时分配的AppKey。
- client_secret	true	string	申请应用时分配的AppSecret。
- grant_type	true	string	请求的类型，填写authorization_code
- 
- grant_type为authorization_code时
- 必选	类型及范围	说明
- code	true	string	调用authorize获得的code值。
- redirect_uri	true	string	回调地址，需需与注册应用里的回调地址一致。
- */
+
 //换取accessToken
 - (void) accessCodeWithCode:(NSString *)code
 {
-    NSString *baseUrl = @"https://api.weibo.com/oauth2/access_token";
-    
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"client_id"] = CLIENT_ID;
-    params[@"client_secret"] = @"4d9e6693f9fa7cfa3b44a197d9698fd1";
-    params[@"grant_type"] = @"authorization_code";
-    params[@"code"] = code;
-    params[@"redirect_uri"] = REDIRECT_URL;
-    
-    
-    [mgr POST:baseUrl parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        CDUser *user = [CDUser userWithDic:responseObject];
-        //归档设置
-        [CDUserService saveUser:user];
+    [CDUserService accessCodeWithCode:code success:^{
         //跳转到选择跟控制器
         [CDRootService chooseRootView:CDKeyWindow];
-//        NSLog(@"%@",responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         NSLog(@"%@",error);
     }];
+    
 }
 //网页开始加载
 - (void)webViewDidStartLoad:(UIWebView *)webView
