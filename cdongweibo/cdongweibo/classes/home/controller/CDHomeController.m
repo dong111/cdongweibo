@@ -19,6 +19,7 @@
 #import "UIImageView+WebCache.h"
 #import "MJRefresh.h"
 #import "CDWeiBoTopService.h"
+#import "CDUserService.h"
 
 
 @interface CDHomeController () <CDCoverDelegate>
@@ -27,6 +28,8 @@
 @property (nonatomic,strong) CDPopMenuTableController *popMenuTable;
 
 @property (nonatomic,strong) NSMutableArray *weiboStatuses;
+
+
 @end
 
 @implementation CDHomeController
@@ -54,19 +57,26 @@
     
     [self weiboGetNewInfos];
     
-//    [NSThread sleepForTimeInterval:200];
-    
+    //获取用户昵称信息
+    [CDUserService userInfosWithSuccess:^(NSString *userName) {
+        [self.titleBtn setTitle:userName forState:UIControlStateNormal];
+    } failure:^(NSError *error) {
+        NSLog(@"获取用户信息错误: %@",error);
+    }];
+}
+
+/**
+ *  添加表格刷新微博数据方法
+ */
+- (void) refreshLoadWeiboInfos
+{
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(weiboGetNewInfos)];
     
     // 马上进入刷新状态
     [self.tableView.mj_header beginRefreshing];
     
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(weiboGetOldInfos)];
-    
 }
-
-
-
 
 #pragma mark 获取旧微博数据
 - (void) weiboGetOldInfos
@@ -131,7 +141,9 @@
     //title按钮设置
     CDTitleButton *titleBtn = [CDTitleButton buttonWithType:UIButtonTypeCustom];
     _titleBtn = titleBtn;
-    [titleBtn setTitle:@"首页" forState:UIControlStateNormal];
+    
+    NSString *title = [CDUserService user].name?[CDUserService user].name:@"首页";
+    [titleBtn setTitle:title forState:UIControlStateNormal];
     [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
     [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateSelected];
 
@@ -225,49 +237,5 @@
     return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
