@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>TestMJRefresh.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>cdongweibo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -23,6 +28,21 @@
 			<true/>
 		</dict>
 		<key>2B3FB6961C916C6E00BE648C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2BE1A00F1C9ADE3600DD6FB3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2BE1A0271C9ADE3600DD6FB3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2BE1A0321C9ADE3600DD6FB3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
