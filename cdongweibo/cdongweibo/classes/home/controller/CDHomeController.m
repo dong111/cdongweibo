@@ -63,6 +63,8 @@
     } failure:^(NSError *error) {
         NSLog(@"获取用户信息错误: %@",error);
     }];
+    
+    [self refreshLoadWeiboInfos];
 }
 
 /**
@@ -112,6 +114,7 @@
     
     [CDWeiBoTopService weiboGetNewInfosFromSinceId:sinceId sucess:^(NSArray *statuses) {
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0,statuses.count)];
+        [self showLoadMoreDataStatusBar:statuses.count];
         [self.weiboStatuses insertObjects:statuses atIndexes:indexSet];
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
@@ -120,7 +123,43 @@
         NSLog(@"%@",error);
         [self.tableView.mj_header endRefreshing];
     }];
+}
+/**
+ *  加载最新微博数显示的状态bar
+ *
+ *  @param count 加载数据条数
+ */
+- (void) showLoadMoreDataStatusBar:(int) count
+{
+    NSString *message = [NSString stringWithFormat:@"最新微博数%d",count];
+    CGFloat labW = self.view.width;
+    CGFloat labH = 35;
+    CGFloat labX = 0;
+    CGFloat laby = CGRectGetMaxY(self.navigationController.navigationBar.frame)-labH;
     
+    UILabel *barLab = [[UILabel alloc] initWithFrame:CGRectMake(labX, laby, labW, labH)];
+    barLab.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]];
+    [barLab setText:message];
+    barLab.textAlignment = NSTextAlignmentCenter;
+    barLab.textColor = [UIColor whiteColor];
+    
+    [self.navigationController.view insertSubview:barLab belowSubview:self.navigationController.navigationBar];
+
+    
+    //添加平移动画
+    [UIView animateWithDuration:1 animations:^{
+        barLab.transform = CGAffineTransformMakeTranslation(0, labH);
+    } completion:^(BOOL finished) {
+        //往上平移
+        [UIView animateWithDuration:1 animations:^{
+            //还原
+            barLab.transform = CGAffineTransformIdentity;
+            
+        } completion:^(BOOL finished) {
+            
+            [barLab removeFromSuperview];
+        }];
+    }];
     
 }
 
