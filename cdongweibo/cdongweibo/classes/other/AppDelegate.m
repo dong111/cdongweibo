@@ -11,6 +11,7 @@
 #import "CDRootService.h"
 #import "CDUserService.h"
 #import "UIImageView+WebCache.h"
+#import <AVFoundation/AVFoundation.h>
 /**
  *  launchScreen 代替之前的启动图片
  好处：
@@ -25,6 +26,8 @@
 
 @interface AppDelegate ()
 
+@property (nonatomic,strong) AVAudioPlayer *player;
+
 @end
 
 @implementation AppDelegate
@@ -37,6 +40,19 @@
     //注册通知
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge categories:nil];
     [application registerUserNotificationSettings:settings];
+    
+    
+    // 设置音频会话
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    
+    // 后台播放
+    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+    
+    // 单独播放一个后台程序
+    [session setCategory:AVAudioSessionCategorySoloAmbient error:nil];
+    
+    [session setActive:YES error:nil];
+    
     
     return YES;
 }
@@ -78,14 +94,39 @@
     [[SDWebImageManager sharedManager].imageCache clearMemory];
 }
 
+//应用程序失去焦点的时候
 - (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    // 微博：在程序即将失去焦点的时候播放静音音乐.
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"silence.mp3" withExtension:nil];
+    
+    AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    
+    [player prepareToPlay];
+    //无线播放
+    player.numberOfLoops = -1;
+    
+    [player play];
+    _player = player;
 }
 
+
+
+//程序进入后台时候调用
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+
+    //开启一个后台任务，时间不确定，优先级比较低，假如系统要管斌进程，首先就会考虑关闭这个
+    UIBackgroundTaskIdentifier backId =  [application beginBackgroundTaskWithExpirationHandler:^{
+        NSLog(@"%@",[NSThread currentThread]);
+        //当后台任务结束时候调用
+        [application endBackgroundTask:backId];
+    }];
+    
+    // 如何提高后台任务的优先级，欺骗苹果，我们是后台播放程序
+    
+    // 但是苹果会检测你的程序当时有没有播放音乐，如果没有，有可能就干掉你
+    
+    // 微博：在程序即将失去焦点的时候播放静音音乐.
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
