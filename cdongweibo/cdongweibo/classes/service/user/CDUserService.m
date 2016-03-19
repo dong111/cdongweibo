@@ -8,12 +8,42 @@
 
 #import "CDUserService.h"
 #import "CDHttpService.h"
+#import "CDUserInfoResult.h"
 
 
 #define CD_USER_ARCHIVE_FILE [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"user.data"]
 
 
 @implementation CDUserService
+
+
+/**
+ *  获取用户信息
+ *
+ *  @param success 成功时候回调
+ *  @param failure 失败时候回调
+ */
++ (void) userInfosWithSuccess:(void(^)(NSString *userName))success failure:(void(^)(NSError *error)) failure
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    CDUser *user = [CDUserService user];
+    params[@"access_token"] = user.access_token;
+    params[@"uid"] = user.uid;
+    [CDHttpService GET:CD_USERS_URL parameters:params success:^(id responseObject) {
+        //保存用户昵称
+        CDUserInfoResult *result = [CDUserInfoResult mj_objectWithKeyValues:responseObject];
+        user.name = result.name;
+        [CDUserService saveUser:user];
+        if (success) {
+            success(result.name);
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+
 
 /**
  *  通过appkey获取用户信息accessCode
@@ -30,7 +60,7 @@
     params[@"client_secret"] = CD_CLIENT_SECRET;
     params[@"grant_type"] = CD_GRANT_TYPE;
     params[@"code"] = code;
-    params[@"redirect_uri"] = CD_GRANT_TYPE;
+    params[@"redirect_uri"] = CD_REDIRECT_URL;
     
     
     [CDHttpService POST:CD_ACCESS_TOKEN_URL parameters:params success:^(id responseObject) {

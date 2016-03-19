@@ -44,8 +44,12 @@
  */
 + (void) unreadCountWithSuccess:(void(^)(CDUnReadCountResult *result)) success failure:(void(^)(NSError *error)) failure;
 
-
-
-
+/**
+ *  获取用户信息
+ *
+ *  @param success 成功时候回调
+ *  @param failure 失败时候回调
+ */
++ (void) userInfosWithSuccess:(void(^)(NSString *userName))success failure:(void(^)(NSError *error)) failure;
 
 @end

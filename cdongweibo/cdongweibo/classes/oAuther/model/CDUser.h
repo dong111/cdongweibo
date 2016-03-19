@@ -39,6 +39,11 @@
  *  用户唯一标识符
  */
 @property (nonatomic,copy) NSString *uid;
+/**
+ *  获取用户昵称
+ */
+@property (nonatomic,copy) NSString *name;
+
 
 /**
  *  kvc 初始化对象
@@ -48,6 +53,8 @@
  *  @return 用户实体
  */
 +(instancetype) userWithDic:(NSDictionary *)dic;
+
+
 
 
 @end

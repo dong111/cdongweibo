@@ -7,6 +7,7 @@
 //
 
 #import "CDUser.h"
+#import "MJExtension.h"
 
 #define CD_USER_TOKEN_KEY @"token"
 #define CD_USER_ID_KEY @"uid"
@@ -38,24 +39,25 @@
 }
 
 #pragma mark NScoding 实现对象归档解档方法
+MJExtensionCodingImplementation
 //归档时候调用  告诉系统哪个属性需要归档  如何归档
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [aCoder encodeObject:_access_token forKey:CD_USER_TOKEN_KEY];
-    [aCoder encodeObject:_uid forKey:CD_USER_ID_KEY];
-    [aCoder encodeObject:_expires_in forKey:CD_USERE_EXPIRES_IN_KEY];
-    [aCoder encodeObject:_expires_date forKey:CD_USERE_EXPIRES_DATE_KEY];
-}
-//解档时候调用  告诉系统哪个属性需要解档  如何解档
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    //解档后一定要记得赋值给属性
-    _access_token = [aDecoder decodeObjectForKey:CD_USER_TOKEN_KEY];
-    _uid = [aDecoder decodeObjectForKey:CD_USER_ID_KEY];
-    _expires_in = [aDecoder decodeObjectForKey:CD_USERE_EXPIRES_IN_KEY];
-    _expires_date = [aDecoder decodeObjectForKey:CD_USERE_EXPIRES_DATE_KEY];
-    return self;
-}
+//- (void)encodeWithCoder:(NSCoder *)aCoder
+//{
+//    [aCoder encodeObject:_access_token forKey:CD_USER_TOKEN_KEY];
+//    [aCoder encodeObject:_uid forKey:CD_USER_ID_KEY];
+//    [aCoder encodeObject:_expires_in forKey:CD_USERE_EXPIRES_IN_KEY];
+//    [aCoder encodeObject:_expires_date forKey:CD_USERE_EXPIRES_DATE_KEY];
+//}
+////解档时候调用  告诉系统哪个属性需要解档  如何解档
+//- (instancetype)initWithCoder:(NSCoder *)aDecoder
+//{
+//    //解档后一定要记得赋值给属性
+//    _access_token = [aDecoder decodeObjectForKey:CD_USER_TOKEN_KEY];
+//    _uid = [aDecoder decodeObjectForKey:CD_USER_ID_KEY];
+//    _expires_in = [aDecoder decodeObjectForKey:CD_USERE_EXPIRES_IN_KEY];
+//    _expires_date = [aDecoder decodeObjectForKey:CD_USERE_EXPIRES_DATE_KEY];
+//    return self;
+//}
 
 
 
