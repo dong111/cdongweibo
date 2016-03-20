@@ -63,17 +63,19 @@
         _originalVipFrame = CGRectMake(vipX, vipY, vipWH, vipWH);
     }
 
-    // 时间Frame
-    CGFloat timeX = nameX;
-    CGFloat timeY = CGRectGetMaxY(_originalNameFrame) + CD_UI_MARGIN_10 * 0.5;
-    CGSize timeSize = [_status.created_at sizeWithFont:CD_TIME_FONT];
-    _originalTimeFrame = (CGRect){{timeX,timeY},timeSize};
+    //交给view计算  view每次刷新都需要从新计算
     
-    // 来源Frame
-    CGFloat sourceX = CGRectGetMaxX(_originalTimeFrame) + CD_UI_MARGIN_10;
-    CGFloat sourceY = timeY;
-    CGSize sourceSize = [_status.source sizeWithFont:CD_SOURCE_FONT];
-    _originalSourceFrame = (CGRect){{sourceX,sourceY},sourceSize};
+//    // 时间Frame
+//    CGFloat timeX = nameX;
+//    CGFloat timeY = CGRectGetMaxY(_originalNameFrame) + CD_UI_MARGIN_10 * 0.5;
+//    CGSize timeSize = [_status.created_at sizeWithFont:CD_TIME_FONT];
+//    _originalTimeFrame = (CGRect){{timeX,timeY},timeSize};
+//    
+//    // 来源Frame
+//    CGFloat sourceX = CGRectGetMaxX(_originalTimeFrame) + CD_UI_MARGIN_10;
+//    CGFloat sourceY = timeY;
+//    CGSize sourceSize = [_status.source sizeWithFont:CD_SOURCE_FONT];
+//    _originalSourceFrame = (CGRect){{sourceX,sourceY},sourceSize};
     
     // 正文Frame
     CGFloat textX = imageX;
@@ -130,5 +132,12 @@
 
 }
 
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"name = %@,originalViewFrame = %@,retWeetViewFrame = %@,statusBarViewFrame = %@"
+            ,_status.user.name,NSStringFromCGRect(_originalViewFrame),NSStringFromCGRect(_retWeetViewFrame),NSStringFromCGRect(_statusBarViewFrame)];
+
+}
 
 @end

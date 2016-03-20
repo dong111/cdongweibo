@@ -97,7 +97,7 @@
 - (void)setStatusFrame:(CDStatusFrame *)statusFrame
 {
     _statusFrame = statusFrame;
-    
+    NSLog(@"%@",statusFrame);
     // 设置frame
     [self setUpFrame];
     // 设置data
@@ -121,11 +121,22 @@
     }else{
         _vipView.hidden = YES;
     }
-    // 时间
-    _timeView.frame = _statusFrame.originalTimeFrame;
     
-    // 来源
-    _sourceView.frame = _statusFrame.originalSourceFrame;
+    
+    // 时间 每次有新的时间都需要计算时间frame
+    CDStatus *status = _statusFrame.status;
+    // 时间Frame
+    CGFloat timeX = _nameView.frame.origin.x;
+    CGFloat timeY = CGRectGetMaxY(_nameView.frame) + CD_UI_MARGIN_10 * 0.5;
+    CGSize timeSize = [status.created_at sizeWithFont:CD_TIME_FONT];
+    _timeView.frame = (CGRect){{timeX,timeY},timeSize};
+    
+    // 来源Frame
+    CGFloat sourceX = CGRectGetMaxX(_timeView.frame) + CD_UI_MARGIN_10;
+    CGFloat sourceY = timeY;
+    CGSize sourceSize = [status.source sizeWithFont:CD_SOURCE_FONT];
+    _sourceView.frame = (CGRect){{sourceX,sourceY},sourceSize};
+    
     
     // 正文
     _textView.frame = _statusFrame.originalTextFrame;
