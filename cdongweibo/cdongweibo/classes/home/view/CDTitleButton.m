@@ -17,7 +17,10 @@
         //设置titleView字体颜色
         [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         
+        
         [self setBackgroundImage:[UIImage imageWithStretchableName:[UIImage imageNamed:@"navigationbar_filter_background_highlighted"]] forState:UIControlStateHighlighted];
+        
+//        NSLog(@"init imageRect: %@,titleRect: %@",NSStringFromCGRect(self.imageView.frame),NSStringFromCGRect(self.titleLabel.frame));
     }
     return self;
 }
@@ -28,10 +31,12 @@
     
     if (self.imageView==nil || self.titleLabel==nil) return;
     //title
-    self.titleLabel.x  = self.imageView.x;
+    self.titleLabel.x  = 0;
     
     //image
     self.imageView.x = CGRectGetMaxX(self.titleLabel.frame);
+//    NSLog(@"imageRect: %@,titleRect: %@",NSStringFromCGRect(self.imageView.frame),NSStringFromCGRect(self.titleLabel.frame));
+    
 }
 //重写set方法 扩展计算尺寸功能
 - (void)setTitle:(NSString *)title forState:(UIControlState)state
