@@ -18,6 +18,17 @@
 
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define CD_UI_MARGIN_10 10
+#define CD_UI_FONT_10 [UIFont systemFontOfSize:10]
+#define CD_UI_FONT_11 [UIFont systemFontOfSize:11]
+#define CD_UI_FONT_12 [UIFont systemFontOfSize:12]
+#define CD_UI_FONT_13 [UIFont systemFontOfSize:13]
+#define CD_UI_FONT_14 [UIFont systemFontOfSize:14]
+#define CD_UI_FONT_15 [UIFont systemFontOfSize:15]
+#define CD_NAME_FONT CD_UI_FONT_13
+#define CD_TIME_FONT CD_UI_FONT_12
+#define CD_SOURCE_FONT CD_TIME_FONT
+#define CD_TEXT_FONT CD_UI_FONT_14
 
 #define CDKeyWindow [UIApplication sharedApplication].keyWindow
 
