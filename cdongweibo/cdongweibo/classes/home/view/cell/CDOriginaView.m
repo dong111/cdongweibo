@@ -97,7 +97,7 @@
 - (void)setStatusFrame:(CDStatusFrame *)statusFrame
 {
     _statusFrame = statusFrame;
-    NSLog(@"%@",statusFrame);
+//    NSLog(@"%@",statusFrame);
     // 设置frame
     [self setUpFrame];
     // 设置data

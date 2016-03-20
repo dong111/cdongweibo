@@ -71,4 +71,24 @@
 }
 
 
+- (void)setSource:(NSString *)source
+{
+    
+    // abc>微 3 1
+    //  微博 weibo.com</a>
+    //  <a href="http://weibo.com/" rel="nofollow">微博 weibo.com</a>
+    // 微博 weibo.com
+//    NSLog(@"%@",source);
+    NSRange range = [source rangeOfString:@">"];
+//    NSLog(@"%@",NSStringFromRange(range));
+    source = [source substringFromIndex:range.location + range.length];
+    range = [source rangeOfString:@"<"];
+    source = [source substringToIndex:range.location];
+    source = [NSString stringWithFormat:@"来自%@",source];
+    
+    _source = source;
+
+}
+
+
 @end
