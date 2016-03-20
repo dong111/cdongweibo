@@ -29,7 +29,7 @@
     // 日期格式字符串
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     fmt.dateFormat = @"EEE MMM d HH:mm:ss Z yyyy";
-     //必须设置，否则无法解析 
+     //必须设置，否则无法解析
     fmt.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
     NSDate *created_at = [fmt dateFromString:_created_at];
     

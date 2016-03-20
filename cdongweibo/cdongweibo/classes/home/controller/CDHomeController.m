@@ -97,6 +97,7 @@
     
     [CDWeiBoTopService weiboGetOldInfosFromMaxId:maxId sucess:^(NSArray *statuses) {
 //        CDLog(@"加载了老数据数量:%ld",statuses.count);
+        [self.tableView.mj_footer endRefreshing];
         if (statuses.count<1) {
             return;
         }
@@ -106,7 +107,6 @@
             [self.weiboStatusFrames addObject:statusFrame];
         }
         [self.tableView reloadData];
-        [self.tableView.mj_footer endRefreshing];
     } failure:^(NSError *error) {
         //请求失败
         NSLog(@"%@",error);
@@ -126,6 +126,7 @@
     }
     
     [CDWeiBoTopService weiboGetNewInfosFromSinceId:sinceId sucess:^(NSArray *statuses) {
+        [self.tableView.mj_header endRefreshing];
         if (statuses.count<1) {
             return;
         }
@@ -141,7 +142,6 @@
         
         [self.weiboStatusFrames insertObjects:array atIndexes:indexSet];
         [self.tableView reloadData];
-        [self.tableView.mj_header endRefreshing];
     } failure:^(NSError *error) {
         //请求失败
         NSLog(@"%@",error);

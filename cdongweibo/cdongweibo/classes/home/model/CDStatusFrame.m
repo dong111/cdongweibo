@@ -94,12 +94,6 @@
 //计算原创微博frame
 - (void) calculateRetWeetView
 {
-    
-}
-
-//计算StatusBar frame
-- (void) calculateStatusBarView
-{
     // 昵称frame
     // 昵称
     CGFloat nameX = CD_UI_MARGIN_10;
@@ -107,7 +101,7 @@
     // 注意：一定要是转发微博的用户昵称
     CGSize nameSize = [_status.retweeted_status.user.name sizeWithFont:CD_NAME_FONT];
     _retweetNameFrame = (CGRect){{nameX,nameY},nameSize};
-
+    
     // 正文
     CGFloat textX = nameX;
     CGFloat textY = CGRectGetMaxY(_retweetNameFrame) + CD_UI_MARGIN_10;
@@ -125,8 +119,14 @@
     CGFloat retweetW = SCREEN_WIDTH;
     CGFloat retweetH = CGRectGetMaxY(_retweetTextFrame) + CD_UI_MARGIN_10;
     _retWeetViewFrame = CGRectMake(retweetX, retweetY, retweetW, retweetH);
-
     
+    
+}
+
+//计算StatusBar frame
+- (void) calculateStatusBarView
+{
+
 
 }
 
