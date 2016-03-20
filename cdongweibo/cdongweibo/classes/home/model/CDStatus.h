@@ -12,7 +12,10 @@
 
 
 @interface CDStatus : NSObject<MJKeyValue>
-
+/**
+ *  转发微博
+ */
+@property (nonatomic, strong) CDStatus *retweeted_status;
 
 /**
  *  用户

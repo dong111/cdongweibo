@@ -20,6 +20,8 @@
 #import "MJRefresh.h"
 #import "CDWeiBoTopService.h"
 #import "CDUserService.h"
+#import "CDStatusFrame.h"
+#import "CDStatusCell.h"
 
 
 @interface CDHomeController () <CDCoverDelegate>
@@ -27,19 +29,19 @@
 //分类菜单table
 @property (nonatomic,strong) CDPopMenuTableController *popMenuTable;
 
-@property (nonatomic,strong) NSMutableArray *weiboStatuses;
+@property (nonatomic,strong) NSMutableArray *weiboStatusFrames;
 
 
 @end
 
 @implementation CDHomeController
 
-- (NSMutableArray *)weiboStatuses
+- (NSMutableArray *)weiboStatusFrames
 {
-    if (_weiboStatuses==nil) {
-        _weiboStatuses = [NSMutableArray array];
+    if (_weiboStatusFrames==nil) {
+        _weiboStatusFrames = [NSMutableArray array];
     }
-    return _weiboStatuses;
+    return _weiboStatusFrames;
 }
 
 - (CDPopMenuTableController *)popMenuTable
@@ -52,6 +54,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.backgroundColor = [UIColor lightGrayColor];
+    
     //导航栏设置
     [self setUpNavigation];
     
@@ -84,15 +89,22 @@
 - (void) weiboGetOldInfos
 {
     NSString *maxId = nil;
-    if (self.weiboStatuses.count>0) {
-        CDStatus *lastStatus = [self.weiboStatuses lastObject];
-        long long  maxIdLong = lastStatus.idstr.longLongValue -1;
+    if (self.weiboStatusFrames.count>0) {
+        CDStatusFrame *lastStatus = [self.weiboStatusFrames lastObject];
+        long long  maxIdLong = lastStatus.status.idstr.longLongValue -1;
         maxId = [NSString stringWithFormat:@"%lld",maxIdLong];
     }
     
     [CDWeiBoTopService weiboGetOldInfosFromMaxId:maxId sucess:^(NSArray *statuses) {
 //        CDLog(@"加载了老数据数量:%ld",statuses.count);
-        [self.weiboStatuses addObjectsFromArray:statuses];
+        if (statuses.count<1) {
+            return;
+        }
+        for (CDStatus *status in statuses) {
+            CDStatusFrame *statusFrame = [[CDStatusFrame alloc] init];
+            statusFrame.status = status;
+            [self.weiboStatusFrames addObject:statusFrame];
+        }
         [self.tableView reloadData];
         [self.tableView.mj_footer endRefreshing];
     } failure:^(NSError *error) {
@@ -107,15 +119,27 @@
 {
 //    since_id	false	int64	若指定此参数，则返回ID比since_id大的微博（即比since_id时间晚的微博），默认为0。
     NSString *sinceId = nil;
-    if (self.weiboStatuses.count>0) {
-        CDStatus *preStatus = self.weiboStatuses[0];
+    if (self.weiboStatusFrames.count>0) {
+        CDStatusFrame *statusFrame = self.weiboStatusFrames[0];
+        CDStatus *preStatus = statusFrame.status;
         sinceId = preStatus.idstr;
     }
     
     [CDWeiBoTopService weiboGetNewInfosFromSinceId:sinceId sucess:^(NSArray *statuses) {
+        if (statuses.count<1) {
+            return;
+        }
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0,statuses.count)];
         [self showLoadMoreDataStatusBar:statuses.count];
-        [self.weiboStatuses insertObjects:statuses atIndexes:indexSet];
+        
+        NSMutableArray *array = [NSMutableArray array];
+        for (CDStatus *status in statuses) {
+            CDStatusFrame *statusFrame = [[CDStatusFrame alloc] init];
+            statusFrame.status = status;
+            [array addObject:statusFrame];
+        }
+        
+        [self.weiboStatusFrames insertObjects:array atIndexes:indexSet];
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
     } failure:^(NSError *error) {
@@ -254,27 +278,26 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return self.weiboStatuses.count;
+    return self.weiboStatusFrames.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CDStatusCell *cell = [CDStatusCell cellWithTableView:tableView];
+    
+    CDStatusFrame *statusFrame = self.weiboStatusFrames[indexPath.row];
 
-    NSString *requerId = @"homeCell";
-    
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:requerId];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:requerId];
-    }
-    CDStatus *status = self.weiboStatuses[indexPath.row];
-    cell.textLabel.text = status.user.name;
-    [cell.imageView sd_setImageWithURL:status.user.profile_image_url placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
-    cell.textLabel.text = status.text;
-    
+    cell.statusFrame = statusFrame;
     
     return cell;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CDStatusFrame *statusFrame = self.weiboStatusFrames[indexPath.row];
+    return statusFrame.heigth;
+}
+
 
 
 @end
