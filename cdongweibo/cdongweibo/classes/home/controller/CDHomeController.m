@@ -56,7 +56,7 @@
     [super viewDidLoad];
     
     self.tableView.backgroundColor = [UIColor lightGrayColor];
-    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     //导航栏设置
     [self setUpNavigation];
     

@@ -18,6 +18,11 @@
 @property (nonatomic, strong) CDStatus *retweeted_status;
 
 /**
+ *  转发用户昵称
+ */
+@property (nonatomic, strong) NSString *retweeted_name;
+
+/**
  *  用户
  */
 @property (nonatomic, strong) CDWeiBoUser *user;

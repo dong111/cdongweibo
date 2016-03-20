@@ -90,5 +90,19 @@
 
 }
 
+- (NSString *)retweeted_name
+{
+    if (_retweeted_status.user.name) {
+        return [NSString stringWithFormat:@"@%@",_retweeted_status.user.name];
+    }
+    return nil;
+}
+
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"name = %@,retweeted_status = %@",_user.name,_retweeted_status];
+}
+
 
 @end

@@ -47,7 +47,7 @@
     _originaView = originaView;
     //转发微博
     CDRetweetView *retWeetView = [[CDRetweetView alloc] init];
-    [self addSubview:originaView];
+    [self addSubview:retWeetView];
     _retWeetView = retWeetView;
     //tabbar）
     CDStatusBarView *statusBar = [[CDStatusBarView alloc] init];

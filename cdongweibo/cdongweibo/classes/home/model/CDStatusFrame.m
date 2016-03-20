@@ -101,7 +101,7 @@
     CGFloat nameX = CD_UI_MARGIN_10;
     CGFloat nameY = nameX;
     // 注意：一定要是转发微博的用户昵称
-    CGSize nameSize = [_status.retweeted_status.user.name sizeWithFont:CD_NAME_FONT];
+    CGSize nameSize = [_status.retweeted_name sizeWithFont:CD_NAME_FONT];
     _retweetNameFrame = (CGRect){{nameX,nameY},nameSize};
     
     // 正文

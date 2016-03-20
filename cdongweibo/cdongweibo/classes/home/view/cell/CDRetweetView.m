@@ -29,7 +29,7 @@
         //添加所有子控件
         [self setUpAllChildView];
         self.userInteractionEnabled = YES;
-        self.image = [UIImage imageWithStretchableName:[UIImage imageNamed:@"timeline_card_top_background"]];
+        self.image = [UIImage imageWithStretchableName:[UIImage imageNamed:@"timeline_retweet_background"]];
     }
     return self;
 }
@@ -42,6 +42,7 @@
     // 昵称
     UILabel *nameView = [[UILabel alloc] init];
     nameView.font = CD_NAME_FONT;
+    nameView.textColor = [UIColor blueColor];
     [self addSubview:nameView];
     _nameView = nameView;
     
@@ -55,6 +56,7 @@
     
 }
 
+
 - (void)setStatusFrame:(CDStatusFrame *)statusFrame
 {
     _statusFrame = statusFrame;
@@ -62,7 +64,7 @@
     CDStatus *status = _statusFrame.status;
     // 昵称
     _nameView.frame = _statusFrame.retweetNameFrame;
-    _nameView.text = status.retweeted_status.user.name;
+    _nameView.text = status.retweeted_name;
     
     // 正文
     _textView.frame = _statusFrame.retweetTextFrame;
