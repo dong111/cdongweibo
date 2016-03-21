@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CDStatusFrame.h"
 
-@interface CDStatusBarView : UIView
+@interface CDStatusBarView : UIImageView
 
 @property (nonatomic,strong) CDStatusFrame *statusFrame;
 
