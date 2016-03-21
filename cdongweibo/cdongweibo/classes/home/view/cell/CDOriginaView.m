@@ -9,6 +9,7 @@
 #import "CDOriginaView.h"
 #import "CDUitiity.h"
 #import "UIImageView+WebCache.h"
+#import "CDPhotosView.h"
 
 @interface CDOriginaView ()
 
@@ -34,7 +35,8 @@
 // 正文
 @property (nonatomic, weak) UILabel *textView;
 
-
+//图片
+@property (nonatomic,weak) CDPhotosView *photosView;
 
 @end
 
@@ -92,6 +94,12 @@
     [self addSubview:textView];
     _textView = textView;
     
+    //图片
+    CDPhotosView *photosView =[[CDPhotosView alloc] init];
+    [self addSubview:photosView];
+    _photosView = photosView;
+    
+    
 }
 
 - (void)setStatusFrame:(CDStatusFrame *)statusFrame
@@ -141,6 +149,11 @@
     // 正文
     _textView.frame = _statusFrame.originalTextFrame;
 
+    //图片
+    if (status.pic_urls.count) {
+        _photosView.frame = _statusFrame.originalPhotosFrame;
+    }
+    
 }
 /**
  *  设置data
@@ -174,6 +187,11 @@
     
     // 正文
     _textView.text = status.text;
+    
+    //图片
+    if (status.pic_urls) {
+        [_photosView setPic_urls:status.pic_urls];
+    }
     
 }
 

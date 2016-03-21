@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CDStatusFrame.h"
+
 
 @interface CDPhotosView : UIView
 
-//视图模型
-@property (nonatomic,strong) CDStatusFrame *statusFrame;
-
+/**
+ *  配图数组(CZPhoto)
+ */
+@property (nonatomic, strong) NSArray *pic_urls;
 
 @end

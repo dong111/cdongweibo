@@ -8,6 +8,7 @@
 
 #import "CDRetweetView.h"
 #import "CDUitiity.h"
+#import "CDPhotosView.h"
 
 @interface CDRetweetView ()
 
@@ -17,6 +18,9 @@
 
 // 正文
 @property (nonatomic, weak) UILabel *textView;
+
+//图片
+@property (nonatomic,weak) CDPhotosView *photosView;
 
 @end
 
@@ -54,6 +58,14 @@
     [self addSubview:textView];
     _textView = textView;
     
+    
+    //图片
+    CDPhotosView *photosView =[[CDPhotosView alloc] init];
+    [self addSubview:photosView];
+    _photosView = photosView;
+    
+    
+    
 }
 
 
@@ -70,6 +82,11 @@
     _textView.frame = _statusFrame.retweetTextFrame;
     _textView.text = status.retweeted_status.text;
 
+    //图片
+    if (status.retweeted_status.pic_urls.count) {
+        _photosView.frame = _statusFrame.retweetPhotosFrame;
+        _photosView.pic_urls =status.retweeted_status.pic_urls;
+    }
     
 }
 

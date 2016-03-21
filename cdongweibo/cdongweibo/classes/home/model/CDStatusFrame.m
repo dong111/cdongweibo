@@ -89,9 +89,7 @@
         CGSize photosSize = [self photosSizeWithCount:_status.pic_urls.count];
         _originalPhotosFrame = (CGRect){{photosX,photosY},photosSize};
     }
-    
-    
-    _originalPhotosFrame = (CGRect){{textX,textY},textSize};
+
     
     // 原创微博的frame
     CGFloat originX = 0;
@@ -152,7 +150,6 @@
         CGSize photosSize = [self photosSizeWithCount:_status.retweeted_status.pic_urls.count];
         _retweetPhotosFrame = (CGRect){{photosX,photosY},photosSize};
     }
-    _retweetPhotosFrame = (CGRect){{textX,textY},textSize};
     
     
     // 原创微博的frame
