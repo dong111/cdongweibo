@@ -133,40 +133,27 @@
 - (void)setStatusFrame:(CDStatusFrame *)statusFrame
 {
     _statusFrame = statusFrame;
-    CDStatus *status = _statusFrame.status;
     
-    // 设置转发的标题
-    [self setBtn:_retWeet title:status.reposts_count];
-    
-    // 设置评论的标题
-    [self setBtn:_comment title:status.comments_count];
-    
-    // 设置赞
-    [self setBtn:_unike title:status.attitudes_count];
-    
+    // 设置frame
+    [self setUpFrame];
+    // 设置data
+    [self setUpData];
 }
 
-
-// 设置按钮的标题
-- (void)setBtn:(UIButton *)btn title:(int)count
+/**
+ *  设置frame
+ */
+- (void) setUpFrame
 {
-    // > 10000 10100 1.2W
-    NSString *title = nil;
-    if (count) {
-        
-        if (count > 10000) {
-            CGFloat floatCount = count / 10000.0;
-            title = [NSString stringWithFormat:@"%.1fW",floatCount];
-            title = [title stringByReplacingOccurrencesOfString:@".0" withString:@""];
-        }else{ // < 10000
-            title = [NSString stringWithFormat:@"%d",count];
-        }
-        
-        
-        // 设置转发
-        [btn setTitle:title forState:UIControlStateNormal];
-    }
+    
+    
 }
-
+/**
+ *  设置data
+ */
+- (void) setUpData
+{
+    
+}
 
 @end
