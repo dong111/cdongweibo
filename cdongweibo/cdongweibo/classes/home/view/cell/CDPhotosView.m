@@ -10,6 +10,8 @@
 #import "UIImageView+WebCache.h"
 #import "CDUitiity.h"
 #import "CDWeiboPhoto.h"
+#import "MJPhotoBrowser.h"
+#import "MJPhoto.h"
 
 @interface CDPhotosView ()
 
@@ -40,10 +42,38 @@
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         // 裁剪图片，超出控件的部分裁剪掉
         imageView.clipsToBounds = YES;
+        
+        
+        
+//        UIGestureRecognizer *gesture = [[UIGestureRecognizer alloc] initWithTarget:self action:@selector(showImagesBrowse)];
+        imageView.tag = i;
+        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showImagesBrowse:)];
+        [imageView addGestureRecognizer:gesture];
+        imageView.userInteractionEnabled = YES;
+        
         [self addSubview:imageView];
 
     }
     
+}
+
+#pragma mark 显示图片浏览器
+- (void) showImagesBrowse:(UITapGestureRecognizer *)tap
+{
+    UIImageView *tapView = tap.view;
+    NSMutableArray *photoArray = [NSMutableArray array];
+    for (CDWeiboPhoto *photo in _pic_urls) {
+        MJPhoto *mjPhoto = [[MJPhoto alloc] init];
+        NSString *urlStr = photo.thumbnail_pic.absoluteString;
+        urlStr = [urlStr stringByReplacingOccurrencesOfString:@"thumbnail" withString:@"bmiddle"];
+        mjPhoto.url = [NSURL URLWithString:urlStr];
+        [photoArray addObject:mjPhoto];
+    }
+    
+    MJPhotoBrowser *photoBrow = [[MJPhotoBrowser alloc] init];
+    photoBrow.photos = photoArray;
+    photoBrow.currentPhotoIndex = tapView.tag;
+    [photoBrow show];
 }
 
 
