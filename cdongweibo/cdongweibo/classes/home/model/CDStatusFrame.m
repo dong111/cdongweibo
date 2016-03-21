@@ -28,12 +28,8 @@
         
         toolBarY = CGRectGetMaxY(_retWeetViewFrame);
     }
-    
     //计算StatusBar frame
-    CGFloat toolBarX = 0;
-    CGFloat toolBarW = SCREEN_WIDTH;
-    CGFloat toolBarH = 35;
-    _statusBarViewFrame = CGRectMake(toolBarX, toolBarY, toolBarW, toolBarH);
+    [self calculateStatusBarView:toolBarY];
     
     // 计算cell高度
     _heigth = CGRectGetMaxY(_statusBarViewFrame);
@@ -85,13 +81,45 @@
     CGSize textSize = [_status.text sizeWithFont:CD_TIME_FONT constrainedToSize:CGSizeMake(textW, MAXFLOAT)];
     _originalTextFrame = (CGRect){{textX,textY},textSize};
     
+    //计算photosframe
+    // 配图
+    if (_status.pic_urls.count) {
+        CGFloat photosX = CD_UI_MARGIN_10;
+        CGFloat photosY = CGRectGetMaxY(_originalTextFrame) + CD_UI_MARGIN_10;
+        CGSize photosSize = [self photosSizeWithCount:_status.pic_urls.count];
+        _originalPhotosFrame = (CGRect){{photosX,photosY},photosSize};
+    }
+    
+    
+    _originalPhotosFrame = (CGRect){{textX,textY},textSize};
+    
     // 原创微博的frame
     CGFloat originX = 0;
     CGFloat originY = 10;
     CGFloat originW = SCREEN_WIDTH;
     CGFloat originH = CGRectGetMaxY(_originalTextFrame) + CD_UI_MARGIN_10;
+    // 配图
+    if (_status.pic_urls.count) {
+        originH = CGRectGetMaxY(_originalPhotosFrame) + CD_UI_MARGIN_10;
+    }
     _originalViewFrame = CGRectMake(originX, originY, originW, originH);
 }
+
+#pragma mark - 计算配图的尺寸
+- (CGSize)photosSizeWithCount:(int)count
+{
+    // 获取总列数
+    int cols = count == 4? 2 : 3;
+    // 获取总行数 = (总个数 - 1) / 总列数 + 1
+    int rols = (count - 1) / cols + 1;
+    CGFloat photoWH = 70;
+    CGFloat w = cols * photoWH + (cols - 1) * CD_UI_MARGIN_10;
+    CGFloat h = rols * photoWH + (rols - 1) * CD_UI_MARGIN_10;
+    
+    return CGSizeMake(w, h);
+    
+}
+
 
 //计算原创微博frame
 - (void) calculateRetWeetView
@@ -115,20 +143,41 @@
     CGSize textSize = [_status.retweeted_status.text sizeWithFont:CD_TIME_FONT constrainedToSize:CGSizeMake(textW, MAXFLOAT)];
     _retweetTextFrame = (CGRect){{textX,textY},textSize};
     
+    
+    //计算photosframe
+    // 配图
+    if (_status.retweeted_status.pic_urls.count) {
+        CGFloat photosX = CD_UI_MARGIN_10;
+        CGFloat photosY = CGRectGetMaxY(_retweetTextFrame) + CD_UI_MARGIN_10;
+        CGSize photosSize = [self photosSizeWithCount:_status.retweeted_status.pic_urls.count];
+        _retweetPhotosFrame = (CGRect){{photosX,photosY},photosSize};
+    }
+    _retweetPhotosFrame = (CGRect){{textX,textY},textSize};
+    
+    
     // 原创微博的frame
     CGFloat retweetX = 0;
     CGFloat retweetY = CGRectGetMaxY(_originalViewFrame);
     CGFloat retweetW = SCREEN_WIDTH;
     CGFloat retweetH = CGRectGetMaxY(_retweetTextFrame) + CD_UI_MARGIN_10;
+    // 配图
+    if (_status.retweeted_status.pic_urls.count) {
+        retweetH = CGRectGetMaxY(_retweetPhotosFrame) + CD_UI_MARGIN_10;
+    }
+    
     _retWeetViewFrame = CGRectMake(retweetX, retweetY, retweetW, retweetH);
     
     
 }
 
 //计算StatusBar frame
-- (void) calculateStatusBarView
+- (void) calculateStatusBarView:(CGFloat) toolBarY
 {
 
+    CGFloat toolBarX = 0;
+    CGFloat toolBarW = SCREEN_WIDTH;
+    CGFloat toolBarH = 35;
+    _statusBarViewFrame = CGRectMake(toolBarX, toolBarY, toolBarW, toolBarH);
 
 }
 

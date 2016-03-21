@@ -41,6 +41,10 @@
 // 正文Frame
 @property (nonatomic, assign) CGRect originalTextFrame;
 
+// 原创图片
+@property (nonatomic, assign) CGRect originalPhotosFrame;
+
+
 /***********************原创微博子控件*******************************/
 
 /**
@@ -55,10 +59,11 @@
 // 正文Frame
 @property (nonatomic, assign) CGRect retweetTextFrame;
 
-
+// 转发图片
+@property (nonatomic, assign) CGRect retweetPhotosFrame;
 
 /**
- *  原创微博frame
+ *  微博工具栏
  */
 @property (nonatomic,assign) CGRect statusBarViewFrame;
 
