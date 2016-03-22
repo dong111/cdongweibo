@@ -7,11 +7,11 @@
 //
 
 #import "CDPhotosView.h"
-#import "UIImageView+WebCache.h"
 #import "CDUitiity.h"
 #import "CDWeiboPhoto.h"
 #import "MJPhotoBrowser.h"
 #import "MJPhoto.h"
+#import "CDPhotoView.h"
 
 @interface CDPhotosView ()
 
@@ -38,20 +38,14 @@
 {
 
     for (int i=0; i<9; i++) {
-        UIImageView *imageView = [[UIImageView alloc] init];
-        imageView.contentMode = UIViewContentModeScaleAspectFill;
-        // 裁剪图片，超出控件的部分裁剪掉
-        imageView.clipsToBounds = YES;
         
-        
-        
+        CDPhotoView *photoView = [[CDPhotoView alloc] init];
+
 //        UIGestureRecognizer *gesture = [[UIGestureRecognizer alloc] initWithTarget:self action:@selector(showImagesBrowse)];
-        imageView.tag = i;
+        photoView.tag = i;
         UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showImagesBrowse:)];
-        [imageView addGestureRecognizer:gesture];
-        imageView.userInteractionEnabled = YES;
-        
-        [self addSubview:imageView];
+        [photoView addGestureRecognizer:gesture];
+        [self addSubview:photoView];
 
     }
     
@@ -84,17 +78,18 @@
     _pic_urls = pic_urls;
     int childCount = self.subviews.count;
     
+    for (UIView *subView in self.subviews) {
+        subView.hidden = YES;
+    }
+    
     for (int i=0; i<_pic_urls.count; i++) {
-       UIImageView *imageV =  self.subviews[i];
+       CDPhotoView *imageV =  self.subviews[i];
         if (i<childCount) {//显示
             imageV.hidden = NO;
             //或去url
              CDWeiboPhoto *photo = _pic_urls[i];
-            [imageV sd_setImageWithURL:photo.thumbnail_pic placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+            [imageV setPhoto:photo];
             
-        }else{
-            //隐藏
-            imageV.hidden = YES;
         }
     }
 

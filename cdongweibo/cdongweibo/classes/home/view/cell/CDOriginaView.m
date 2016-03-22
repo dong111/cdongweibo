@@ -152,6 +152,9 @@
     //图片
     if (status.pic_urls.count) {
         _photosView.frame = _statusFrame.originalPhotosFrame;
+        _photosView.hidden = NO;
+    }else{
+        _photosView.hidden = YES;
     }
     
 }

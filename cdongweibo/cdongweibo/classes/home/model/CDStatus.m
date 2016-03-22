@@ -101,7 +101,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"name = %@,retweeted_status = %@",_user.name,_retweeted_status];
+    return [NSString stringWithFormat:@"name = %@,pic_urls = %@,retweet_pic_urls = %@",_user.name,_pic_urls,_retweeted_status.pic_urls];
 }
 
 

@@ -82,12 +82,21 @@
     _textView.frame = _statusFrame.retweetTextFrame;
     _textView.text = status.retweeted_status.text;
 
-    //图片
-    if (status.retweeted_status.pic_urls.count) {
-        _photosView.frame = _statusFrame.retweetPhotosFrame;
-        _photosView.pic_urls =status.retweeted_status.pic_urls;
+
+    if ([status.user.name isEqualToString:@"IT程序猿"]) {
+        NSLog(@"%@",status);
     }
     
+    //图片
+    if (status.retweeted_status.pic_urls.count&&!status.pic_urls.count) {
+        _photosView.frame = _statusFrame.retweetPhotosFrame;
+        _photosView.pic_urls =status.retweeted_status.pic_urls;
+        _photosView.hidden = NO;
+    }else{
+        _photosView.hidden = YES;
+    }
+    
+
 }
 
 \
