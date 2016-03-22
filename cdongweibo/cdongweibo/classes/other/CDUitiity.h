@@ -14,6 +14,7 @@
 
 #import "UIView+Frame.h"
 #import "UIImage+CDImage.h"
+#import "NSString+utility.h"
 
 
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width

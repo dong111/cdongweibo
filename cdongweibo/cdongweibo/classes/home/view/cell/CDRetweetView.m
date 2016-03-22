@@ -83,9 +83,6 @@
     _textView.text = status.retweeted_status.text;
 
 
-    if ([status.user.name isEqualToString:@"IT程序猿"]) {
-        NSLog(@"%@",status);
-    }
     
     //图片
     if (status.retweeted_status.pic_urls.count&&!status.pic_urls.count) {

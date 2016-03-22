@@ -9,6 +9,7 @@
 #import "CDStatus.h"
 #import "CDWeiboPhoto.h"
 #import "NSDate+MJ.h"
+#import "NSString+utility.h"
 
 @implementation CDStatus
 //实现这个方法，就会自动把数组中的字典装换成对应的模型
@@ -79,6 +80,10 @@
     //  <a href="http://weibo.com/" rel="nofollow">微博 weibo.com</a>
     // 微博 weibo.com
 //    NSLog(@"%@",source);
+    if ([NSString isBlankString:source]) {
+        _source = nil;
+        return;
+    }
     NSRange range = [source rangeOfString:@">"];
 //    NSLog(@"%@",NSStringFromRange(range));
     source = [source substringFromIndex:range.location + range.length];

@@ -116,7 +116,7 @@
 
     //开启一个后台任务，时间不确定，优先级比较低，假如系统要管斌进程，首先就会考虑关闭这个
     UIBackgroundTaskIdentifier backId =  [application beginBackgroundTaskWithExpirationHandler:^{
-        NSLog(@"%@",[NSThread currentThread]);
+//        NSLog(@"%@",[NSThread currentThread]);
         //当后台任务结束时候调用
         [application endBackgroundTask:backId];
     }];
