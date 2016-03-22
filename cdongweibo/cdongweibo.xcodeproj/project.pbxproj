@@ -12,8 +12,22 @@
 		2B080FAD1C9D7ED3006671A3 /* CDRetweetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B080FAC1C9D7ED3006671A3 /* CDRetweetView.m */; };
 		2B080FB01C9D7EF6006671A3 /* CDStatusBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B080FAF1C9D7EF6006671A3 /* CDStatusBarView.m */; };
 		2B080FB31C9D8166006671A3 /* CDStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B080FB21C9D8166006671A3 /* CDStatusFrame.m */; };
+		2B080FB61C9EDE27006671A3 /* NSDate+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B080FB51C9EDE27006671A3 /* NSDate+MJ.m */; };
 		2B0883B91C98DA3A00663E26 /* CDNewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0883B81C98DA3A00663E26 /* CDNewFeatureController.m */; };
 		2B0883BF1C98E2BC00663E26 /* CDNewFeatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0883BE1C98E2BC00663E26 /* CDNewFeatureCell.m */; };
+		2B1C082F1C9FEE2C00094A87 /* CDPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C082E1C9FEE2C00094A87 /* CDPhotosView.m */; };
+		2B1C08401CA02B5C00094A87 /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C08321CA02B5C00094A87 /* MJPhoto.m */; };
+		2B1C08411CA02B5C00094A87 /* MJPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2B1C08331CA02B5C00094A87 /* MJPhotoBrowser.bundle */; };
+		2B1C08421CA02B5C00094A87 /* MJPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C08351CA02B5C00094A87 /* MJPhotoBrowser.m */; };
+		2B1C08431CA02B5C00094A87 /* MJPhotoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C08371CA02B5C00094A87 /* MJPhotoLoadingView.m */; };
+		2B1C08441CA02B5C00094A87 /* MJPhotoProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C08391CA02B5C00094A87 /* MJPhotoProgressView.m */; };
+		2B1C08451CA02B5C00094A87 /* MJPhotoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C083B1CA02B5C00094A87 /* MJPhotoToolbar.m */; };
+		2B1C08461CA02B5C00094A87 /* MJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C083D1CA02B5C00094A87 /* MJPhotoView.m */; };
+		2B1C08471CA02B5C00094A87 /* SDWebImageManager+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C083F1CA02B5C00094A87 /* SDWebImageManager+MJ.m */; };
+		2B1C084A1CA03E2E00094A87 /* CDPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C08491CA03E2E00094A87 /* CDPhotoView.m */; };
+		2B1C08521CA0DCDD00094A87 /* CDComposeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C08511CA0DCDD00094A87 /* CDComposeController.m */; };
+		2B1C08551CA13AB900094A87 /* CDTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C08541CA13AB900094A87 /* CDTextView.m */; };
+		2B1C08581CA1757400094A87 /* CDComposeToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C08571CA1757400094A87 /* CDComposeToolBar.m */; };
 		2B3FB6811C916C6E00BE648C /* cdongweibo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FB67F1C916C6E00BE648C /* cdongweibo.xcdatamodeld */; };
 		2B3FB6831C916C6E00BE648C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B3FB6821C916C6E00BE648C /* Assets.xcassets */; };
 		2B3FB6861C916C6E00BE648C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B3FB6841C916C6E00BE648C /* LaunchScreen.storyboard */; };
@@ -174,10 +188,37 @@
 		2B080FAF1C9D7EF6006671A3 /* CDStatusBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDStatusBarView.m; sourceTree = "<group>"; };
 		2B080FB11C9D8166006671A3 /* CDStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDStatusFrame.h; sourceTree = "<group>"; };
 		2B080FB21C9D8166006671A3 /* CDStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDStatusFrame.m; sourceTree = "<group>"; };
+		2B080FB41C9EDE27006671A3 /* NSDate+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MJ.h"; sourceTree = "<group>"; };
+		2B080FB51C9EDE27006671A3 /* NSDate+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MJ.m"; sourceTree = "<group>"; };
 		2B0883B71C98DA3A00663E26 /* CDNewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDNewFeatureController.h; path = ../CDNewFeatureController.h; sourceTree = "<group>"; };
 		2B0883B81C98DA3A00663E26 /* CDNewFeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDNewFeatureController.m; path = ../CDNewFeatureController.m; sourceTree = "<group>"; };
 		2B0883BD1C98E2BC00663E26 /* CDNewFeatureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDNewFeatureCell.h; sourceTree = "<group>"; };
 		2B0883BE1C98E2BC00663E26 /* CDNewFeatureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDNewFeatureCell.m; sourceTree = "<group>"; };
+		2B1C082D1C9FEE2C00094A87 /* CDPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPhotosView.h; sourceTree = "<group>"; };
+		2B1C082E1C9FEE2C00094A87 /* CDPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPhotosView.m; sourceTree = "<group>"; };
+		2B1C08311CA02B5C00094A87 /* MJPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhoto.h; sourceTree = "<group>"; };
+		2B1C08321CA02B5C00094A87 /* MJPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhoto.m; sourceTree = "<group>"; };
+		2B1C08331CA02B5C00094A87 /* MJPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJPhotoBrowser.bundle; sourceTree = "<group>"; };
+		2B1C08341CA02B5C00094A87 /* MJPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoBrowser.h; sourceTree = "<group>"; };
+		2B1C08351CA02B5C00094A87 /* MJPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoBrowser.m; sourceTree = "<group>"; };
+		2B1C08361CA02B5C00094A87 /* MJPhotoLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoLoadingView.h; sourceTree = "<group>"; };
+		2B1C08371CA02B5C00094A87 /* MJPhotoLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoLoadingView.m; sourceTree = "<group>"; };
+		2B1C08381CA02B5C00094A87 /* MJPhotoProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoProgressView.h; sourceTree = "<group>"; };
+		2B1C08391CA02B5C00094A87 /* MJPhotoProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoProgressView.m; sourceTree = "<group>"; };
+		2B1C083A1CA02B5C00094A87 /* MJPhotoToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoToolbar.h; sourceTree = "<group>"; };
+		2B1C083B1CA02B5C00094A87 /* MJPhotoToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoToolbar.m; sourceTree = "<group>"; };
+		2B1C083C1CA02B5C00094A87 /* MJPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoView.h; sourceTree = "<group>"; };
+		2B1C083D1CA02B5C00094A87 /* MJPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoView.m; sourceTree = "<group>"; };
+		2B1C083E1CA02B5C00094A87 /* SDWebImageManager+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SDWebImageManager+MJ.h"; sourceTree = "<group>"; };
+		2B1C083F1CA02B5C00094A87 /* SDWebImageManager+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SDWebImageManager+MJ.m"; sourceTree = "<group>"; };
+		2B1C08481CA03E2E00094A87 /* CDPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPhotoView.h; sourceTree = "<group>"; };
+		2B1C08491CA03E2E00094A87 /* CDPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPhotoView.m; sourceTree = "<group>"; };
+		2B1C08501CA0DCDD00094A87 /* CDComposeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDComposeController.h; sourceTree = "<group>"; };
+		2B1C08511CA0DCDD00094A87 /* CDComposeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDComposeController.m; sourceTree = "<group>"; };
+		2B1C08531CA13AB900094A87 /* CDTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTextView.h; sourceTree = "<group>"; };
+		2B1C08541CA13AB900094A87 /* CDTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTextView.m; sourceTree = "<group>"; };
+		2B1C08561CA1757400094A87 /* CDComposeToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDComposeToolBar.h; sourceTree = "<group>"; };
+		2B1C08571CA1757400094A87 /* CDComposeToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDComposeToolBar.m; sourceTree = "<group>"; };
 		2B3FB6701C916C6E00BE648C /* cdongweibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cdongweibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B3FB6801C916C6E00BE648C /* cdongweibo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = cdongweibo.xcdatamodel; sourceTree = "<group>"; };
 		2B3FB6821C916C6E00BE648C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -470,6 +511,10 @@
 				2B080FAC1C9D7ED3006671A3 /* CDRetweetView.m */,
 				2B080FAE1C9D7EF6006671A3 /* CDStatusBarView.h */,
 				2B080FAF1C9D7EF6006671A3 /* CDStatusBarView.m */,
+				2B1C082D1C9FEE2C00094A87 /* CDPhotosView.h */,
+				2B1C082E1C9FEE2C00094A87 /* CDPhotosView.m */,
+				2B1C08481CA03E2E00094A87 /* CDPhotoView.h */,
+				2B1C08491CA03E2E00094A87 /* CDPhotoView.m */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -505,6 +550,65 @@
 			children = (
 				2B0883BD1C98E2BC00663E26 /* CDNewFeatureCell.h */,
 				2B0883BE1C98E2BC00663E26 /* CDNewFeatureCell.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		2B1C08301CA02B5C00094A87 /* MJPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				2B1C08311CA02B5C00094A87 /* MJPhoto.h */,
+				2B1C08321CA02B5C00094A87 /* MJPhoto.m */,
+				2B1C08331CA02B5C00094A87 /* MJPhotoBrowser.bundle */,
+				2B1C08341CA02B5C00094A87 /* MJPhotoBrowser.h */,
+				2B1C08351CA02B5C00094A87 /* MJPhotoBrowser.m */,
+				2B1C08361CA02B5C00094A87 /* MJPhotoLoadingView.h */,
+				2B1C08371CA02B5C00094A87 /* MJPhotoLoadingView.m */,
+				2B1C08381CA02B5C00094A87 /* MJPhotoProgressView.h */,
+				2B1C08391CA02B5C00094A87 /* MJPhotoProgressView.m */,
+				2B1C083A1CA02B5C00094A87 /* MJPhotoToolbar.h */,
+				2B1C083B1CA02B5C00094A87 /* MJPhotoToolbar.m */,
+				2B1C083C1CA02B5C00094A87 /* MJPhotoView.h */,
+				2B1C083D1CA02B5C00094A87 /* MJPhotoView.m */,
+				2B1C083E1CA02B5C00094A87 /* SDWebImageManager+MJ.h */,
+				2B1C083F1CA02B5C00094A87 /* SDWebImageManager+MJ.m */,
+			);
+			path = MJPhotoBrowser;
+			sourceTree = "<group>";
+		};
+		2B1C084C1CA0DCB600094A87 /* compose */ = {
+			isa = PBXGroup;
+			children = (
+				2B1C084D1CA0DCB600094A87 /* controller */,
+				2B1C084E1CA0DCB600094A87 /* model */,
+				2B1C084F1CA0DCB600094A87 /* view */,
+			);
+			path = compose;
+			sourceTree = "<group>";
+		};
+		2B1C084D1CA0DCB600094A87 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				2B1C08501CA0DCDD00094A87 /* CDComposeController.h */,
+				2B1C08511CA0DCDD00094A87 /* CDComposeController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		2B1C084E1CA0DCB600094A87 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		2B1C084F1CA0DCB600094A87 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				2B1C08531CA13AB900094A87 /* CDTextView.h */,
+				2B1C08541CA13AB900094A87 /* CDTextView.m */,
+				2B1C08561CA1757400094A87 /* CDComposeToolBar.h */,
+				2B1C08571CA1757400094A87 /* CDComposeToolBar.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -576,6 +680,7 @@
 		2B3FB6B41C92B3D400BE648C /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				2B1C084C1CA0DCB600094A87 /* compose */,
 				2BE19F481C9A59EC00DD6FB3 /* service */,
 				2BE19F3C1C9A56F600DD6FB3 /* oAuther */,
 				2BE19EAA1C998EED00DD6FB3 /* libs */,
@@ -748,6 +853,8 @@
 		2B3FB6C91C92B3D400BE648C /* category */ = {
 			isa = PBXGroup;
 			children = (
+				2B080FB41C9EDE27006671A3 /* NSDate+MJ.h */,
+				2B080FB51C9EDE27006671A3 /* NSDate+MJ.m */,
 				2BE19F361C9A468200DD6FB3 /* UIViewController+HUD.h */,
 				2BE19F371C9A468200DD6FB3 /* UIViewController+HUD.m */,
 				2BE19F331C9A45FF00DD6FB3 /* MBProgressHUD+CD.h */,
@@ -823,6 +930,7 @@
 		2BE19EAA1C998EED00DD6FB3 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				2B1C08301CA02B5C00094A87 /* MJPhotoBrowser */,
 				2BE19FCC1C9ACB9B00DD6FB3 /* MJRefresh */,
 				2BE19F9A1C9AAAE200DD6FB3 /* SDWebImage */,
 				2BE19F711C9A9A6E00DD6FB3 /* MJExtension */,
@@ -1362,6 +1470,7 @@
 				2BE1A0E61C9BF9EB00DD6FB3 /* 爸爸去哪儿啦.mp3 in Resources */,
 				2B3FB6861C916C6E00BE648C /* LaunchScreen.storyboard in Resources */,
 				2BE1A0071C9ACB9B00DD6FB3 /* MJRefresh.bundle in Resources */,
+				2B1C08411CA02B5C00094A87 /* MJPhotoBrowser.bundle in Resources */,
 				2B3FB6831C916C6E00BE648C /* Assets.xcassets in Resources */,
 				2BE1A0E51C9BF9EB00DD6FB3 /* silence.mp3 in Resources */,
 				2BE1D06D1C98696E001BEC33 /* CDPhoto2TableViewController.xib in Resources */,
@@ -1412,6 +1521,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B1C08581CA1757400094A87 /* CDComposeToolBar.m in Sources */,
+				2B1C08401CA02B5C00094A87 /* MJPhoto.m in Sources */,
 				2BE19F1D1C998F2900DD6FB3 /* AFHTTPRequestOperation.m in Sources */,
 				2BE1D03F1C9585DC001BEC33 /* NSString+utility.m in Sources */,
 				2B080FAA1C9D7EA6006671A3 /* CDOriginaView.m in Sources */,
@@ -1427,6 +1538,7 @@
 				2BE19FBD1C9AAAE200DD6FB3 /* NSData+ImageContentType.m in Sources */,
 				2BE19F1F1C998F2900DD6FB3 /* AFHTTPSessionManager.m in Sources */,
 				2BE19FCB1C9AAAE200DD6FB3 /* UIView+WebCacheOperation.m in Sources */,
+				2B1C08521CA0DCDD00094A87 /* CDComposeController.m in Sources */,
 				2BE1A0061C9ACB9B00DD6FB3 /* MJRefreshStateHeader.m in Sources */,
 				2BE19FC91C9AAAE200DD6FB3 /* UIImageView+HighlightedWebCache.m in Sources */,
 				2BE19F291C998F2900DD6FB3 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
@@ -1445,6 +1557,7 @@
 				2BE19F961C9AA55E00DD6FB3 /* CDWeiBoUser.m in Sources */,
 				2BE1A0051C9ACB9B00DD6FB3 /* MJRefreshNormalHeader.m in Sources */,
 				2BE19F321C998F2900DD6FB3 /* README.mdown in Sources */,
+				2B1C08421CA02B5C00094A87 /* MJPhotoBrowser.m in Sources */,
 				2BE19F2A1C998F2900DD6FB3 /* UIAlertView+AFNetworking.m in Sources */,
 				2BE19F241C998F2900DD6FB3 /* AFURLResponseSerialization.m in Sources */,
 				2BE19FBC1C9AAAE200DD6FB3 /* MKAnnotationView+WebCache.m in Sources */,
@@ -1452,8 +1565,10 @@
 				2B080FB01C9D7EF6006671A3 /* CDStatusBarView.m in Sources */,
 				2BE19F8D1C9A9A6E00DD6FB3 /* NSObject+MJCoding.m in Sources */,
 				2B3FB6D31C92B3D400BE648C /* AppDelegate.m in Sources */,
+				2B1C08431CA02B5C00094A87 /* MJPhotoLoadingView.m in Sources */,
 				2BE19FC01C9AAAE200DD6FB3 /* SDWebImageDecoder.m in Sources */,
 				2BE1D0481C95B5A4001BEC33 /* CDCover.m in Sources */,
+				2B1C08441CA02B5C00094A87 /* MJPhotoProgressView.m in Sources */,
 				2BE1A0D11C9B6E5B00DD6FB3 /* CDStatusParams.m in Sources */,
 				2BE1D05E1C97C69D001BEC33 /* CDBadgeView.m in Sources */,
 				2BE19FC81C9AAAE200DD6FB3 /* UIImage+WebP.m in Sources */,
@@ -1466,10 +1581,13 @@
 				2BE19FFC1C9ACB9B00DD6FB3 /* MJRefreshFooter.m in Sources */,
 				2B0883B91C98DA3A00663E26 /* CDNewFeatureController.m in Sources */,
 				2BE19F231C998F2900DD6FB3 /* AFURLRequestSerialization.m in Sources */,
+				2B1C08471CA02B5C00094A87 /* SDWebImageManager+MJ.m in Sources */,
 				2B3FB6D21C92B3D400BE648C /* CDTabBar.m in Sources */,
 				2BE19FFD1C9ACB9B00DD6FB3 /* MJRefreshHeader.m in Sources */,
+				2B1C082F1C9FEE2C00094A87 /* CDPhotosView.m in Sources */,
 				2BE19F2C1C998F2900DD6FB3 /* UIImageView+AFNetworking.m in Sources */,
 				2B3FB6D41C92B3D400BE648C /* UIImage+CDImage.m in Sources */,
+				2B1C08451CA02B5C00094A87 /* MJPhotoToolbar.m in Sources */,
 				2B080FB31C9D8166006671A3 /* CDStatusFrame.m in Sources */,
 				2BE19F8C1C9A9A6E00DD6FB3 /* NSObject+MJClass.m in Sources */,
 				2BE19F8B1C9A9A6E00DD6FB3 /* MJPropertyType.m in Sources */,
@@ -1489,12 +1607,14 @@
 				2BE19F871C9A9A6E00DD6FB3 /* MJExtensionConst.m in Sources */,
 				2BE19F991C9AA58B00DD6FB3 /* CDWeiboPhoto.m in Sources */,
 				2BE19F8E1C9A9A6E00DD6FB3 /* NSObject+MJKeyValue.m in Sources */,
+				2B1C084A1CA03E2E00094A87 /* CDPhotoView.m in Sources */,
 				2BE19FC11C9AAAE200DD6FB3 /* SDWebImageDownloader.m in Sources */,
 				2BE19FBE1C9AAAE200DD6FB3 /* SDImageCache.m in Sources */,
 				2B3FB6E41C92C26800BE648C /* CDDiscoverController.m in Sources */,
 				2BE19FC31C9AAAE200DD6FB3 /* SDWebImageManager.m in Sources */,
 				2BE19FFE1C9ACB9B00DD6FB3 /* MJRefreshAutoGifFooter.m in Sources */,
 				2BE1A0D71C9B7FB500DD6FB3 /* CDWeiBoSystemParams.m in Sources */,
+				2B1C08551CA13AB900094A87 /* CDTextView.m in Sources */,
 				2BE1A0DB1C9B9A9600DD6FB3 /* CDUnReadCountResult.m in Sources */,
 				2BE1A0041C9ACB9B00DD6FB3 /* MJRefreshGifHeader.m in Sources */,
 				2BE19FC71C9AAAE200DD6FB3 /* UIImage+MultiFormat.m in Sources */,
@@ -1506,9 +1626,11 @@
 				2BE1A0081C9ACB9B00DD6FB3 /* MJRefreshConst.m in Sources */,
 				2BE19FC61C9AAAE200DD6FB3 /* UIImage+GIF.m in Sources */,
 				2BE1A0CD1C9B060000DD6FB3 /* CDWeiBoTopService.m in Sources */,
+				2B1C08461CA02B5C00094A87 /* MJPhotoView.m in Sources */,
 				2B3FB6D51C92B3D400BE648C /* main.m in Sources */,
 				2BE19F281C998F2900DD6FB3 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				2BE19F501C9A635700DD6FB3 /* CDRootService.m in Sources */,
+				2B080FB61C9EDE27006671A3 /* NSDate+MJ.m in Sources */,
 				2B0883BF1C98E2BC00663E26 /* CDNewFeatureCell.m in Sources */,
 				2BE19F931C9AA47100DD6FB3 /* CDStatus.m in Sources */,
 				2BE1A00B1C9ACB9B00DD6FB3 /* UIView+MJExtension.m in Sources */,
