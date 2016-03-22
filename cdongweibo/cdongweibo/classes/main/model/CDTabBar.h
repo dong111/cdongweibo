@@ -15,6 +15,9 @@
 //tabBar点击事件方法
 - (void) tabBar:(CDTabBar *)tabBar didClickButton:(NSInteger) index;
 
+
+- (void) tabBarDidClickCenterBtn:(UIButton *)button;
+
 @end
 
 @interface CDTabBar : UIView

@@ -35,11 +35,19 @@
         //设置button 大小和内容一样大 方法
         //sizeToFit：默认按照背景图片或者图片和文字自动计算控件大小
         [button sizeToFit];
-        
+        [button addTarget:self action:@selector(clickCenterBtn:) forControlEvents:UIControlEventTouchUpInside];
         _centerBt = button;
         [self addSubview:_centerBt];
     }
     return _centerBt;
+}
+
+- (void) clickCenterBtn:(UIButton *)button
+{
+    if ([self.delegate respondsToSelector:@selector(tabBarDidClickCenterBtn:)]) {
+        [self.delegate tabBarDidClickCenterBtn:button];
+    }
+
 }
 
 - (NSMutableArray *)buttons{

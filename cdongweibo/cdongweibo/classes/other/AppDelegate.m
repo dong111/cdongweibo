@@ -62,7 +62,7 @@
 {
     //创建自定义窗口
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = [UIColor yellowColor];
+    self.window.backgroundColor = [UIColor whiteColor];
     
     //创建tabbarview为   root view
 //    CDTabBarController *tabBarVc = [[CDTabBarController alloc] init];

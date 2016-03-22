@@ -27,6 +27,11 @@
     attrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
     [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
     [item setTitleTextAttributes:attrs forState:UIControlStateHighlighted];
+    
+    //**导航栏按钮上文字文字属性设置不生效 使用自定义button
+//    NSMutableDictionary *titleAttrs = [[NSMutableDictionary alloc] init];
+//    titleAttrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
+//    [item setTitleTextAttributes:titleAttrs forState:UIControlStateDisabled];
 }
 
 - (void)viewDidLoad {

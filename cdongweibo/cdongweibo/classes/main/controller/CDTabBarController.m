@@ -15,6 +15,7 @@
 #import "CDDiscoverController.h"
 #import "CDNavigationController.h"
 #import "CDUserService.h"
+#import "CDComposeController.h"
 
 @interface CDTabBarController ()<CDTabBarButtonDelegate>
 
@@ -99,10 +100,24 @@
 }
 
 
-#pragma -mark切换控制器
+#pragma -mark实现自定义tabbar代理方法
+//切换控制器
 - (void)tabBar:(CDTabBar *)tabBar didClickButton:(NSInteger)index
 {
     self.selectedIndex = index;
+}
+
+//点击中间按钮调用的方法
+- (void)tabBarDidClickCenterBtn:(UIButton *)button
+{
+    //显示发送微博消息按钮图形界面
+    CDComposeController *composeVc = [[CDComposeController alloc] init];
+    
+    CDNavigationController *navVc = [[CDNavigationController alloc] initWithRootViewController:composeVc];
+
+//    [navVc addChildViewController:composeVc];
+    
+    [self presentViewController:navVc animated:YES completion:nil];
 }
 
 #pragma -mark 自定义tableBar
