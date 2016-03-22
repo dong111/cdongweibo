@@ -7,9 +7,12 @@
 //
 
 #import "CDComposeController.h"
+#import "CDTextView.h"
+#import "CDUitiity.h"
 
-@interface CDComposeController ()
+@interface CDComposeController ()<UITextViewDelegate>
 
+@property (nonatomic,weak)   CDTextView *textView;
 @end
 
 @implementation CDComposeController
@@ -20,6 +23,61 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self setUpNavigation];
     
+    //添加textView输入框
+    [self setUpTextView];
+}
+//添加输入框
+- (void) setUpTextView
+{
+    CDTextView *textView = [[CDTextView alloc] initWithFrame:self.view.bounds];
+//    textView.backgroundColor = [UIColor redColor];
+    //由于textView没有placeHolder所以需要自定义一个带有placeHoler的textView
+    //注册通知一定要记得移除通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewContextChange) name:UITextViewTextDidChangeNotification object:textView];
+    
+    textView.delegate = self;
+    // 默认允许垂直方向拖拽
+    textView.alwaysBounceVertical = YES;
+    
+    textView.placeHolder = @"abc";
+    [textView setFont:CD_UI_FONT_15];
+    
+    self.textView = textView;
+    [self.view addSubview:textView];
+    
+}
+#pragma mark 实现textView代理  拖拽textView隐藏键盘
+//注册通知  监听文本内容改变事件
+- (void) textViewContextChange
+{
+    if ([NSString isBlankString:self.textView.text]) {
+        self.textView.hidePlaceHolder = NO;
+    }else{
+        //有内容
+        self.textView.hidePlaceHolder = YES;
+    }
+    
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.view endEditing:YES];
+    
+}
+
+//移除通知
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+//视图将要显示
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+//    becomeFirstResponder //变成第一响应，
+//    resineFirstResponder  //放弃第一响应，
+    [_textView becomeFirstResponder];
 }
 
 
@@ -29,9 +87,7 @@
     self.navigationItem.title = @"发微博";
     UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancleBtn)];
     
-    
-    
-    
+
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setTitle:@"发送" forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
