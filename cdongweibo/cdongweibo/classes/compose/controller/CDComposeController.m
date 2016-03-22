@@ -9,8 +9,11 @@
 #import "CDComposeController.h"
 #import "CDTextView.h"
 #import "CDUitiity.h"
+#import "CDComposeToolBar.h"
 
 @interface CDComposeController ()<UITextViewDelegate>
+
+@property (nonatomic,weak) CDComposeToolBar *toolBar;
 
 @property (nonatomic,weak)   CDTextView *textView;
 @end
@@ -25,7 +28,46 @@
     
     //添加textView输入框
     [self setUpTextView];
+    //添加工具bar
+    [self setUpToolBar];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
 }
+
+
+#pragma mark - 键盘的Frame改变的时候调用
+- (void) keyBoardChange:(NSNotification *)notif
+{
+    //    NSLog(@"%@",notifi.userInfo);
+    
+    //获取弹出键盘时间
+    CGFloat duraTime = [notif.userInfo[@"UIKeyboardAnimationDurationUserInfoKey"] floatValue];
+    // 获取键盘的frame
+    CGRect frame = [notif.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    if (frame.origin.y==self.view.height) {//隐藏键盘
+        [UIView animateWithDuration:duraTime animations:^{
+            _toolBar.transform = CGAffineTransformIdentity;
+        }];
+    }else{
+        [UIView animateWithDuration:duraTime animations:^{
+            _toolBar.transform = CGAffineTransformMakeTranslation(0, -frame.size.height);
+        }];
+    }
+    
+}
+
+- (void) setUpToolBar
+{
+    CGFloat barW = self.view.width;
+    CGFloat barH = 35;
+    CGFloat barX = 0;
+    CGFloat bary = self.view.height-barH;
+    CDComposeToolBar *toolBar = [[CDComposeToolBar alloc] initWithFrame:CGRectMake(barX, bary, barW, barH)];
+    _toolBar = toolBar;
+    [self.view addSubview:toolBar];
+}
+
 //添加输入框
 - (void) setUpTextView
 {
