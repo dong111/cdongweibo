@@ -39,8 +39,9 @@
 
 - (void) btnClick:(UIButton *)button
 {
-
-
+    if ([self.delegate respondsToSelector:@selector(composeToolBar:DidClickBtn:)]){
+        [self.delegate composeToolBar:self DidClickBtn:button.tag];
+    }
 }
 - (void)setUpButtonWithImage:(UIImage *)image highImage:(UIImage *)highImage target:(id)target action:(SEL)action
 {
@@ -49,7 +50,7 @@
     [btn setImage:image forState:UIControlStateNormal];
     [btn setImage:highImage forState:UIControlStateHighlighted];
     
-    
+    btn.tag = self.subviews.count;
     [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     
     [self addSubview:btn];

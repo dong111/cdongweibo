@@ -10,15 +10,46 @@
 #import "CDTextView.h"
 #import "CDUitiity.h"
 #import "CDComposeToolBar.h"
+#import "CDImagesView.h"
 
-@interface CDComposeController ()<UITextViewDelegate>
+
+static const int textHeight = 200;
+
+@interface CDComposeController ()<UITextViewDelegate,CDComposeToolBarDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @property (nonatomic,weak) CDComposeToolBar *toolBar;
 
 @property (nonatomic,weak)   CDTextView *textView;
+
+//定义系统相册
+@property (nonatomic,strong) UIImagePickerController *imagePc;
+
+//展示图片区域
+@property (nonatomic,weak) CDImagesView *imagesView;
+
+
+@property (nonatomic,weak) UIBarButtonItem *composeBtn;
+
 @end
 
 @implementation CDComposeController
+
+//懒加载系统相册
+- (UIImagePickerController *)imagePc
+{
+    if (_imagePc == nil) {
+        //弹出系统相册
+        UIImagePickerController *imagePc = [[UIImagePickerController alloc] init];
+        // 设置相册类型,相册集
+        imagePc.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+        //相册处理事件代理
+        imagePc.delegate = self;
+        
+        _imagePc = imagePc;
+    }
+    return _imagePc;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,8 +61,45 @@
     [self setUpTextView];
     //添加工具bar
     [self setUpToolBar];
-    
+    //添加图片展示区域
+    [self setUpImagesView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+
+- (void) setUpImagesView
+{
+    CGFloat imageVW = self.view.width;
+    CGFloat imageVH = self.view.height-textHeight;
+    CGFloat imageVX = 0;
+    CGFloat imageVy = textHeight;
+    CDImagesView *imagesView = [[CDImagesView alloc] initWithFrame:CGRectMake(imageVX, imageVy, imageVW, imageVH)];
+//    imagesView.backgroundColor = [UIColor redColor];
+    _imagesView = imagesView;
+    [self.textView addSubview:imagesView];
+}
+
+
+#pragma mark 实现toolBar delegate工具栏方法
+- (void)composeToolBar:(CDComposeToolBar *)toolBar DidClickBtn:(int)index
+{
+   //从相册选择图片
+    if (index==0) {
+        [self presentViewController:self.imagePc animated:YES completion:nil];
+    }
+}
+
+
+#pragma mark 实现相册选择图片代理方法
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    UIImage *image =  info[@"UIImagePickerControllerOriginalImage"];
+    
+    [self.imagesView addImage:image];
+    
+     _composeBtn.enabled = YES;
+    [self.imagePc dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 
@@ -65,6 +133,7 @@
     CGFloat bary = self.view.height-barH;
     CDComposeToolBar *toolBar = [[CDComposeToolBar alloc] initWithFrame:CGRectMake(barX, bary, barW, barH)];
     _toolBar = toolBar;
+    _toolBar.delegate = self;
     [self.view addSubview:toolBar];
 }
 
@@ -81,7 +150,7 @@
     // 默认允许垂直方向拖拽
     textView.alwaysBounceVertical = YES;
     
-    textView.placeHolder = @"abc";
+    textView.placeHolder = @"分享点新鲜事……";
     [textView setFont:CD_UI_FONT_15];
     
     self.textView = textView;
@@ -94,9 +163,11 @@
 {
     if ([NSString isBlankString:self.textView.text]) {
         self.textView.hidePlaceHolder = NO;
+         _composeBtn.enabled = NO;
     }else{
         //有内容
         self.textView.hidePlaceHolder = YES;
+        _composeBtn.enabled = YES;
     }
     
 }
@@ -138,10 +209,11 @@
     [btn sizeToFit];
     UIBarButtonItem *rigthBtn = [[UIBarButtonItem alloc] initWithCustomView:btn];
 
-    
+
     rigthBtn.enabled = NO;
     self.navigationItem.leftBarButtonItem = leftBtn;
     self.navigationItem.rightBarButtonItem = rigthBtn;
+    _composeBtn = rigthBtn;
 }
 
 - (void) cancleBtn
