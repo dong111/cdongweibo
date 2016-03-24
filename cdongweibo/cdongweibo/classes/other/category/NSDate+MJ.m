@@ -44,7 +44,11 @@
     NSDateComponents *cmps = [calendar components:NSCalendarUnitDay fromDate:selfDate toDate:nowDate options:0];
     return cmps.day == 1;
 }
-
+/**
+ *  日期格式化
+ *
+ *  @return 返回格式化后的日期
+ */
 - (NSDate *)dateWithYMD
 {
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
@@ -52,6 +56,20 @@
     NSString *selfStr = [fmt stringFromDate:self];
     return [fmt dateFromString:selfStr];
 }
+/**
+ *  获取系统当前的时间戳
+ *
+ *  @return 获取系统当前的时间戳
+ */
++ (NSString *)dateTimeStamp
+{
+    //获取系统当前的时间戳
+    NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSTimeInterval a=[dat timeIntervalSince1970]*1000;
+    NSString *timeString = [NSString stringWithFormat:@"%f", a];
+    return timeString;
+}
+
 
 /**
  *  是否为今年
@@ -69,7 +87,11 @@
     
     return nowCmps.year == selfCmps.year;
 }
-
+/**
+ *  计算与当前时间差距
+ *
+ *  @return <#return value description#>
+ */
 - (NSDateComponents *)deltaWithNow
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];

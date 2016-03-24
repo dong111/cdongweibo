@@ -27,6 +27,14 @@
  */
 - (NSDate *)dateWithYMD;
 
+
+/**
+ *  获取系统当前的时间戳
+ *
+ *  @return 获取系统当前的时间戳
+ */
++ (NSString *)dateTimeStamp;
+
 /**
  *  获得与当前时间的差距
  */
