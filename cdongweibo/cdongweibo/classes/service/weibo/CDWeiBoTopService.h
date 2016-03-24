@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface CDWeiBoTopService : NSObject
 
@@ -30,5 +31,32 @@
  */
 + (void) weiboGetOldInfosFromMaxId:(NSString *)maxId sucess:(void(^)(NSArray *statuses))sucess failure:(void(^)(NSError *error)) failure;
 
+/**
+ *  向微博服务器推动文字信息
+ *
+ *  @param text   文字内容
+ *  @param sucess  推送成功回调
+ *  @param failure 推送失败回调
+ */
++ (void) weiboSendText:(NSString *)text sucess:(void(^)())sucess failure:(void(^)(NSError *error)) failure;
+
+/**
+ *  向微博服务器推送单个图片文字信息
+ *
+ *  @param image 图片内容
+ *  @param sucess  推送成功回调
+ *  @param failure 推送失败回调
+ */
++ (void) weiboSendImage:(UIImage *)image text:(NSString *)text sucess:(void(^)())sucess failure:(void(^)(NSError *error)) failure;
+
+
+/**
+ *  向微博服务器推送多个图片文字信息
+ *
+ *  @param images 图片数组内容
+ *  @param sucess  推送成功回调
+ *  @param failure 推送失败回调
+ */
++ (void) weiboSendImages:(NSArray *)images text:(NSString *)text sucess:(void(^)())sucess failure:(void(^)(NSError *error)) failure;
 
 @end

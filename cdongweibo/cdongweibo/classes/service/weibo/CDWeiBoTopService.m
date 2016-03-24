@@ -13,6 +13,8 @@
 #import "NSString+utility.h"
 #import "CDStatusResult.h"
 #import "CDStatusParams.h"
+#import "NSData+CD.h"
+#import "NSDate+MJ.h"
 
 #define FRIENDS_TIME_URL @"https://api.weibo.com/2/statuses/friends_timeline.json"
 
@@ -81,6 +83,126 @@
     }];
 
 }
+
+
+
+
+/**
+ *  向微博服务器推动文字信息
+ *
+ *  @param text   文字内容
+ *  @param sucess  推送成功回调
+ *  @param failure 推送失败回调
+ */
++ (void) weiboSendText:(NSString *)text sucess:(void(^)())sucess failure:(void(^)(NSError *error)) failure
+{
+    NSString *url = @"https://api.weibo.com/2/statuses/update.json";
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"status"] = text;
+    params[@"access_token"] =[CDUserService user].access_token ;
+    [CDHttpService POST:url parameters:params success:^(id responseObject) {
+        if (sucess) {
+            sucess();
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+
+}
+
+/**
+ *  向微博服务器推动图片文字信息
+ *
+ *  @param image 图片内容
+ *  @param sucess  推送成功回调
+ *  @param failure 推送失败回调
+ */
++ (void) weiboSendImage:(UIImage *)image text:(NSString *)text sucess:(void(^)())sucess failure:(void(^)(NSError *error)) failure
+{
+    NSString *url = @"https://upload.api.weibo.com/2/statuses/upload.json";
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"status"] = text;
+    params[@"access_token"] =[CDUserService user].access_token;
+    
+    NSMutableArray *uploadFiles = [[NSMutableArray alloc] init];
+
+        CDHttpUploadFile *uploadFile = [[CDHttpUploadFile alloc] init];
+        //默认采取png获取图片格式
+        NSData *fileData = UIImagePNGRepresentation(image);;
+        uploadFile.name = @"pic";//参数key名称
+        uploadFile.data = fileData;
+        uploadFile.mimeType = [NSData mimetypeForImageData:fileData];
+        //获取时间戳当文件名
+        NSString *timeStamp = [NSDate dateTimeStamp];
+        NSString *fileType = [NSData typeNameForImageData:fileData];
+        uploadFile.fileName = [NSString stringWithFormat:@"%@.%@",timeStamp,fileType];
+
+
+        [CDHttpService UPLOAD:url parameters:params uploadFile:uploadFile success:^(id responseObject) {
+            if (sucess) {
+                sucess();
+            }
+        } failure:^(NSError *error) {
+            if (failure) {
+                failure(error);
+            }
+        }];
+    
+}
+
+
+
+/**
+ *  向微博服务器推送多个图片文字信息
+ *
+ *  @param images 图片数组内容
+ *  @param sucess  推送成功回调
+ *  @param failure 推送失败回调
+ */
++ (void) weiboSendImages:(NSArray *)images text:(NSString *)text sucess:(void(^)())sucess failure:(void(^)(NSError *error)) failure
+{
+    
+    NSString *url = @"https://upload.api.weibo.com/2/statuses/upload.json";
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"status"] = text;
+    params[@"access_token"] =[CDUserService user].access_token;
+    
+    NSMutableArray *uploadFiles = [[NSMutableArray alloc] init];
+    //生成上传文件的格式
+    if (images.count>0) {
+        for (NSObject *obj in images) {
+            if ([obj isKindOfClass:[UIImage class]]) {
+                UIImage *image = (UIImage *)obj;
+                CDHttpUploadFile *uploadFile = [[CDHttpUploadFile alloc] init];
+                //默认采取png获取图片格式
+                NSData *fileData = UIImagePNGRepresentation(image);;
+                uploadFile.name = @"pic";//参数key名称
+                uploadFile.data = fileData;
+                uploadFile.mimeType = [NSData mimetypeForImageData:fileData];
+                //获取时间戳当文件名
+                NSString *timeStamp = [NSDate dateTimeStamp];
+                NSString *fileType = [NSData typeNameForImageData:fileData];
+                uploadFile.fileName = [NSString stringWithFormat:@"%@.%@",timeStamp,fileType];
+                [uploadFiles addObject:uploadFile];
+            }
+        }
+    }
+
+    [CDHttpService UPLOAD:url parameters:params uploadFiles:uploadFiles success:^(id responseObject) {
+        if (sucess) {
+            sucess();
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+
+}
+
+
 
 
 @end
