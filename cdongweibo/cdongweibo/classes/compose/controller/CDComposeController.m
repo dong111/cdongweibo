@@ -11,6 +11,8 @@
 #import "CDUitiity.h"
 #import "CDComposeToolBar.h"
 #import "CDImagesView.h"
+#import "CDWeiBoTopService.h"
+#import "MBProgressHUD+CD.h"
 
 
 static const int textHeight = 200;
@@ -27,12 +29,24 @@ static const int textHeight = 200;
 //展示图片区域
 @property (nonatomic,weak) CDImagesView *imagesView;
 
-
+//发送微博按钮
 @property (nonatomic,weak) UIBarButtonItem *composeBtn;
+
+
+//发送图片数组
+@property (nonatomic,strong) NSMutableArray *statusImages;
 
 @end
 
 @implementation CDComposeController
+
+- (NSMutableArray *)statusImages
+{
+    if (_statusImages==nil) {
+        _statusImages = [NSMutableArray array];
+    }
+    return _statusImages;
+}
 
 //懒加载系统相册
 - (UIImagePickerController *)imagePc
@@ -96,7 +110,7 @@ static const int textHeight = 200;
     UIImage *image =  info[@"UIImagePickerControllerOriginalImage"];
     
     [self.imagesView addImage:image];
-    
+    [self.statusImages addObject:image];
      _composeBtn.enabled = YES;
     [self.imagePc dismissViewControllerAnimated:YES completion:nil];
     
@@ -204,7 +218,7 @@ static const int textHeight = 200;
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setTitle:@"发送" forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
-    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(writeWeibo) forControlEvents:UIControlEventTouchUpInside];
     [btn sizeToFit];
     UIBarButtonItem *rigthBtn = [[UIBarButtonItem alloc] initWithCustomView:btn];
@@ -223,8 +237,52 @@ static const int textHeight = 200;
 
 - (void) writeWeibo
 {
-    
+    self.composeBtn.enabled = NO;
+    if (self.statusImages.count>0) {
+        //发送图片
+        [self sendImages];
+    }else{
+        //发送文字
+        [self sendComposeText];
+    }
 }
+
+//发送文字
+- (void)sendComposeText
+{
+    NSString *text = self.textView.text;
+    if (![NSString isBlankString:text])
+    {
+        [CDWeiBoTopService weiboSendText:text sucess:^{
+            // 提示用户发送成功
+            [MBProgressHUD showSuccess:@"发送成功"];
+            // 回到首页
+            [self dismissViewControllerAnimated:YES completion:nil];
+            self.composeBtn.enabled = YES;
+        } failure:^(NSError *error) {
+             NSLog(@"%@",error);
+            self.composeBtn.enabled = YES;
+        }];
+    }
+}
+
+//发送图片
+- (void)sendImages
+{
+    [CDWeiBoTopService weiboSendImages:self.statusImages text:self.textView.text sucess:^{
+        self.composeBtn.enabled = YES;
+        // 提示用户发送成功
+        [MBProgressHUD showSuccess:@"发送成功"];
+        // 回到首页
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } failure:^(NSError *error) {
+        self.composeBtn.enabled = YES;
+        // 提示用户发哦送失败
+        [MBProgressHUD showError:@"发送失败"];
+         NSLog(@"%@",error);
+    }];
+}
+
 
 
 @end
